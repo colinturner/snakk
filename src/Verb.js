@@ -13,23 +13,16 @@ class Verb extends Component {
     };
   }
 
-  allAnswersCorrect = () => {
-    return Object.keys(this.state).every(
-      verbTense => this.state[verbTense] === true
-    );
+  checkAnswers = () => {
+    allVerbTenses.every(verbTense => this.checkAnswer(verbTense))
+      ? this.nextVerb()
+      : allVerbTenses.forEach(verbTense => this.checkAnswer(verbTense));
   };
 
-  revealAnswers = () => {
-    allVerbTenses.forEach(verbTense => this.revealAnswer(verbTense));
-    if (allVerbTenses.every(verbTense => this.revealAnswer(verbTense))) {
-      this.nextVerb();
-    }
-  };
-
-  revealAnswer = format => {
+  checkAnswer = format => {
     const attempt = document.getElementById(`attempt-${format}`).value;
     const answer = this.props.answer[format];
-    attempt !== answer ? this.markIncorrect(format) : this.markCorrect(format);
+    attempt === answer ? this.markCorrect(format) : this.markIncorrect(format);
     return attempt === answer;
   };
 
@@ -42,10 +35,7 @@ class Verb extends Component {
   };
 
   markCorrect = format => {
-    const attempt = document.getElementById(`attempt-${format}`);
-    const correction = document.getElementById(`answer-${format}`);
-    correction.innerText = "";
-    attempt.style.border = "none";
+    this.props.markCorrect(format);
     this.setState({ [format]: true });
   };
 
@@ -53,16 +43,9 @@ class Verb extends Component {
     document.getElementById(`attempt-${format}`).value = "";
   };
 
-  eraseForm = () => {
-    allVerbTenses.forEach(tense => {
-      this.markCorrect(tense);
-      this.eraseAnswer(tense);
-    });
-  };
-
   nextVerb = () => {
     this.props.nextVerb();
-    this.eraseForm();
+    this.props.eraseForm();
   };
 
   render() {
@@ -95,7 +78,7 @@ class Verb extends Component {
               <input id="attempt-english" />
             </td>
             <td>
-              <Button onClick={this.revealAnswers}>Submit</Button>
+              <Button onClick={this.checkAnswers}>Submit</Button>
             </td>
           </tr>
 

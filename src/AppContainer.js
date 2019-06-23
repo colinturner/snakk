@@ -32,7 +32,6 @@ class AppContainer extends Component {
     const correction = document.getElementById(`answer-${format}`);
     correction.innerText = "";
     attempt.style.border = "none";
-    this.setState({ [format]: true });
   };
 
   switchVerb = selection => {
@@ -46,7 +45,12 @@ class AppContainer extends Component {
     return (
       <div className="App">
         <Sidebar switchVerb={this.switchVerb} />
-        <Verb answer={data[this.state.index]} nextVerb={this.incrementIndex} />
+        <Verb
+          answer={data[this.state.index]}
+          nextVerb={this.incrementIndex}
+          eraseForm={this.eraseForm}
+          markCorrect={this.markCorrect}
+        />
       </div>
     );
   }
