@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { allVerbTenses } from "./constants";
+import Button from "react-bootstrap/Button";
 
 class Verb extends Component {
   constructor(props) {
@@ -18,16 +20,17 @@ class Verb extends Component {
   };
 
   revealAnswers = () => {
-    ["present", "past", "present-perfect", "english"].forEach(verbTense =>
-      this.revealAnswer(verbTense)
-    );
-    console.log(this.state);
+    allVerbTenses.forEach(verbTense => this.revealAnswer(verbTense));
+    if (allVerbTenses.every(verbTense => this.revealAnswer(verbTense))) {
+      this.nextVerb();
+    }
   };
 
   revealAnswer = format => {
     const attempt = document.getElementById(`attempt-${format}`).value;
     const answer = this.props.answer[format];
     attempt !== answer ? this.markIncorrect(format) : this.markCorrect(format);
+    return attempt === answer;
   };
 
   markIncorrect = format => {
@@ -44,6 +47,22 @@ class Verb extends Component {
     correction.innerText = "";
     attempt.style.border = "none";
     this.setState({ [format]: true });
+  };
+
+  eraseAnswer = format => {
+    document.getElementById(`attempt-${format}`).value = "";
+  };
+
+  eraseForm = () => {
+    allVerbTenses.forEach(tense => {
+      this.markCorrect(tense);
+      this.eraseAnswer(tense);
+    });
+  };
+
+  nextVerb = () => {
+    this.props.nextVerb();
+    this.eraseForm();
   };
 
   render() {
@@ -76,7 +95,7 @@ class Verb extends Component {
               <input id="attempt-english" />
             </td>
             <td>
-              <button onClick={this.revealAnswers}>Submit</button>
+              <Button onClick={this.revealAnswers}>Submit</Button>
             </td>
           </tr>
 
@@ -88,7 +107,6 @@ class Verb extends Component {
             <td id="answer-english" />
           </tr>
         </tbody>
-        {this.allAnswersCorrect() && <button>Continue</button>}
       </table>
     );
   }

@@ -1,16 +1,8 @@
 import React from "react";
-import Verb from "./Verb";
-import data from "./data";
-import "./App.css";
+import AppContainer from "./AppContainer";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Verb answer={data.pop()} />
-      </header>
-    </div>
-  );
+  return <AppContainer />;
 }
 
 export default App;
