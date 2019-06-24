@@ -10,7 +10,8 @@ class Sidebar extends Component {
           "max-height": "550px",
           "overflow-y": "auto",
           "min-width": "20%",
-          "background-color": "aliceblue"
+          "background-color": "aliceblue",
+          "border-radius": "20px"
         }}
       >
         {data.map(verb => {
