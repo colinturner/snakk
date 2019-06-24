@@ -3,6 +3,7 @@ import Verb from "./Verb";
 import Sidebar from "./Sidebar";
 import data from "./data";
 import { allVerbTenses } from "./constants";
+import "./AppContainer.css";
 
 class AppContainer extends Component {
   state = {
@@ -43,7 +44,7 @@ class AppContainer extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div class="app-container">
         <Sidebar switchVerb={this.switchVerb} />
         <Verb
           answer={data[this.state.index]}
