@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 import data from "./data";
 import { allVerbTenses } from "./constants";
 import "./AppContainer.css";
+import norwayFlag from "./norwayFlag.png";
 
 class AppContainer extends Component {
   state = {
@@ -44,14 +45,21 @@ class AppContainer extends Component {
 
   render() {
     return (
-      <div class="app-container">
+      <div style={{ display: "flex", padding: "25px" }}>
         <Sidebar switchVerb={this.switchVerb} />
-        <Verb
-          answer={data[this.state.index]}
-          nextVerb={this.incrementIndex}
-          eraseForm={this.eraseForm}
-          markCorrect={this.markCorrect}
-        />
+        <div>
+          <Verb
+            answer={data[this.state.index]}
+            nextVerb={this.incrementIndex}
+            eraseForm={this.eraseForm}
+            markCorrect={this.markCorrect}
+          />
+          <img
+            style={{ height: "20%", margin: "115px 0px 0px 390px" }}
+            src={norwayFlag}
+            alt="Norway Flag"
+          />
+        </div>
       </div>
     );
   }

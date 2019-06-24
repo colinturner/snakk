@@ -63,7 +63,7 @@ class Verb extends Component {
     };
 
     return (
-      <div style={{ display: "flex", "margin-left": "100px" }}>
+      <div style={{ display: "flex", margin: "100px 0px 0px 25px" }}>
         <Infinitive />
         <InputBox header="Present" />
         <InputBox header="Past" />
