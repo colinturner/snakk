@@ -32,7 +32,7 @@ class AppContainer extends Component {
     const attempt = document.getElementById(`attempt-${format}`);
     const correction = document.getElementById(`answer-${format}`);
     correction.innerText = "";
-    attempt.style.border = "none";
+    attempt.style.border = "medium solid green";
   };
 
   switchVerb = selection => {

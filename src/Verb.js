@@ -32,7 +32,7 @@ class Verb extends Component {
     const attempt = document.getElementById(`attempt-${format}`);
     const correction = document.getElementById(`answer-${format}`);
     correction.innerText = this.props.answer[format];
-    attempt.style.border = "thick solid red";
+    attempt.style.border = "medium solid red";
     this.setState({ [format]: false });
   };
 
@@ -53,21 +53,25 @@ class Verb extends Component {
   render() {
     const Infinitive = () => {
       return (
-        <div>
+        <div style={{ margin: "5px" }}>
           <div>Infinitive</div>
-          <div>{this.props.answer.infinitive}</div>
+          <div style={{ "font-weight": "bold" }}>
+            {this.props.answer.infinitive}
+          </div>
         </div>
       );
     };
 
     return (
-      <div class="flex-container">
+      <div style={{ display: "flex", "margin-left": "100px" }}>
         <Infinitive />
         <InputBox header="Present" />
         <InputBox header="Past" />
         <InputBox header="Present Perfect" />
         <InputBox header="English" />
-        <Button onClick={this.checkAnswers}>Submit</Button>
+        <Button style={{ margin: "5px" }} onClick={this.checkAnswers}>
+          Submit
+        </Button>
       </div>
     );
   }

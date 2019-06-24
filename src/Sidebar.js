@@ -4,10 +4,13 @@ import data from "./data";
 class Sidebar extends Component {
   render() {
     return (
-      <div>
+      <div style={{ "padding-left": "40px" }}>
         {data.map(verb => {
           return (
-            <div onClick={() => this.props.switchVerb(verb.infinitive)}>
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={() => this.props.switchVerb(verb.infinitive)}
+            >
               {verb.infinitive}
             </div>
           );
