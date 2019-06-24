@@ -45,7 +45,7 @@ class AppContainer extends Component {
 
   render() {
     return (
-      <div style={{ display: "flex", padding: "25px" }}>
+      <div style={{ display: "flex", padding: "25px", "max-height": "600px" }}>
         <Sidebar switchVerb={this.switchVerb} />
         <div>
           <Verb
@@ -55,7 +55,7 @@ class AppContainer extends Component {
             markCorrect={this.markCorrect}
           />
           <img
-            style={{ height: "20%", margin: "115px 0px 0px 390px" }}
+            style={{ height: "30%", margin: "115px 0px 0px 390px" }}
             src={norwayFlag}
             alt="Norway Flag"
           />
