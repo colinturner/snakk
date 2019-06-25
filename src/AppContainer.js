@@ -24,16 +24,16 @@ class AppContainer extends Component {
 
   eraseForm = () => {
     allVerbTenses.forEach(tense => {
-      this.markCorrect(tense);
+      this.markBlank(tense);
       this.eraseAnswer(tense);
     });
   };
 
-  markCorrect = format => {
+  markBlank = format => {
     const attempt = document.getElementById(`attempt-${format}`);
     const correction = document.getElementById(`answer-${format}`);
     correction.innerText = "";
-    attempt.style.border = "medium solid green";
+    attempt.style.border = "thin solid lightgrey";
   };
 
   switchVerb = selection => {
@@ -52,7 +52,6 @@ class AppContainer extends Component {
             answer={data[this.state.index]}
             nextVerb={this.incrementIndex}
             eraseForm={this.eraseForm}
-            markCorrect={this.markCorrect}
           />
           <img
             style={{ height: "30%", margin: "115px 0px 0px 390px" }}

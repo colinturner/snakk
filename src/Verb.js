@@ -37,7 +37,10 @@ class Verb extends Component {
   };
 
   markCorrect = format => {
-    this.props.markCorrect(format);
+    const attempt = document.getElementById(`attempt-${format}`);
+    const correction = document.getElementById(`answer-${format}`);
+    correction.innerText = "";
+    attempt.style.border = "medium solid green";
     this.setState({ [format]: true });
   };
 
