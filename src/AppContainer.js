@@ -45,9 +45,7 @@ class AppContainer extends Component {
 
   render() {
     const Instructions = () => (
-      <div style={{ "font-style": "italic" }}>
-        Fill in the blanks to conjugate the verb.
-      </div>
+      <div class="instructions">Fill in the blanks to conjugate the verb.</div>
     );
 
     const CallToAction = () => (

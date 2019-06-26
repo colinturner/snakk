@@ -2,6 +2,29 @@
   display: flex;
 }
 
+.instructions {
+  font-style: italic;
+}
+
+/* big screen */
+@media screen and (min-width: 800px) {
+  .flag {
+    max-width: 80px;
+  }
+
+  .exercise-group {
+    margin-bottom: 100px;
+  }
+
+  .instructions {
+    margin-bottom: 50px;
+  }
+
+  .exercise-group {
+    margin-bottom: 100px;
+  }
+}
+
 /* small screen */
 @media screen and (max-width: 800px) {
   .exercise-group {
