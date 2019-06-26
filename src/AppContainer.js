@@ -48,6 +48,9 @@ class AppContainer extends Component {
       <div style={{ display: "flex", padding: "25px", "max-height": "600px" }}>
         <Sidebar switchVerb={this.switchVerb} />
         <div>
+          <div style={{ "padding-left": "25px", "font-style": "italic" }}>
+            Fill in the blanks to conjugate the verb.
+          </div>
           <Verb
             answer={data[this.state.index]}
             nextVerb={this.incrementIndex}

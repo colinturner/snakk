@@ -6,10 +6,10 @@ class Sidebar extends Component {
     return (
       <div
         style={{
-          "padding-left": "40px",
+          padding: "0px 40px",
           "max-height": "550px",
+          "min-width": "145px",
           "overflow-y": "auto",
-          "min-width": "20%",
           "background-color": "aliceblue",
           "border-radius": "20px"
         }}
