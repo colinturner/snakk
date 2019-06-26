@@ -5,9 +5,12 @@ class InputBox extends Component {
     const formatID = str => str.replace(/ +/g, "-").toLowerCase();
     return (
       <div style={{ margin: "5px" }}>
-        <div>{this.props.header}</div>
+        <div style={{ color: "darkblue" }}>{this.props.header}</div>
         <input id={`attempt-${formatID(this.props.header)}`} />
-        <div id={`answer-${formatID(this.props.header)}`} />
+        <div
+          style={{ color: "darkred" }}
+          id={`answer-${formatID(this.props.header)}`}
+        />
       </div>
     );
   }

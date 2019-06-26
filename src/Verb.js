@@ -58,9 +58,7 @@ class Verb extends Component {
       return (
         <div style={{ margin: "5px" }}>
           <div>Infinitive</div>
-          <div style={{ "font-weight": "bold" }}>
-            {this.props.answer.infinitive}
-          </div>
+          <h4>{this.props.answer.infinitive}</h4>
         </div>
       );
     };
