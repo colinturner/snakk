@@ -1,19 +1,11 @@
 import React, { Component } from "react";
 import data from "./data";
+import "./Sidebar.css";
 
 class Sidebar extends Component {
   render() {
     return (
-      <div
-        style={{
-          padding: "0px 40px",
-          "max-height": "550px",
-          "min-width": "145px",
-          "overflow-y": "auto",
-          "background-color": "aliceblue",
-          "border-radius": "20px"
-        }}
-      >
+      <div class="sidebar">
         {data.map(verb => {
           return (
             <div

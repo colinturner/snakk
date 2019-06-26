@@ -44,23 +44,38 @@ class AppContainer extends Component {
   };
 
   render() {
+    const Instructions = () => (
+      <div style={{ "font-style": "italic" }}>
+        Fill in the blanks to conjugate the verb.
+      </div>
+    );
+
+    const CallToAction = () => (
+      <div>
+        These exercises complement "Norwegian: Verbs & Essentials of Grammar".
+        It's a short book. For the serious Norwegian learner, I strongly
+        recommend reading it.
+      </div>
+    );
+
+    const Flag = () => <img class="flag" src={norwayFlag} alt="Norway Flag" />;
+
     return (
-      <div style={{ display: "flex", padding: "25px", "max-height": "600px" }}>
+      <div style={{ display: "flex", padding: "25px", height: "100vh" }}>
         <Sidebar switchVerb={this.switchVerb} />
-        <div>
-          <div style={{ "padding-left": "25px", "font-style": "italic" }}>
-            Fill in the blanks to conjugate the verb.
+        <div class="exercise-cta">
+          <div class="exercise-group">
+            <Instructions />
+            <Verb
+              answer={data[this.state.index]}
+              nextVerb={this.incrementIndex}
+              eraseForm={this.eraseForm}
+            />
           </div>
-          <Verb
-            answer={data[this.state.index]}
-            nextVerb={this.incrementIndex}
-            eraseForm={this.eraseForm}
-          />
-          <img
-            style={{ height: "30%", margin: "115px 0px 0px 390px" }}
-            src={norwayFlag}
-            alt="Norway Flag"
-          />
+          <div class="cta-group">
+            <CallToAction />
+            <Flag />
+          </div>
         </div>
       </div>
     );

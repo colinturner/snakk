@@ -66,7 +66,7 @@ class Verb extends Component {
     };
 
     return (
-      <div style={{ display: "flex", margin: "50px 0px 0px 25px" }}>
+      <div class="verb">
         <Infinitive />
         <InputBox header="Present" />
         <InputBox header="Past" />
