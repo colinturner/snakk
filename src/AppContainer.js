@@ -57,7 +57,7 @@ class AppContainer extends Component {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Norwegian: Verbs & Essentials of Grammar
+          Norwegian Verbs & Essentials of Grammar
         </a>
         . It's a short book. For the serious Norwegian learner, I strongly
         recommend reading it.
