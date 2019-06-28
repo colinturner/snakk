@@ -50,8 +50,16 @@ class AppContainer extends Component {
 
     const CallToAction = () => (
       <div>
-        These exercises complement "Norwegian: Verbs & Essentials of Grammar".
-        It's a short book. For the serious Norwegian learner, I strongly
+        These exercises complement{" "}
+        <a
+          style={{ "font-style": "italic" }}
+          href="https://amzn.to/2IUGzWY"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Norwegian: Verbs & Essentials of Grammar
+        </a>
+        . It's a short book. For the serious Norwegian learner, I strongly
         recommend reading it.
       </div>
     );
