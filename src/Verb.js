@@ -24,7 +24,9 @@ class Verb extends Component {
   checkAnswer = format => {
     const attempt = document.getElementById(`attempt-${format}`).value;
     const answer = this.props.answer[format];
-    attempt === answer ? this.markCorrect(format) : this.markIncorrect(format);
+    attempt.toLowerCase() === answer
+      ? this.markCorrect(format)
+      : this.markIncorrect(format);
     return attempt === answer;
   };
 
