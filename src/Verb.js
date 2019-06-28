@@ -21,12 +21,16 @@ class Verb extends Component {
       : allVerbTenses.forEach(verbTense => this.checkAnswer(verbTense));
   };
 
+  prepareString = str => {
+    return str.toLowerCase().trim();
+  };
+
   checkAnswer = format => {
-    const attempt = document.getElementById(`attempt-${format}`).value;
+    const attempt = this.prepareString(
+      document.getElementById(`attempt-${format}`).value
+    );
     const answer = this.props.answer[format];
-    attempt.toLowerCase() === answer
-      ? this.markCorrect(format)
-      : this.markIncorrect(format);
+    attempt === answer ? this.markCorrect(format) : this.markIncorrect(format);
     return attempt === answer;
   };
 
