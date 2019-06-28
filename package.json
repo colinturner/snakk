@@ -2,7 +2,7 @@
   "name": "norwegian-verbs",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://snakk.org",
+  "homepage": "http://snakk.org",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "gh-pages": "^2.0.1",
