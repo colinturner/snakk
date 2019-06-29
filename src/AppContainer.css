@@ -2,6 +2,18 @@
   display: flex;
 }
 
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+
 .instructions {
   font-style: italic;
 }
@@ -23,6 +35,10 @@
   .exercise-group {
     margin-bottom: 100px;
   }
+
+  .checkmark {
+    width: 70px;
+  }
 }
 
 /* small screen */
@@ -37,5 +53,12 @@
 
   .flag {
     max-width: 40px;
+  }
+
+  .checkmark {
+    width: 48px;
+    position: absolute;
+    left: 120px;
+    bottom: 0px;
   }
 }

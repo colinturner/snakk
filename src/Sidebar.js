@@ -10,7 +10,7 @@ class Sidebar extends Component {
           return (
             <div
               style={{ cursor: "pointer" }}
-              onClick={() => this.props.switchVerb(verb.infinitive)}
+              onClick={() => this.props.selectVerb(verb.infinitive)}
             >
               {verb.infinitive}
             </div>

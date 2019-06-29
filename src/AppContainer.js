@@ -5,6 +5,7 @@ import data from "./data";
 import { allVerbTenses } from "./constants";
 import "./AppContainer.css";
 import norwayFlag from "./norwayFlag.png";
+import checkmark from "./greenCheckmark.png";
 
 class AppContainer extends Component {
   state = {
@@ -16,6 +17,20 @@ class AppContainer extends Component {
     this.state.index < this.state.data.length - 1
       ? this.setState({ index: this.state.index + 1 })
       : this.setState({ index: 0 });
+  };
+
+  showCheckmark = () => {
+    document.getElementById("checkmark").className = "checkmark visible";
+  };
+
+  hideCheckmark = () => {
+    document.getElementById("checkmark").className = "checkmark hidden";
+  };
+
+  nextVerb = () => {
+    this.incrementIndex();
+    setTimeout(() => this.showCheckmark(), 20);
+    setTimeout(() => this.hideCheckmark(), 1000);
   };
 
   eraseAnswer = format => {
@@ -36,7 +51,7 @@ class AppContainer extends Component {
     attempt.style.border = "thin solid lightgrey";
   };
 
-  switchVerb = selection => {
+  selectVerb = selection => {
     let i = data.findIndex(verb => verb.infinitive === selection);
     this.setState({ index: i });
 
@@ -64,19 +79,31 @@ class AppContainer extends Component {
       </div>
     );
 
+    const Checkmark = () => (
+      <img
+        id="checkmark"
+        class="checkmark hidden"
+        src={checkmark}
+        alt="Green Checkmark"
+      />
+    );
+
     const Flag = () => <img class="flag" src={norwayFlag} alt="Norway Flag" />;
 
     return (
       <div style={{ display: "flex", padding: "25px", height: "100vh" }}>
-        <Sidebar switchVerb={this.switchVerb} />
+        <Sidebar selectVerb={this.selectVerb} />
         <div class="exercise-cta">
           <div class="exercise-group">
             <Instructions />
-            <Verb
-              answer={data[this.state.index]}
-              nextVerb={this.incrementIndex}
-              eraseForm={this.eraseForm}
-            />
+            <div style={{ position: "relative" }}>
+              <Verb
+                answer={data[this.state.index]}
+                nextVerb={this.nextVerb}
+                eraseForm={this.eraseForm}
+              />
+              <Checkmark />
+            </div>
           </div>
           <div class="cta-group">
             <CallToAction />

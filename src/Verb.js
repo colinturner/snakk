@@ -16,9 +16,11 @@ class Verb extends Component {
   }
 
   checkAnswers = () => {
-    allVerbTenses.every(verbTense => this.checkAnswer(verbTense))
-      ? this.nextVerb()
-      : allVerbTenses.forEach(verbTense => this.checkAnswer(verbTense));
+    if (allVerbTenses.every(verbTense => this.checkAnswer(verbTense))) {
+      this.nextVerb();
+    } else {
+      allVerbTenses.forEach(verbTense => this.checkAnswer(verbTense));
+    }
   };
 
   prepareString = str => {
@@ -76,7 +78,10 @@ class Verb extends Component {
         <InputBox header="Past" />
         <InputBox header="Present Perfect" />
         <InputBox header="English" />
-        <Button style={{ margin: "5px" }} onClick={this.checkAnswers}>
+        <Button
+          style={{ margin: "5px", width: "80px" }}
+          onClick={this.checkAnswers}
+        >
           Submit
         </Button>
       </div>
