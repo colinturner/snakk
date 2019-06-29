@@ -30,7 +30,7 @@ const data = [
   {
     infinitive: "be",
     present: "ber",
-    past: "bad",
+    past: "ba",
     "present-perfect": "har bedt",
     english: "ask, request"
   },
