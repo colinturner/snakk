@@ -39,6 +39,10 @@
   .checkmark {
     width: 70px;
   }
+
+  .verb-checkmark-group {
+    display: flex;
+  }
 }
 
 /* small screen */
@@ -60,5 +64,9 @@
     position: absolute;
     left: 120px;
     bottom: 0px;
+  }
+
+  .verb-checkmark-group {
+    position: relative;
   }
 }

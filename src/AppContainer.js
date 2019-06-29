@@ -30,7 +30,7 @@ class AppContainer extends Component {
   nextVerb = () => {
     this.incrementIndex();
     setTimeout(() => this.showCheckmark(), 20);
-    setTimeout(() => this.hideCheckmark(), 1000);
+    setTimeout(() => this.hideCheckmark(), 800);
   };
 
   eraseAnswer = format => {
@@ -96,7 +96,7 @@ class AppContainer extends Component {
         <div class="exercise-cta">
           <div class="exercise-group">
             <Instructions />
-            <div style={{ position: "relative" }}>
+            <div class="verb-checkmark-group">
               <Verb
                 answer={data[this.state.index]}
                 nextVerb={this.nextVerb}
