@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import data from "./data";
+import data from "./constants/data";
 import "./Sidebar.css";
 
 class Sidebar extends Component {
