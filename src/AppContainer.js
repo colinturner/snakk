@@ -91,7 +91,7 @@ class AppContainer extends Component {
     const Flag = () => <img class="flag" src={norwayFlag} alt="Norway Flag" />;
 
     return (
-      <div style={{ display: "flex", padding: "25px", height: "100vh" }}>
+      <div style={{ display: "flex", height: "100vh" }}>
         <Sidebar selectVerb={this.selectVerb} />
         <div class="exercise-cta">
           <div class="exercise-group">
