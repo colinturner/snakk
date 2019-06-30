@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Verb from "./Verb";
-import Sidebar from "./Sidebar";
-import data from "./constants/data";
-import { allCategories } from "./constants/variables";
+import Verb from "../Verb/Verb";
+import Sidebar from "../Sidebar/Sidebar";
+import data from "../../constants/data";
+import { allCategories } from "../../constants/variables";
 import "./AppContainer.css";
-import norwayFlag from "./assets/norwayFlag.png";
-import checkmark from "./assets/greenCheckmark.png";
+import norwayFlag from "../../assets/norwayFlag.png";
+import checkmark from "../../assets/greenCheckmark.png";
 
 class AppContainer extends Component {
   state = {

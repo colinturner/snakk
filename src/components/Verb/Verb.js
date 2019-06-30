@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { allCategories } from "./constants/variables";
+import { allCategories } from "../../constants/variables";
 import Button from "react-bootstrap/Button";
 import "./Verb.css";
-import InputBox from "./InputBox";
+import InputBox from "../InputBox/InputBox";
 
 class Verb extends Component {
   constructor(props) {
