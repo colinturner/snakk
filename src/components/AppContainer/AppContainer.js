@@ -60,14 +60,16 @@ class AppContainer extends Component {
 
   render() {
     const Instructions = () => (
-      <div class="instructions">Fill in the blanks to conjugate the verb.</div>
+      <div className="instructions">
+        Fill in the blanks to conjugate the verb.
+      </div>
     );
 
     const CallToAction = () => (
       <div>
         These exercises complement{" "}
         <a
-          style={{ "font-style": "italic" }}
+          style={{ fontStyle: "italic" }}
           href="https://amzn.to/2IUGzWY"
           target="_blank"
           rel="noopener noreferrer"
@@ -82,21 +84,23 @@ class AppContainer extends Component {
     const Checkmark = () => (
       <img
         id="checkmark"
-        class="checkmark hidden"
+        className="checkmark hidden"
         src={checkmark}
         alt="Green Checkmark"
       />
     );
 
-    const Flag = () => <img class="flag" src={norwayFlag} alt="Norway Flag" />;
+    const Flag = () => (
+      <img className="flag" src={norwayFlag} alt="Norway Flag" />
+    );
 
     return (
       <div style={{ display: "flex", height: "100vh" }}>
         <Sidebar selectVerb={this.selectVerb} />
-        <div class="exercise-cta">
-          <div class="exercise-group">
+        <div className="exercise-cta">
+          <div className="exercise-group">
             <Instructions />
-            <div class="verb-checkmark-group">
+            <div className="verb-checkmark-group">
               <Verb
                 answer={data[this.state.index]}
                 nextVerb={this.nextVerb}
@@ -105,7 +109,7 @@ class AppContainer extends Component {
               <Checkmark />
             </div>
           </div>
-          <div class="cta-group">
+          <div className="cta-group">
             <CallToAction />
             <Flag />
           </div>

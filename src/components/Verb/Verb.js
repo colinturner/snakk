@@ -74,7 +74,7 @@ class Verb extends Component {
     };
 
     return (
-      <div class="verb">
+      <div className="verb">
         <Infinitive />
         <InputBox header="Present" />
         <InputBox header="Past" />

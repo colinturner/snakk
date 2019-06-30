@@ -7,7 +7,7 @@ class InputBox extends Component {
       <div style={{ margin: "5px" }}>
         <div style={{ color: "darkblue" }}>{this.props.header}</div>
         <input
-          style={{ "max-width": "180px" }}
+          style={{ maxWidth: "180px" }}
           id={`attempt-${formatID(this.props.header)}`}
         />
         <div
