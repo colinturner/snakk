@@ -360,13 +360,6 @@ const data = [
     infinitive: "fly",
     present: "flyr",
     past: "fløy",
-    "present-perfect": "har ",
-    english: ""
-  },
-  {
-    infinitive: "",
-    present: "",
-    past: "",
     "present-perfect": "har fløyet",
     english: "fly"
   },
