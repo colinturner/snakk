@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { allVerbTenses } from "./constants";
+import { allCategories } from "./constants";
 import Button from "react-bootstrap/Button";
 import "./Verb.css";
 import InputBox from "./InputBox";
@@ -16,44 +16,46 @@ class Verb extends Component {
   }
 
   checkAnswers = () => {
-    if (allVerbTenses.every(verbTense => this.checkAnswer(verbTense))) {
+    if (allCategories.every(category => this.checkAnswer(category))) {
       this.nextVerb();
     } else {
-      allVerbTenses.forEach(verbTense => this.checkAnswer(verbTense));
+      allCategories.forEach(category => this.checkAnswer(category));
     }
   };
 
-  prepareString = str => {
+  neutralizeString = str => {
     return str.toLowerCase().trim();
   };
 
-  checkAnswer = format => {
-    const attempt = this.prepareString(
-      document.getElementById(`attempt-${format}`).value
+  checkAnswer = category => {
+    const attempt = this.neutralizeString(
+      document.getElementById(`attempt-${category}`).value
     );
-    const answer = this.props.answer[format];
-    attempt === answer ? this.markCorrect(format) : this.markIncorrect(format);
+    const answer = this.props.answer[category];
+    attempt === answer
+      ? this.markCorrect(category)
+      : this.markIncorrect(category);
     return attempt === answer;
   };
 
-  markIncorrect = format => {
-    const attempt = document.getElementById(`attempt-${format}`);
-    const correction = document.getElementById(`answer-${format}`);
-    correction.innerText = this.props.answer[format];
+  markIncorrect = category => {
+    const attempt = document.getElementById(`attempt-${category}`);
+    const correction = document.getElementById(`answer-${category}`);
+    correction.innerText = this.props.answer[category];
     attempt.style.border = "medium solid red";
-    this.setState({ [format]: false });
+    this.setState({ [category]: false });
   };
 
-  markCorrect = format => {
-    const attempt = document.getElementById(`attempt-${format}`);
-    const correction = document.getElementById(`answer-${format}`);
+  markCorrect = category => {
+    const attempt = document.getElementById(`attempt-${category}`);
+    const correction = document.getElementById(`answer-${category}`);
     correction.innerText = "";
     attempt.style.border = "medium solid green";
-    this.setState({ [format]: true });
+    this.setState({ [category]: true });
   };
 
-  eraseAnswer = format => {
-    document.getElementById(`attempt-${format}`).value = "";
+  eraseAnswer = category => {
+    document.getElementById(`attempt-${category}`).value = "";
   };
 
   nextVerb = () => {

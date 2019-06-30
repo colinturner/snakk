@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Verb from "./Verb";
 import Sidebar from "./Sidebar";
 import data from "./data";
-import { allVerbTenses } from "./constants";
+import { allCategories } from "./constants";
 import "./AppContainer.css";
 import norwayFlag from "./norwayFlag.png";
 import checkmark from "./greenCheckmark.png";
@@ -38,7 +38,7 @@ class AppContainer extends Component {
   };
 
   eraseForm = () => {
-    allVerbTenses.forEach(tense => {
+    allCategories.forEach(tense => {
       this.markBlank(tense);
       this.eraseAnswer(tense);
     });
