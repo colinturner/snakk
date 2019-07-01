@@ -52,19 +52,13 @@ class Verb extends Component {
       document.getElementById(`attempt-${category}`).value
     );
     const answer = this.props.answer[category];
-    if (category === "english") {
-      switch (this.checkMultiplePossibleSolutions(attempt, answer)) {
-        case "complete solution":
-          return this.markCorrect(category);
-        case "partial solution":
-          return this.markPartiallyCorrect(category);
-        default:
-          return this.markIncorrect(category);
-      }
-    } else {
-      return attempt === answer
-        ? this.markCorrect(category)
-        : this.markIncorrect(category);
+    switch (this.checkMultiplePossibleSolutions(attempt, answer)) {
+      case "complete solution":
+        return this.markCorrect(category);
+      case "partial solution":
+        return this.markPartiallyCorrect(category);
+      default:
+        return this.markIncorrect(category);
     }
   };
 
