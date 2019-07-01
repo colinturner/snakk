@@ -2,7 +2,7 @@ const data = [
   {
     infinitive: "angre",
     present: "angrer",
-    past: "angret",
+    past: "angret, angra",
     "present-perfect": "har angret",
     english: "regret"
   },
@@ -23,7 +23,7 @@ const data = [
   {
     infinitive: "arve",
     present: "arver",
-    past: "arvet",
+    past: "arvet, arva",
     "present-perfect": "har arvet",
     english: "inherit"
   },
@@ -51,7 +51,7 @@ const data = [
   {
     infinitive: "behandle",
     present: "behandler",
-    past: "behandlet",
+    past: "behandlet, behandla",
     "present-perfect": "har behandlet",
     english: "handle, manage"
   },
@@ -93,8 +93,8 @@ const data = [
   {
     infinitive: "betrakte",
     present: "betrakter",
-    past: "betraktet",
-    "present-perfect": "har betraktet",
+    past: "betraktet, betrakta",
+    "present-perfect": "har betraktet, har betrakta",
     english: "view, regard"
   },
   {
@@ -114,8 +114,8 @@ const data = [
   {
     infinitive: "bidra",
     present: "bidrar",
-    past: "bidrog",
-    "present-perfect": "har bedratt",
+    past: "bidro",
+    "present-perfect": "har bidratt",
     english: "contribute"
   },
   {
@@ -128,15 +128,15 @@ const data = [
   {
     infinitive: "bite",
     present: "biter",
-    past: "bet",
+    past: "bet, beit",
     "present-perfect": "har bitt",
     english: "bite"
   },
   {
     infinitive: "blande",
     present: "blander",
-    past: "blandet",
-    "present-perfect": "har blandet",
+    past: "blandet, blanda",
+    "present-perfect": "har blandet, har blanda",
     english: "blend, mix"
   },
   {
@@ -151,13 +151,13 @@ const data = [
     present: "bor",
     past: "bodde",
     "present-perfect": "har bodd",
-    english: "dwell"
+    english: "to live (location)"
   },
   {
     infinitive: "bre",
     present: "brer",
-    past: "bredde",
-    "present-perfect": "har bredd",
+    past: "bredte",
+    "present-perfect": "har bredt",
     english: "spread"
   },
   {
@@ -168,10 +168,10 @@ const data = [
     english: "break"
   },
   {
-    infinitive: "brenne",
-    present: "brenner",
-    past: "brann",
-    "present-perfect": "har brant",
+    infinitive: "brenne (opp)",
+    present: "brenner (opp)",
+    past: "brant (opp)",
+    "present-perfect": "har brant (opp)",
     english: "burn up"
   },
   {
@@ -212,8 +212,8 @@ const data = [
   {
     infinitive: "by",
     present: "byr",
-    past: "baud",
-    "present-perfect": "har budt",
+    past: "bydde, bød",
+    "present-perfect": "har bydd",
     english: "bid, command"
   },
   {
@@ -240,22 +240,22 @@ const data = [
   {
     infinitive: "danne",
     present: "danner",
-    past: "dannet",
-    "present-perfect": "har dannet",
+    past: "dannet, danna",
+    "present-perfect": "har dannet, har danna",
     english: "form, create"
   },
   {
     infinitive: "danse",
     present: "danser",
-    past: "danset",
-    "present-perfect": "har danset",
+    past: "danset, dansa",
+    "present-perfect": "har danset, har dansa",
     english: "dance"
   },
   {
     infinitive: "dekke",
     present: "dekker",
-    past: "dekket",
-    "present-perfect": "har dekket",
+    past: "dekket, dekka",
+    "present-perfect": "har dekket, har dekka",
     english: "cover, set"
   },
   {
@@ -268,8 +268,8 @@ const data = [
   {
     infinitive: "dra",
     present: "drar",
-    past: "drog",
-    "present-perfect": "har dradd",
+    past: "dro",
+    "present-perfect": "har dradd, har dratt",
     english: "drag, travel"
   },
   {
@@ -289,21 +289,21 @@ const data = [
   {
     infinitive: "drive",
     present: "driver",
-    past: "drev",
+    past: "drev, dreiv",
     "present-perfect": "har drevet",
     english: "operate, run"
   },
   {
     infinitive: "dyrke",
     present: "dyrker",
-    past: "dyrket",
-    "present-perfect": "har dyrket",
+    past: "dyrket, dyrka",
+    "present-perfect": "har dyrket, har dyrka",
     english: "cultivate, raise"
   },
   {
     infinitive: "dø",
     present: "dør",
-    past: "dødde",
+    past: "døde",
     "present-perfect": "har dødd",
     english: "die"
   },
@@ -320,6 +320,13 @@ const data = [
     past: "eide",
     "present-perfect": "har eid",
     english: "own"
+  },
+  {
+    infinitive: "elske",
+    present: "elsker",
+    past: "elsket",
+    "present-perfect": "har elsket",
+    english: "love"
   },
   {
     infinitive: "ete",
@@ -351,7 +358,7 @@ const data = [
   },
   {
     infinitive: "finnes",
-    present: "finnes",
+    present: "finnes, fins",
     past: "fantes",
     "present-perfect": "har fantes",
     english: "be found, exist"
@@ -360,7 +367,7 @@ const data = [
     infinitive: "fly",
     present: "flyr",
     past: "fløy",
-    "present-perfect": "har fløyet",
+    "present-perfect": "har fløyet, har flydd",
     english: "fly"
   },
   {
@@ -373,8 +380,8 @@ const data = [
   {
     infinitive: "flytte",
     present: "flytter",
-    past: "flyttet",
-    "present-perfect": "har flyttet",
+    past: "flyttet, flytta",
+    "present-perfect": "har flyttet, har flytta",
     english: "move"
   },
   {
@@ -422,15 +429,15 @@ const data = [
   {
     infinitive: "forlove (seg)",
     present: "forlover (seg)",
-    past: "forlovet (seg)",
-    "present-perfect": "har forlovet (seg)",
+    past: "forlovet (seg), forlova (seg)",
+    "present-perfect": "har forlovet (seg), har forlova (seg)",
     english: "become engaged"
   },
   {
     infinitive: "fornemme",
     present: "fornemmer",
-    past: "fornam",
-    "present-perfect": "har fornummet",
+    past: "fornemmet",
+    "present-perfect": "har fornemmet",
     english: "perceive, notice"
   },
   {
@@ -541,14 +548,14 @@ const data = [
   {
     infinitive: "gnage",
     present: "gnager",
-    past: "gnog",
+    past: "gnog, gnagde",
     "present-perfect": "har gnagd",
     english: "gnaw"
   },
   {
     infinitive: "gni",
     present: "gnir",
-    past: "gnidde",
+    past: "gned, gnidde, gnei",
     "present-perfect": "har gnidd",
     english: "rub"
   },
@@ -576,7 +583,7 @@ const data = [
   {
     infinitive: "gripe",
     present: "griper",
-    past: "grep",
+    past: "grep, greip",
     "present-perfect": "har grepet",
     english: "grasp, seize"
   },
@@ -604,8 +611,8 @@ const data = [
   {
     infinitive: "handle",
     present: "handler",
-    past: "handlet",
-    "present-perfect": "har handlet",
+    past: "handlet, handla",
+    "present-perfect": "har handlet, har handla",
     english: "act, shop, deal with"
   },
   {
@@ -632,8 +639,8 @@ const data = [
   {
     infinitive: "hente",
     present: "henter",
-    past: "hentet",
-    "present-perfect": "har hentet",
+    past: "hentet, henta",
+    "present-perfect": "har hentet, har henta",
     english: "fetch, bring"
   },
   {
@@ -646,8 +653,8 @@ const data = [
   {
     infinitive: "heve",
     present: "hever",
-    past: "hevde",
-    "present-perfect": "har hevd",
+    past: "hevet, hevde",
+    "present-perfect": "har hevet, har hevd",
     english: "raise"
   },
   {
@@ -674,8 +681,8 @@ const data = [
   {
     infinitive: "hoppe",
     present: "hopper",
-    past: "hoppet",
-    "present-perfect": "har hoppet",
+    past: "hoppet, hoppa",
+    "present-perfect": "har hoppet, har hoppa",
     english: "hop"
   },
   {
@@ -737,15 +744,15 @@ const data = [
   {
     infinitive: "jobbe",
     present: "jobber",
-    past: "jobbet",
-    "present-perfect": "har jobbet",
+    past: "jobbet, jobba",
+    "present-perfect": "har jobbet, har jobba",
     english: "work"
   },
   {
     infinitive: "kjempe",
     present: "kjemper",
-    past: "kjempet",
-    "present-perfect": "har kjempet",
+    past: "kjempet, kjempa",
+    "present-perfect": "har kjempet, har kjempa",
     english: "fight"
   },
   {
@@ -772,8 +779,8 @@ const data = [
   {
     infinitive: "klage",
     present: "klager",
-    past: "klaget",
-    "present-perfect": "har klaget",
+    past: "klaget, klaga, klagde",
+    "present-perfect": "har klaget, har klaga, har klagd",
     english: "complain"
   },
   {
@@ -793,15 +800,15 @@ const data = [
   {
     infinitive: "klippe",
     present: "klipper",
-    past: "klippet",
-    "present-perfect": "har klippet",
+    past: "klippet, klippa",
+    "present-perfect": "har klippet, har klippa",
     english: "cut"
   },
   {
     infinitive: "knekke",
     present: "knekker",
-    past: "knakk",
-    "present-perfect": "har knekket",
+    past: "knakk, knekte",
+    "present-perfect": "har knekt",
     english: "crack, snap"
   },
   {
@@ -821,15 +828,15 @@ const data = [
   {
     infinitive: "kose",
     present: "koser",
-    past: "koste",
-    "present-perfect": "har kost",
+    past: "koste, kosa",
+    "present-perfect": "har kost, har kosa",
     english: "make cozy"
   },
   {
     infinitive: "koste",
     present: "koster",
-    past: "kostet",
-    "present-perfect": "har kostet",
+    past: "kostet, kosta",
+    "present-perfect": "har kostet, har kosta",
     english: "cost, sweep"
   },
   {
@@ -877,8 +884,8 @@ const data = [
   {
     infinitive: "lage",
     present: "lager",
-    past: "laget",
-    "present-perfect": "har laget",
+    past: "laget, lagde",
+    "present-perfect": "har laget, har lagd",
     english: "make, create"
   },
   {
@@ -886,7 +893,7 @@ const data = [
     present: "later",
     past: "lot",
     "present-perfect": "har latt",
-    english: "let, allow"
+    english: "pretend"
   },
   {
     infinitive: "le",
@@ -933,8 +940,8 @@ const data = [
   {
     infinitive: "lekke",
     present: "lekker",
-    past: "lekket",
-    "present-perfect": "har lekt",
+    past: "lakk",
+    "present-perfect": "har lekket",
     english: "leak"
   },
   {
@@ -956,7 +963,7 @@ const data = [
     present: "lider",
     past: "led",
     "present-perfect": "har lidd",
-    english: "suffer, wear on (time)"
+    english: "suffer"
   },
   {
     infinitive: "ligge",
@@ -968,8 +975,15 @@ const data = [
   {
     infinitive: "ligne",
     present: "ligner",
-    past: "lignet",
-    "present-perfect": "har lignet",
+    past: "lignet, ligna",
+    "present-perfect": "har lignet, har ligna",
+    english: "resemble, look like"
+  },
+  {
+    infinitive: "likne",
+    present: "likner",
+    past: "liknet, likna",
+    "present-perfect": "har liknet, har likna",
     english: "resemble, look like"
   },
   {
@@ -982,22 +996,22 @@ const data = [
   {
     infinitive: "love",
     present: "lover",
-    past: "lovet",
-    "present-perfect": "har lovt",
+    past: "lovte, lova",
+    "present-perfect": "har lovt, har lovet, har lova",
     english: "promise, praise"
   },
   {
     infinitive: "lukke",
     present: "lukker",
-    past: "lukket",
-    "present-perfect": "har lukket",
+    past: "lukket, lukka",
+    "present-perfect": "har lukket, har lukka",
     english: "shut"
   },
   {
     infinitive: "lukte",
     present: "lukter",
-    past: "luktet",
-    "present-perfect": "har luktet",
+    past: "luktet, lukta",
+    "present-perfect": "har luktet, har lukta",
     english: "smell"
   },
   {
@@ -1010,8 +1024,8 @@ const data = [
   {
     infinitive: "lytte",
     present: "lytter",
-    past: "lyttet",
-    "present-perfect": "har lyttet",
+    past: "lyttet, lytta",
+    "present-perfect": "har lyttet, har lytta",
     english: "listen"
   },
   {
@@ -1066,8 +1080,8 @@ const data = [
   {
     infinitive: "merke",
     present: "merker",
-    past: "merket",
-    "present-perfect": "har merket",
+    past: "merket, merka",
+    "present-perfect": "har merket, har merka",
     english: "mark"
   },
   {
@@ -1150,14 +1164,14 @@ const data = [
   {
     infinitive: "ri",
     present: "rir",
-    past: "rei",
+    past: "red, rei",
     "present-perfect": "har ridd",
     english: "ride (horse)"
   },
   {
     infinitive: "rive",
     present: "river",
-    past: "rev",
+    past: "rev, reiv",
     "present-perfect": "har revet",
     english: "tear apart"
   },
@@ -1248,21 +1262,21 @@ const data = [
   {
     infinitive: "skli",
     present: "sklir",
-    past: "sklei",
+    past: "sklei, sklidde",
     "present-perfect": "har slidd",
     english: "slide"
   },
   {
     infinitive: "skrike",
     present: "skriker",
-    past: "skrek",
+    past: "skrek, skreik",
     "present-perfect": "har skreket",
     english: "scream"
   },
   {
     infinitive: "skrive",
     present: "skriver",
-    past: "skrev",
+    past: "skrev, skreiv",
     "present-perfect": "har skrevet",
     english: "write"
   },
@@ -1304,7 +1318,7 @@ const data = [
   {
     infinitive: "slite",
     present: "sliter",
-    past: "slet",
+    past: "slet, sleit",
     "present-perfect": "har slitt",
     english: "toil, wear out"
   },
@@ -1348,7 +1362,7 @@ const data = [
     present: "springer",
     past: "sprang",
     "present-perfect": "har sprunget",
-    english: "jump, run"
+    english: "run"
   },
   {
     infinitive: "spørre",
@@ -1369,7 +1383,7 @@ const data = [
     present: "stikker",
     past: "stakk",
     "present-perfect": "har stukket",
-    english: "stick, stab"
+    english: "stick, stab, leave (slang)"
   },
   {
     infinitive: "stjele",
@@ -1395,22 +1409,22 @@ const data = [
   {
     infinitive: "svi",
     present: "svir",
-    past: "sved",
+    past: "svidde, svei",
     "present-perfect": "har svidd",
     english: "burn, suffer"
   },
   {
     infinitive: "svike",
     present: "sviker",
-    past: "svek",
+    past: "svek, sveik",
     "present-perfect": "har sveket",
     english: "betray, disappoint"
   },
   {
     infinitive: "synes",
-    present: "synes",
+    present: "synes, syns",
     past: "syntes",
-    "present-perfect": "har synes",
+    "present-perfect": "har synes, har syns",
     english: "seem, think, be visible"
   },
   {
@@ -1463,10 +1477,10 @@ const data = [
     english: "beg, implore"
   },
   {
-    infinitive: "tore",
+    infinitive: "tørre",
     present: "tør",
-    past: "torde",
-    "present-perfect": "har tort",
+    past: "turte",
+    "present-perfect": "har turt",
     english: "dare"
   },
   {
@@ -1563,15 +1577,15 @@ const data = [
   {
     infinitive: "ønske",
     present: "ønsker",
-    past: "ønsket",
-    "present-perfect": "har ønsket",
+    past: "ønsket, ønska",
+    "present-perfect": "har ønsket, har ønska",
     english: "wish, desire"
   },
   {
     infinitive: "åpne",
     present: "åpner",
-    past: "åpnet",
-    "present-perfect": "har åpnet",
+    past: "åpnet, åpna",
+    "present-perfect": "har åpnet, har åpna",
     english: "open"
   }
 ];
