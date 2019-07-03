@@ -3,7 +3,7 @@ const data = [
     infinitive: "angre",
     present: "angrer",
     past: "angret, angra",
-    "present-perfect": "har angret",
+    "present-perfect": "har angret, har angra",
     english: "regret"
   },
   {
