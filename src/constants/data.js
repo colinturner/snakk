@@ -24,7 +24,7 @@ const data = [
     infinitive: "arve",
     present: "arver",
     past: "arvet, arva",
-    "present-perfect": "har arvet",
+    "present-perfect": "har arvet, har arva",
     english: "inherit"
   },
   {
@@ -52,7 +52,7 @@ const data = [
     infinitive: "behandle",
     present: "behandler",
     past: "behandlet, behandla",
-    "present-perfect": "har behandlet",
+    "present-perfect": "har behandlet, har behandla",
     english: "handle, manage"
   },
   {
@@ -213,7 +213,7 @@ const data = [
     infinitive: "by",
     present: "byr",
     past: "bydde, bød",
-    "present-perfect": "har bydd",
+    "present-perfect": "har bydd, har budt",
     english: "bid, command"
   },
   {
@@ -807,8 +807,8 @@ const data = [
   {
     infinitive: "knekke",
     present: "knekker",
-    past: "knakk, knekte",
-    "present-perfect": "har knekt",
+    past: "knakk",
+    "present-perfect": "har knekt, har knekket",
     english: "crack, snap"
   },
   {
@@ -996,8 +996,8 @@ const data = [
   {
     infinitive: "love",
     present: "lover",
-    past: "lovte, lova",
-    "present-perfect": "har lovt, har lovet, har lova",
+    past: "lovet, lova",
+    "present-perfect": "har lovet, har lova",
     english: "promise, praise"
   },
   {
