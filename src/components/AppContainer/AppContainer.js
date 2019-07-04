@@ -61,7 +61,9 @@ class AppContainer extends Component {
   render() {
     const Instructions = () => (
       <div className="instructions">
-        Fill in the blanks to conjugate the verb.
+        Fill in the blanks to conjugate the verb. Note that because of Norway’s
+        varied dialects, there are sometimes several accepted ways to conjugate
+        the same verb.
       </div>
     );
 
