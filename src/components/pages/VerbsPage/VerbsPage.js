@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import Verb from "../Verb/Verb";
-import Sidebar from "../Sidebar/Sidebar";
-import data from "../../constants/data";
-import { allCategories } from "../../constants/variables";
-import "./AppContainer.css";
-import norwayFlag from "../../assets/norwayFlag.png";
-import checkmark from "../../assets/greenCheckmark.png";
+import SnakkNavbar from "../../SnakkNavbar/SnakkNavbar";
+import Verb from "../../Verb/Verb";
+import Sidebar from "../../Sidebar/Sidebar";
+import data from "../../../constants/data";
+import { allCategories } from "../../../constants/variables";
+import "./VerbsPage.css";
+import norwayFlag from "../../../assets/norwayFlag.png";
+import checkmark from "../../../assets/greenCheckmark.png";
 
-class AppContainer extends Component {
+class VerbsPage extends Component {
   state = {
     data: data,
     index: 0
@@ -97,28 +98,30 @@ class AppContainer extends Component {
     );
 
     return (
-      <div style={{ display: "flex", height: "100vh" }}>
-        <Sidebar selectVerb={this.selectVerb} />
-        <div className="exercise-cta">
-          <div className="exercise-group">
-            <Instructions />
-            <div className="verb-checkmark-group">
-              <Verb
-                answer={data[this.state.index]}
-                nextVerb={this.nextVerb}
-                eraseForm={this.eraseForm}
-              />
-              <Checkmark />
+      <React.Fragment>
+        <div style={{ display: "flex", height: "100vh" }}>
+          <Sidebar selectVerb={this.selectVerb} />
+          <div className="exercise-cta">
+            <div className="exercise-group">
+              <Instructions />
+              <div className="verb-checkmark-group">
+                <Verb
+                  answer={data[this.state.index]}
+                  nextVerb={this.nextVerb}
+                  eraseForm={this.eraseForm}
+                />
+                <Checkmark />
+              </div>
+            </div>
+            <div className="cta-group">
+              <CallToAction />
+              <Flag />
             </div>
           </div>
-          <div className="cta-group">
-            <CallToAction />
-            <Flag />
-          </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
 
-export default AppContainer;
+export default VerbsPage;
