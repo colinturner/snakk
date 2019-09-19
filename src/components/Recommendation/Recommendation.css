@@ -1,0 +1,33 @@
+.container {
+  margin: 1%;
+  background-color: aliceblue;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.title-description {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+}
+
+.category {
+  font-weight: bold;
+  font-size: 22px;
+  padding-bottom: 5px;
+}
+
+.recommendation-image {
+  height: 200px;
+}
+
+/* small screen */
+@media screen and (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+}
+
+/* big screen */
+@media screen and (min-width: 800px) {
+}

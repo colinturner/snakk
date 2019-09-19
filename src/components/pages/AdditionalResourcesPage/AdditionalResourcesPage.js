@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import SnakkNavbar from "../../SnakkNavbar/SnakkNavbar";
-import Verb from "../../Verb/Verb";
-import Sidebar from "../../Sidebar/Sidebar";
+import Recommendation from "../../Recommendation/Recommendation";
 import data from "../../../constants/data";
-import { allCategories } from "../../../constants/variables";
 import "./AdditionalResourcesPage.css";
-import norwayFlag from "../../../assets/norwayFlag.png";
-import checkmark from "../../../assets/greenCheckmark.png";
+import norwegianGrammar from "../../../assets/norwegianGrammar.jpg";
+import mysteryNilsPart1 from "../../../assets/mysteryNilsPart1.jpg";
+import mysteryNilsPart2 from "../../../assets/mysteryNilsPart2.jpg";
+import norwegianDictionary from "../../../assets/norwegianDictionary.jpg";
 
 class AdditionalResourcesPage extends Component {
   state = {
@@ -15,10 +14,71 @@ class AdditionalResourcesPage extends Component {
   };
 
   render() {
+    const Header = () => (
+      <h4>
+        Learned enough verbs? These resources can take your Norwegian to the
+        next level.
+      </h4>
+    );
+
+    const NorwegianBeginnerBook = () => (
+      <Recommendation
+        category="Best all-around beginner book"
+        image={{
+          href: "https://amzn.to/2O9HZjn",
+          alt: "The Mystery of Nils. Part 1",
+          src: mysteryNilsPart1
+        }}
+        title="The Mystery of Nils. Part 1"
+        description="This is not a traditional textbook. It’s an actual story that has you reading Norwegian from the get-go. The vocabulary is deliberately chosen to build your knowledge as you go. Norwegian lessons are interspersed between story chapters. Read this one slowly, with purpose, and with a pen handy - it will take you far."
+      />
+    );
+
+    const NorwegianIntermediateBook = () => (
+      <Recommendation
+        category="Best all-around intermediate book"
+        image={{
+          href: "https://amzn.to/2NpfNcS",
+          alt: "Mysteriet om Nils. Part 2",
+          src: mysteryNilsPart2
+        }}
+        title="Mysteriet om Nils. Part 2"
+        description="This book continues where Part I left off, deepening the learner’s grasp of Norwegian as it moves into the finer nuances of the language and heads into more advanced vocabulary."
+      />
+    );
+
+    const NorwegianGrammarBook = () => (
+      <Recommendation
+        category="Best grammar book"
+        image={{
+          href: "https://amzn.to/31ztxFd",
+          alt: "Louis Janus - Norwegian Verbs & Essentials of Grammar",
+          src: norwegianGrammar
+        }}
+        title="Norwegian Verbs & Essentials of Grammar"
+        description="This book provides a comprehensive overview of the grammar and a deep-dive into the nuances of verb conjugation in Norwegian. Recommended as a supplement to this website."
+      />
+    );
+
+    const NorwegianDictionaryBook = () => (
+      <Recommendation
+        category="Best Norwegian-English travel dictionary"
+        image={{
+          href: "https://amzn.to/2ObCPUa",
+          alt: "Norwegian Pocket Dictionary Berlitz",
+          src: norwegianDictionary
+        }}
+        title="Norwegian Pocket Dictionary Berlitz"
+        description="The selection is honestly not great on Norwegian-English physical dictionaries. This one is fairly decent though: small enough and translates in both directions."
+      />
+    );
     return (
       <React.Fragment>
-        {/* <SnakkNavbar /> */}
-        <h1>Page under construction</h1>
+        <Header />
+        <NorwegianBeginnerBook />
+        <NorwegianIntermediateBook />
+        <NorwegianGrammarBook />
+        <NorwegianDictionaryBook />
       </React.Fragment>
     );
   }

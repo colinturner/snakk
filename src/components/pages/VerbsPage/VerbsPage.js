@@ -68,22 +68,6 @@ class VerbsPage extends Component {
       </div>
     );
 
-    const CallToAction = () => (
-      <div>
-        These exercises complement{" "}
-        <a
-          style={{ fontStyle: "italic" }}
-          href="https://amzn.to/2IUGzWY"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Norwegian Verbs & Essentials of Grammar
-        </a>
-        . It's a short book. For the serious Norwegian learner, I strongly
-        recommend reading it.
-      </div>
-    );
-
     const Checkmark = () => (
       <img
         id="checkmark"
@@ -113,10 +97,7 @@ class VerbsPage extends Component {
                 <Checkmark />
               </div>
             </div>
-            <div className="cta-group">
-              <CallToAction />
-              <Flag />
-            </div>
+            <Flag />
           </div>
         </div>
       </React.Fragment>

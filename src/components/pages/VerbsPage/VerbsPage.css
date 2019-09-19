@@ -21,7 +21,7 @@
 /* big screen */
 @media screen and (min-width: 800px) {
   .flag {
-    max-width: 80px;
+    max-width: 200px;
   }
 
   .exercise-group {
@@ -49,10 +49,6 @@
 @media screen and (max-width: 800px) {
   .exercise-group {
     max-width: 185px;
-  }
-
-  .cta-group {
-    max-width: 200px;
   }
 
   .flag {
