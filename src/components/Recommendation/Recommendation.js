@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Recommendation.css";
+import { Container, Row, Col } from "react-bootstrap";
 
 class Recommendation extends Component {
   render() {
@@ -23,15 +24,19 @@ class Recommendation extends Component {
     const Description = () => <div>{this.props.description}</div>;
 
     return (
-      <div class="recommendationContainer">
-        <Category />
-        <div style={{ display: "flex" }}>
-          <Image />
-          <div class="title-description">
-            <Title />
-            <Description />
-          </div>
-        </div>
+      <div class="recommendation-container">
+        <Container>
+          <Category />
+          <Row>
+            <Col style={{ maxWidth: "230px" }} xs={12} md={6} lg={12} xl={6}>
+              <Image />
+            </Col>
+            <Col>
+              <Title />
+              <Description />
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

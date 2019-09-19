@@ -57,7 +57,7 @@ class AdditionalResourcesPage extends Component {
           src: norwegianGrammar
         }}
         title="Norwegian Verbs & Essentials of Grammar"
-        description="This book provides a comprehensive overview of the grammar and a deep-dive into the nuances of verb conjugation in Norwegian. Recommended as a supplement to this website."
+        description="This guide provides a comprehensive overview of the grammar and a deep-dive into the nuances of verb conjugation in Norwegian. Recommended as a supplement to this website."
       />
     );
 
