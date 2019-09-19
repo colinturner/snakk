@@ -23,7 +23,7 @@ class Recommendation extends Component {
     const Description = () => <div>{this.props.description}</div>;
 
     return (
-      <div class="container">
+      <div class="recommendationContainer">
         <Category />
         <div style={{ display: "flex" }}>
           <Image />

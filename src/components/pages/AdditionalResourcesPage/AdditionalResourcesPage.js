@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Recommendation from "../../Recommendation/Recommendation";
+import { Container, Row, Col } from "react-bootstrap";
 import data from "../../../constants/data";
 import "./AdditionalResourcesPage.css";
 import norwegianGrammar from "../../../assets/norwegianGrammar.jpg";
@@ -75,10 +76,22 @@ class AdditionalResourcesPage extends Component {
     return (
       <React.Fragment>
         <Header />
-        <NorwegianBeginnerBook />
-        <NorwegianIntermediateBook />
-        <NorwegianGrammarBook />
-        <NorwegianDictionaryBook />
+        <Container>
+          <Row>
+            <Col md={12} lg={6}>
+              <NorwegianBeginnerBook />
+            </Col>
+            <Col md={12} lg={6}>
+              <NorwegianIntermediateBook />
+            </Col>
+            <Col md={12} lg={6}>
+              <NorwegianGrammarBook />
+            </Col>
+            <Col md={12} lg={6}>
+              <NorwegianDictionaryBook />
+            </Col>
+          </Row>
+        </Container>
       </React.Fragment>
     );
   }

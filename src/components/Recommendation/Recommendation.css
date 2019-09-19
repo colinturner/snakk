@@ -1,4 +1,4 @@
-.container {
+.recommendationContainer {
   margin: 1%;
   background-color: aliceblue;
   border-radius: 10px;
@@ -23,7 +23,7 @@
 
 /* small screen */
 @media screen and (max-width: 800px) {
-  .container {
+  .recommendationContainer {
     width: 100%;
   }
 }
