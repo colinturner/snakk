@@ -58,7 +58,7 @@ class HomePage extends Component {
     );
 
     return (
-      <div class="homePageContent">
+      <div className="homePageContent">
         <Row style={{ justifyContent: "center" }}>
           <HeaderOne />
         </Row>

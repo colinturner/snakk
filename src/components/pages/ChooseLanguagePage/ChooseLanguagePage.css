@@ -5,3 +5,10 @@
 /* small screen */
 @media screen and (max-width: 800px) {
 }
+
+/* tiny screen */
+@media screen and (max-width: 400px) {
+  .imageFlagButton {
+    width: 90%;
+  }
+}

@@ -10,7 +10,7 @@ class Recommendation extends Component {
     const Image = () => (
       <a href={this.props.image.href} target="_blank" rel="noopener noreferrer">
         <img
-          class="recommendation-image"
+          className="recommendation-image"
           alt={this.props.image.alt}
           src={this.props.image.src}
         />
@@ -26,7 +26,7 @@ class Recommendation extends Component {
     const Description = () => <div>{this.props.description}</div>;
 
     return (
-      <div class="recommendation-container">
+      <div className="recommendation-container">
         <Container>
           <Category />
           <Row>
