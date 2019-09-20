@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import React, { Component } from "react";
+import { Row, Button } from "react-bootstrap";
 import "./HomePage.css";
 import rocketShip from "../../../assets/rocketship.png";
 
@@ -45,6 +45,7 @@ class HomePage extends Component {
 
     const GetStartedButton = () => (
       <Button
+        href="#languages"
         style={{
           fontFamily: "Bree Serif",
           fontSize: "30px"
@@ -54,16 +55,6 @@ class HomePage extends Component {
         Get started
         <img className="rocket-ship" src={rocketShip} alt="Rocket ship emoji" />
       </Button>
-    );
-
-    const Footer = () => (
-      <div
-        style={{
-          backgroundColor: "aliceblue",
-          width: "100%",
-          height: "40px"
-        }}
-      />
     );
 
     return (
