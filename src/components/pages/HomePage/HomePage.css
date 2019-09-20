@@ -1,3 +1,13 @@
+.homePageContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.rocket-ship {
+  margin-left: 10px;
+  width: 60px;
+}
+
 /* big screen */
 @media screen and (min-width: 800px) {
 }

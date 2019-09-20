@@ -1,21 +1,23 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./ChooseLanguagePage.css";
 import norwayFlag from "../../../assets/norwayFlag.png";
 import swedenFlag from "../../../assets/swedenFlag.png";
 import denmarkFlag from "../../../assets/denmarkFlag.png";
+import SnakkNavbar from "../../SnakkNavbar/SnakkNavbar";
 
 class ChooseLanguagePage extends Component {
   render() {
     const Header = () => (
       <React.Fragment>
-        <h1>Let's get started.</h1>
+        <h1>Let's begin.</h1>
         <h3>What are you learning?</h3>
       </React.Fragment>
     );
 
     return (
-      <React.Fragment>
+      <Fragment>
+        <SnakkNavbar />
         <Header />
         <Container>
           <Row>
@@ -30,7 +32,7 @@ class ChooseLanguagePage extends Component {
             </Col>
           </Row>
         </Container>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

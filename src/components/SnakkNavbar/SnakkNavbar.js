@@ -5,7 +5,12 @@ import "./SnakkNavbar.css";
 class SnakkNavbar extends Component {
   render() {
     return (
-      <Navbar bg="primary" variant="dark" expand="lg">
+      <Navbar
+        style={{ marginBottom: "10px" }}
+        bg="primary"
+        variant="dark"
+        expand="lg"
+      >
         <Navbar.Brand href="#">Snakk</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

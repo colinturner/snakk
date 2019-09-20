@@ -4,7 +4,9 @@ import { Container, Row, Col } from "react-bootstrap";
 
 class Recommendation extends Component {
   render() {
-    const Category = () => <div class="category">{this.props.category}</div>;
+    const Category = () => (
+      <div className="category">{this.props.category}</div>
+    );
     const Image = () => (
       <a href={this.props.image.href} target="_blank" rel="noopener noreferrer">
         <img

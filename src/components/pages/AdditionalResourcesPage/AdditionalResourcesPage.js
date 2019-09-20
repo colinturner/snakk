@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Recommendation from "../../Recommendation/Recommendation";
 import { Container, Row, Col } from "react-bootstrap";
 import data from "../../../constants/data";
@@ -7,6 +7,7 @@ import norwegianGrammar from "../../../assets/norwegianGrammar.jpg";
 import mysteryNilsPart1 from "../../../assets/mysteryNilsPart1.jpg";
 import mysteryNilsPart2 from "../../../assets/mysteryNilsPart2.jpg";
 import norwegianDictionary from "../../../assets/norwegianDictionary.jpg";
+import SnakkNavbar from "../../SnakkNavbar/SnakkNavbar";
 
 class AdditionalResourcesPage extends Component {
   state = {
@@ -74,7 +75,8 @@ class AdditionalResourcesPage extends Component {
       />
     );
     return (
-      <React.Fragment>
+      <Fragment>
+        <SnakkNavbar />
         <Header />
         <Container>
           <Row>
@@ -92,7 +94,7 @@ class AdditionalResourcesPage extends Component {
             </Col>
           </Row>
         </Container>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

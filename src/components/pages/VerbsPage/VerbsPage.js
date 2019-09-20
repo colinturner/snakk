@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Verb from "../../Verb/Verb";
 import Sidebar from "../../Sidebar/Sidebar";
 import data from "../../../constants/data";
@@ -7,6 +7,7 @@ import "./VerbsPage.css";
 import Button from "react-bootstrap/Button";
 import norwayFlag from "../../../assets/norwayFlag.png";
 import checkmark from "../../../assets/greenCheckmark.png";
+import SnakkNavbar from "../../SnakkNavbar/SnakkNavbar";
 
 class VerbsPage extends Component {
   state = {
@@ -92,7 +93,8 @@ class VerbsPage extends Component {
     );
 
     return (
-      <React.Fragment>
+      <Fragment>
+        <SnakkNavbar />
         <ToggleInstructions />
         <div style={{ display: "flex", height: "100vh" }}>
           <Sidebar selectVerb={this.selectVerb} />
@@ -111,7 +113,7 @@ class VerbsPage extends Component {
             <Flag />
           </div>
         </div>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

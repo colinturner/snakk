@@ -4,12 +4,10 @@ import HomePage from "../pages/HomePage/HomePage";
 import VerbsPage from "../pages/VerbsPage/VerbsPage";
 import AdditionalResourcesPage from "../pages/AdditionalResourcesPage/AdditionalResourcesPage";
 import ChooseLanguagePage from "../pages/ChooseLanguagePage/ChooseLanguagePage";
-import SnakkNavbar from "../SnakkNavbar/SnakkNavbar";
 
 function Main() {
   return (
     <HashRouter>
-      <SnakkNavbar />
       <Route exact path="/" component={HomePage} />
       <Route path="/languages" component={ChooseLanguagePage} />
       <Route path="/learn" component={VerbsPage} />
