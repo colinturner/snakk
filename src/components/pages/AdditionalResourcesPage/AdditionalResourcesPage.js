@@ -17,7 +17,7 @@ class AdditionalResourcesPage extends Component {
 
   render() {
     const Header = () => (
-      <h4>
+      <h4 style={{ fontFamily: "Roboto" }}>
         Learned enough verbs? These resources can take your Norwegian to the
         next level.
       </h4>
