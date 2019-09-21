@@ -95,12 +95,11 @@ class VerbsPage extends Component {
     return (
       <Fragment>
         <SnakkNavbar />
-        <ToggleInstructions />
-        <div style={{ display: "flex", height: "100vh" }}>
+        <div style={{ display: "flex", height: "80vh" }}>
           <Sidebar selectVerb={this.selectVerb} />
           <div className="exercise-cta">
             <div className="exercise-group">
-              {this.state.showInstructions && <Instructions />}
+              <Instructions />
               <div className="verb-checkmark-group">
                 <Verb
                   answer={data[this.state.index]}
