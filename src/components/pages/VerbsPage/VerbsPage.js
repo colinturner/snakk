@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, useState } from "react";
+import { Collapse } from "react-bootstrap";
 import Verb from "../../Verb/Verb";
 import Sidebar from "../../Sidebar/Sidebar";
 import data from "../../../constants/data";
@@ -65,20 +66,6 @@ class VerbsPage extends Component {
     this.setState({ showInstructions: !this.state.showInstructions });
 
   render() {
-    const ToggleInstructions = () => (
-      <Button variant="info" onClick={this.toggleInstructions}>
-        Show instructions
-      </Button>
-    );
-
-    const Instructions = () => (
-      <div className="instructions">
-        Fill in the blanks to conjugate the verb. Note that because of Norway’s
-        varied dialects, there are sometimes several accepted ways to conjugate
-        the same verb.
-      </div>
-    );
-
     const Checkmark = () => (
       <img
         id="checkmark"
@@ -92,14 +79,38 @@ class VerbsPage extends Component {
       <img className="flag" src={norwayFlag} alt="Norway Flag" />
     );
 
+    const CollapsibleInstructions = () => {
+      const [open, setOpen] = useState(false);
+
+      return (
+        <>
+          <Button
+            onClick={() => setOpen(!open)}
+            aria-controls="instructions"
+            aria-expanded={open}
+            variant="info"
+          >
+            {open ? "Hide instructions" : "Show instructions"}
+          </Button>
+          <Collapse in={open}>
+            <div id="instructions">
+              Fill in the blanks to conjugate the verb. Note that because of
+              Norway’s varied dialects, there are sometimes several accepted
+              ways to conjugate the same verb.
+            </div>
+          </Collapse>
+        </>
+      );
+    };
+
     return (
-      <Fragment>
+      <>
         <SnakkNavbar />
-        <div style={{ display: "flex", height: "80vh" }}>
+        <CollapsibleInstructions />
+        <div style={{ display: "flex", height: "80vh", marginTop: "20px" }}>
           <Sidebar selectVerb={this.selectVerb} />
           <div className="exercise-cta">
             <div className="exercise-group">
-              <Instructions />
               <div className="verb-checkmark-group">
                 <Verb
                   answer={data[this.state.index]}
@@ -112,7 +123,7 @@ class VerbsPage extends Component {
             <Flag />
           </div>
         </div>
-      </Fragment>
+      </>
     );
   }
 }
