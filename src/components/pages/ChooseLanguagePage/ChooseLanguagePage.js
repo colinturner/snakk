@@ -4,15 +4,19 @@ import "./ChooseLanguagePage.css";
 import norwayFlag from "../../../assets/norwayFlag.png";
 import swedenFlag from "../../../assets/swedenFlag.png";
 import denmarkFlag from "../../../assets/denmarkFlag.png";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { slideInLeft } from "react-animations";
 class ChooseLanguagePage extends Component {
   render() {
-    const Header = () => (
-      <>
-        <h1>Let's begin.</h1>
-        <h3>What are you learning?</h3>
-      </>
-    );
+    const SlideInLeftAnimation = keyframes`${slideInLeft}`;
+
+    const SlideInHeaderOne = styled.h1`
+      animation: 0.7s ${SlideInLeftAnimation};
+    `;
+
+    const SlideInHeaderTwo = styled.h2`
+      animation: 1.7s ${SlideInLeftAnimation};
+    `;
 
     const StyledButton = styled(Button)`
       border-radius: 40px;
@@ -49,7 +53,8 @@ class ChooseLanguagePage extends Component {
 
     return (
       <>
-        <Header />
+        <SlideInHeaderOne>Let's begin.</SlideInHeaderOne>
+        <SlideInHeaderTwo>What are you learning?</SlideInHeaderTwo>
         <Container>
           <Row>
             <FlagChoice
