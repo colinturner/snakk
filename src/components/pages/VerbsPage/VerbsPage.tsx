@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ReactElement } from "react";
 import { Collapse } from "react-bootstrap";
 import Verb from "../../Verb/Verb";
 import Sidebar from "../../Sidebar/Sidebar";
@@ -10,19 +10,19 @@ import norwayFlag from "../../../assets/norwayFlag.png";
 import checkmark from "../../../assets/greenCheckmark.png";
 import SnakkNavbar from "../../SnakkNavbar/SnakkNavbar";
 
-function VerbsPage() {
+function VerbsPage(): ReactElement {
   const [index, setIndex] = useState(0);
   function incrementIndex() {
     index < data.length - 1 ? setIndex(index + 1) : setIndex(0);
   }
 
-  function nextVerb() {
+  function nextVerb(): void {
     incrementIndex();
     setTimeout(() => showCheckmark(), 20);
     setTimeout(() => hideCheckmark(), 800);
   }
 
-  function selectVerb(selection) {
+  function selectVerb(selection: string): void {
     let i = data.findIndex(verb => verb.infinitive === selection);
     setIndex(i);
 
@@ -53,33 +53,38 @@ function VerbsPage() {
   );
 }
 
-function showCheckmark() {
-  document.getElementById("checkmark").className = "checkmark visible";
+function showCheckmark(): void {
+  const checkmark = document.getElementById("checkmark") as HTMLInputElement;
+  checkmark.className = "checkmark visible";
 }
 
-function hideCheckmark() {
-  document.getElementById("checkmark").className = "checkmark hidden";
+function hideCheckmark(): void {
+  const checkmark = document.getElementById("checkmark") as HTMLInputElement;
+  checkmark.className = "checkmark hidden";
 }
 
-function eraseAnswer(format) {
-  document.getElementById(`attempt-${format}`).value = "";
+function eraseAnswer(format: string): void {
+  const answer = document.getElementById(
+    `attempt-${format}`
+  ) as HTMLInputElement;
+  answer.value = "";
 }
 
-function eraseForm() {
+function eraseForm(): void {
   allCategories.forEach(tense => {
     markBlank(tense);
     eraseAnswer(tense);
   });
 }
 
-function markBlank(format) {
+function markBlank(format: string): void {
   const attempt = document.getElementById(`attempt-${format}`);
   const correction = document.getElementById(`answer-${format}`);
-  correction.innerText = "";
-  attempt.style.border = "thin solid lightgrey";
+  correction && (correction.innerText = "");
+  attempt && (attempt.style.border = "thin solid lightgrey");
 }
 
-function Checkmark() {
+function Checkmark(): ReactElement {
   return (
     <img
       id="checkmark"
@@ -90,7 +95,7 @@ function Checkmark() {
   );
 }
 
-function Flag() {
+function Flag(): ReactElement {
   return <img className="flag" src={norwayFlag} alt="Norway Flag" />;
 }
 
