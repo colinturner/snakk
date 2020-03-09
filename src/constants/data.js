@@ -1123,7 +1123,7 @@ const data = [
     infinitive: "nyte",
     present: "nyter",
     past: "nøt",
-    "present-perfect": "har nøtt",
+    "present-perfect": "har nytt",
     english: "enjoy"
   },
   {
