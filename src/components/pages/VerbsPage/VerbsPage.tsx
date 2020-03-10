@@ -18,6 +18,10 @@ function VerbsPage(): ReactElement {
 
   function nextVerb(): void {
     incrementIndex();
+    congratulate();
+  }
+
+  function congratulate(): void {
     setTimeout(() => showCheckmark(), 20);
     setTimeout(() => hideCheckmark(), 800);
   }
