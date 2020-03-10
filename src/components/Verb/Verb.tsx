@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { allCategories } from "../../constants/variables";
 import Button from "react-bootstrap/Button";
 import "./Verb.css";
@@ -17,14 +17,7 @@ interface VerbProps {
   eraseForm: () => void;
 }
 
-function Verb(props: VerbProps) {
-  // state
-  const [present, setPresent] = useState(false);
-  const [past, setPast] = useState(false);
-  const [present_perfect, setPresentPerfect] = useState(false);
-  const [english, setEnglish] = useState(false);
-
-  // props destructuring
+export default function Verb(props: VerbProps) {
   const { answer: accepted_answer, nextVerb, eraseForm } = props;
 
   function neutralizeString(str: string): string {
@@ -83,25 +76,6 @@ function Verb(props: VerbProps) {
     }
   }
 
-  function updateState({
-    category,
-    state
-  }: {
-    category: keyof VerbSolution;
-    state: boolean;
-  }) {
-    switch (category) {
-      case "present":
-        return setPresent(state);
-      case "past":
-        return setPast(state);
-      case "present-perfect":
-        return setPresentPerfect(state);
-      case "english":
-        return setEnglish(state);
-    }
-  }
-
   function markIncorrect(category: keyof VerbSolution): boolean {
     const attempt = document.getElementById(
       `attempt-${category}`
@@ -112,7 +86,6 @@ function Verb(props: VerbProps) {
     correction.style.color = "darkRed";
     correction.innerText = accepted_answer[category as keyof VerbSolution];
     attempt.style.border = "medium solid red";
-    updateState({ category, state: false });
     return false;
   }
 
@@ -125,7 +98,6 @@ function Verb(props: VerbProps) {
     ) as HTMLInputElement;
     correction.innerText = "";
     attempt.style.border = "medium solid green";
-    updateState({ category, state: true });
     return true;
   }
 
@@ -139,7 +111,6 @@ function Verb(props: VerbProps) {
     correction.style.color = "green";
     correction.innerText = accepted_answer[category as keyof VerbSolution];
     attempt.style.border = "medium dotted green";
-    updateState({ category, state: true });
     return true;
   }
 
@@ -170,5 +141,3 @@ function Verb(props: VerbProps) {
     </div>
   );
 }
-
-export default Verb;
