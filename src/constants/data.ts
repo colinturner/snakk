@@ -1263,7 +1263,7 @@ const data = [
     infinitive: "skli",
     present: "sklir",
     past: "sklei, sklidde",
-    "present-perfect": "har slidd",
+    "present-perfect": "har sklidd",
     english: "slide"
   },
   {
