@@ -23,6 +23,7 @@
 @media screen and (min-width: 800px) {
   .flag {
     max-width: 200px;
+    margin-right: 20px;
   }
 
   .exercise-group {
