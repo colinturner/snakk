@@ -1,12 +1,11 @@
 import React, { useState, ReactElement } from "react";
 import { Collapse } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import Verb from "../../Verb/Verb";
 import Sidebar from "../../Sidebar/Sidebar";
 import data from "../../../constants/data";
 import { allCategories } from "../../../constants/variables";
 import "./VerbsPage.css";
-import Button from "react-bootstrap/Button";
-import norwayFlag from "../../../assets/norwayFlag.png";
 import checkmark from "../../../assets/greenCheckmark.png";
 import SnakkNavbar from "../../SnakkNavbar/SnakkNavbar";
 
@@ -50,7 +49,6 @@ function VerbsPage(): ReactElement {
               <Checkmark />
             </div>
           </div>
-          <Flag />
         </div>
       </div>
     </>
@@ -97,10 +95,6 @@ function Checkmark(): ReactElement {
       alt="Green Checkmark"
     />
   );
-}
-
-function Flag(): ReactElement {
-  return <img className="flag" src={norwayFlag} alt="Norway Flag" />;
 }
 
 function CollapsibleInstructions() {

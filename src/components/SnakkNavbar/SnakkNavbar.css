@@ -1,3 +1,7 @@
+.flag {
+  max-width: 40px;
+}
+
 /* small screen */
 @media screen and (max-width: 800px) {
 }

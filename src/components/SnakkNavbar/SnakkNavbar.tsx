@@ -1,6 +1,7 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import "./SnakkNavbar.css";
+import norwayFlag from "../../assets/norwayFlag.png";
 
 export default function SnakkNavbar(): ReactElement {
   return (
@@ -19,6 +20,11 @@ export default function SnakkNavbar(): ReactElement {
           <Nav.Link href="#additional-resources">Additional resources</Nav.Link>
         </Nav>
       </Navbar.Collapse>
+      <Flag />
     </Navbar>
   );
+}
+
+export function Flag(): ReactElement {
+  return <img className="flag" src={norwayFlag} alt="Norway Flag" />;
 }
