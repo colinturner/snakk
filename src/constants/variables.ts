@@ -1,8 +1,10 @@
-export const allCategories = ["present", "past", "present-perfect", "english"];
+export const norwegian_categories = ["present", "past", "present-perfect"];
 
-export const norwegianCategories = ["present", "past", "present-perfect"];
+export const translation_language = "english";
 
-export const translationLanguage = "english";
+export const all_input_categories = norwegian_categories.concat(
+  translation_language
+);
 
 const size = {
   mobileS: "320px",

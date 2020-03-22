@@ -1,5 +1,5 @@
 import React from "react";
-import { allCategories } from "../../constants/variables";
+import { all_input_categories } from "../../constants/variables";
 import Button from "react-bootstrap/Button";
 import "./Verb.css";
 import InputBox from "../InputBox/InputBox";
@@ -27,13 +27,13 @@ export default function Verb(props: VerbProps) {
 
   function checkAnswers(): void {
     if (
-      (allCategories as (keyof VerbSolution)[]).every(category =>
+      (all_input_categories as (keyof VerbSolution)[]).every(category =>
         checkAnswer(category)
       )
     ) {
       loadNextVerbAndEraseForm();
     } else {
-      (allCategories as (keyof VerbSolution)[]).forEach(category =>
+      (all_input_categories as (keyof VerbSolution)[]).forEach(category =>
         checkAnswer(category)
       );
     }
@@ -155,18 +155,9 @@ export function checkMultiplePossibleSolutions(
   let att = attempt.split(",").map(phrase => phrase.trim());
   let ans = answer.split(",").map(phrase => phrase.trim());
 
-  const partialSolution = (att: string[], ans: string[]): boolean => {
-    return att.every(v => ans.includes(v));
-  };
-
-  const completeSolution = (att: string[], ans: string[]): boolean => {
-    return partialSolution(att, ans) && att.length === ans.length;
-  };
-
-  if (completeSolution(att, ans)) {
-    return COMPLETE_SOLUTION;
-  } else if (partialSolution(att, ans)) {
-    return PARTIAL_SOLUTION;
-  }
-  return INCORRECT_SOLUTION;
+  return att.every(v => ans.includes(v))
+    ? ans.every(v => att.includes(v))
+      ? COMPLETE_SOLUTION
+      : PARTIAL_SOLUTION
+    : INCORRECT_SOLUTION;
 }

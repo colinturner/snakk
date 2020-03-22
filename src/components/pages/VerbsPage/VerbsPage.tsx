@@ -4,7 +4,7 @@ import Sidebar from "../../Sidebar/Sidebar";
 import CollapsibleInstructions from "./ChildComponents/CollapsibleInstructions";
 import Checkmark from "./ChildComponents/Checkmark";
 import data from "../../../constants/data";
-import { allCategories } from "../../../constants/variables";
+import { all_input_categories } from "../../../constants/variables";
 import "./VerbsPage.css";
 import SnakkNavbar from "../../SnakkNavbar/SnakkNavbar";
 
@@ -70,7 +70,7 @@ function hideCheckmark(): void {
 }
 
 function eraseForm(): void {
-  allCategories.forEach(tense => {
+  all_input_categories.forEach(tense => {
     markBlank(tense);
     eraseAnswer(tense);
   });
