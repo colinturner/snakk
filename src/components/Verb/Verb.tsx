@@ -17,12 +17,9 @@ interface VerbProps {
   eraseForm: () => void;
 }
 
+// MAIN COMPONENT
 export default function Verb(props: VerbProps) {
   const { answer: accepted_answer, nextVerb, eraseForm } = props;
-
-  function neutralizeString(str: string): string {
-    return str.toLowerCase().trim();
-  }
 
   function checkMultiplePossibleSolutions(
     attempt: string,
@@ -53,7 +50,7 @@ export default function Verb(props: VerbProps) {
         checkAnswer(category)
       )
     ) {
-      loadNextVerb();
+      loadNextVerbAndEraseForm();
     } else {
       (allCategories as (keyof VerbSolution)[]).forEach(category =>
         checkAnswer(category)
@@ -62,82 +59,99 @@ export default function Verb(props: VerbProps) {
   }
 
   function checkAnswer(category: keyof VerbSolution) {
-    const attempt = neutralizeString(
+    const attempt = normalizeString(
       (document.getElementById(`attempt-${category}`) as HTMLInputElement).value
     );
     const answer = accepted_answer[category as keyof VerbSolution];
     switch (checkMultiplePossibleSolutions(attempt, answer)) {
       case "complete solution":
-        return markCorrect(category);
+        return markCorrect({ accepted_answer, category });
       case "partial solution":
-        return markPartiallyCorrect(category);
+        return markPartiallyCorrect({ accepted_answer, category });
       default:
-        return markIncorrect(category);
+        return markIncorrect({ accepted_answer, category });
     }
   }
 
-  function markIncorrect(category: keyof VerbSolution): boolean {
-    const attempt = document.getElementById(
-      `attempt-${category}`
-    ) as HTMLInputElement;
-    const correction = document.getElementById(
-      `answer-${category}`
-    ) as HTMLInputElement;
-    correction.style.color = "darkRed";
-    correction.innerText = accepted_answer[category as keyof VerbSolution];
-    attempt.style.border = "medium solid red";
-    return false;
-  }
-
-  function markCorrect(category: keyof VerbSolution): boolean {
-    const attempt = document.getElementById(
-      `attempt-${category}`
-    ) as HTMLInputElement;
-    const correction = document.getElementById(
-      `answer-${category}`
-    ) as HTMLInputElement;
-    correction.innerText = "";
-    attempt.style.border = "medium solid green";
-    return true;
-  }
-
-  function markPartiallyCorrect(category: keyof VerbSolution): boolean {
-    const attempt = document.getElementById(
-      `attempt-${category}`
-    ) as HTMLInputElement;
-    const correction = document.getElementById(
-      `answer-${category}`
-    ) as HTMLInputElement;
-    correction.style.color = "green";
-    correction.innerText = accepted_answer[category as keyof VerbSolution];
-    attempt.style.border = "medium dotted green";
-    return true;
-  }
-
-  function loadNextVerb() {
+  function loadNextVerbAndEraseForm() {
     nextVerb();
     eraseForm();
   }
 
-  const Infinitive = () => {
-    return (
-      <div style={{ margin: "5px" }}>
-        <div>Infinitive</div>
-        <h4>{accepted_answer.infinitive}</h4>
-      </div>
-    );
-  };
-
   return (
     <div className="verb">
-      <Infinitive />
+      <Infinitive text={accepted_answer.infinitive} />
       <InputBox header="Present" />
       <InputBox header="Past" />
       <InputBox header="Present Perfect" />
       <InputBox header="English" />
-      <Button style={{ margin: "5px", width: "80px" }} onClick={checkAnswers}>
+      <Button className="submit-button" onClick={checkAnswers}>
         Submit
       </Button>
     </div>
   );
+}
+
+// SUB-COMPONENTS
+function Infinitive({ text }: { text: string }) {
+  return (
+    <div style={{ margin: "5px" }}>
+      <div>Infinitive</div>
+      <h4>{text}</h4>
+    </div>
+  );
+}
+
+// HELPERS
+function getAttemptAndCorrectionElements({
+  category
+}: {
+  category: keyof VerbSolution;
+}) {
+  const attempt = document.getElementById(
+    `attempt-${category}`
+  ) as HTMLInputElement;
+  const correction = document.getElementById(
+    `answer-${category}`
+  ) as HTMLInputElement;
+
+  return [attempt, correction];
+}
+
+function normalizeString(str: string): string {
+  return str.toLowerCase().trim();
+}
+
+interface MarkingProps {
+  category: keyof VerbSolution;
+  accepted_answer: VerbSolution;
+}
+
+/** Adds an 'incorrect' class to an element */
+function markIncorrect({ accepted_answer, category }: MarkingProps): boolean {
+  const [attempt, correction] = getAttemptAndCorrectionElements({ category });
+  attempt.className = "incorrect_attempt";
+  correction.className = "incorrect_correction";
+  correction.innerText = accepted_answer[category as keyof VerbSolution];
+  return false;
+}
+
+/** Adds a 'correct' class to an element */
+function markCorrect({ category }: MarkingProps): boolean {
+  const [attempt, correction] = getAttemptAndCorrectionElements({ category });
+  attempt.className = "correct_attempt";
+  correction.innerText = "";
+  return true;
+}
+
+/** Adds a 'partially correct' class to an element */
+function markPartiallyCorrect({
+  accepted_answer,
+  category
+}: MarkingProps): boolean {
+  const [attempt, correction] = getAttemptAndCorrectionElements({ category });
+  attempt.className = "partially-correct_attempt";
+  correction.className = "partially-correct_correction";
+  correction.innerText = accepted_answer[category as keyof VerbSolution];
+  return true;
 }

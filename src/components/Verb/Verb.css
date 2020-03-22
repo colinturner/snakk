@@ -1,3 +1,29 @@
+/* all screens */
+.correct_attempt {
+  border: medium solid green;
+}
+
+.partially-correct_attempt {
+  border: medium dotted green;
+}
+
+.partially-correct_correction {
+  color: green;
+}
+
+.incorrect_attempt {
+  border: medium solid red;
+}
+
+.incorrect_correction {
+  color: darkred;
+}
+
+.submit-button {
+  margin: "5px";
+  width: "80px";
+}
+
 /* small screen */
 @media screen and (max-width: 800px) {
   .verb {

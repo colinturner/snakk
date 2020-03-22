@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import "./InputBox.css";
 
 interface Props {
   header: string;
@@ -7,10 +8,10 @@ interface Props {
 export default function InputBox(props: Props) {
   const { header } = props;
   return (
-    <div style={{ margin: "5px" }}>
-      <div style={{ color: "darkblue" }}>{header}</div>
-      <input style={{ maxWidth: "180px" }} id={`attempt-${formatID(header)}`} />
-      <div style={{ color: "darkred" }} id={`answer-${formatID(header)}`} />
+    <div className="input-box-wrapper">
+      <div className="header">{header}</div>
+      <input id={`attempt-${formatID(header)}`} />
+      <div id={`answer-${formatID(header)}`} />
     </div>
   );
 }
