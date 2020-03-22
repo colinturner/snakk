@@ -19,6 +19,12 @@
   margin-bottom: 20px;
 }
 
+.body-wrapper {
+  display: flex;
+  height: 80vh;
+  margin-top: 20px;
+}
+
 /* big screen */
 @media screen and (min-width: 800px) {
   .flag {

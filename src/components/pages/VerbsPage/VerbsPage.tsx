@@ -1,16 +1,18 @@
 import React, { useState, ReactElement } from "react";
-import { Collapse } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Verb from "../../Verb/Verb";
 import Sidebar from "../../Sidebar/Sidebar";
+import CollapsibleInstructions from "./ChildComponents/CollapsibleInstructions";
+import Checkmark from "./ChildComponents/Checkmark";
 import data from "../../../constants/data";
 import { allCategories } from "../../../constants/variables";
 import "./VerbsPage.css";
-import checkmark from "../../../assets/greenCheckmark.png";
 import SnakkNavbar from "../../SnakkNavbar/SnakkNavbar";
 
+// MAIN COMPONENT
+/** Page that displays the verb exercise sheet */
 function VerbsPage(): ReactElement {
   const [index, setIndex] = useState(0);
+
   function incrementIndex() {
     index < data.length - 1 ? setIndex(index + 1) : setIndex(0);
   }
@@ -28,7 +30,6 @@ function VerbsPage(): ReactElement {
   function selectVerb(selection: string): void {
     let i = data.findIndex(verb => verb.infinitive === selection);
     setIndex(i);
-
     eraseForm();
   }
 
@@ -36,7 +37,7 @@ function VerbsPage(): ReactElement {
     <>
       <SnakkNavbar />
       <CollapsibleInstructions />
-      <div style={{ display: "flex", height: "80vh", marginTop: "20px" }}>
+      <div className="body-wrapper">
         <Sidebar selectVerb={selectVerb} />
         <div className="exercise-cta">
           <div className="exercise-group">
@@ -55,6 +56,9 @@ function VerbsPage(): ReactElement {
   );
 }
 
+export default VerbsPage;
+
+// HELPERS
 function showCheckmark(): void {
   const checkmark = document.getElementById("checkmark") as HTMLInputElement;
   checkmark.className = "checkmark visible";
@@ -65,18 +69,18 @@ function hideCheckmark(): void {
   checkmark.className = "checkmark hidden";
 }
 
-function eraseAnswer(format: string): void {
-  const answer = document.getElementById(
-    `attempt-${format}`
-  ) as HTMLInputElement;
-  answer.value = "";
-}
-
 function eraseForm(): void {
   allCategories.forEach(tense => {
     markBlank(tense);
     eraseAnswer(tense);
   });
+}
+
+function eraseAnswer(format: string): void {
+  const answer = document.getElementById(
+    `attempt-${format}`
+  ) as HTMLInputElement;
+  answer.value = "";
 }
 
 function markBlank(format: string): void {
@@ -85,40 +89,3 @@ function markBlank(format: string): void {
   correction && (correction.innerText = "");
   attempt && (attempt.style.border = "thin solid lightgrey");
 }
-
-function Checkmark(): ReactElement {
-  return (
-    <img
-      id="checkmark"
-      className="checkmark hidden"
-      src={checkmark}
-      alt="Green Checkmark"
-    />
-  );
-}
-
-function CollapsibleInstructions() {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <Button
-        onClick={() => setOpen(!open)}
-        aria-controls="instructions"
-        aria-expanded={open}
-        variant="info"
-      >
-        {open ? "Hide instructions" : "Show instructions"}
-      </Button>
-      <Collapse in={open}>
-        <div id="instructions">
-          Fill in the blanks to conjugate the verb. Note that because of
-          Norway’s varied dialects, there are sometimes several accepted ways to
-          conjugate the same verb.
-        </div>
-      </Collapse>
-    </>
-  );
-}
-
-export default VerbsPage;

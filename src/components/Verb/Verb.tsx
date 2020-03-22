@@ -17,32 +17,13 @@ interface VerbProps {
   eraseForm: () => void;
 }
 
-// MAIN COMPONENT
+export const COMPLETE_SOLUTION = "complete solution";
+export const PARTIAL_SOLUTION = "partial solution";
+export const INCORRECT_SOLUTION = "incorrect solution";
+
+/** Page that displays verb exercise sheet */
 export default function Verb(props: VerbProps) {
   const { answer: accepted_answer, nextVerb, eraseForm } = props;
-
-  function checkMultiplePossibleSolutions(
-    attempt: string,
-    answer: string
-  ): string | false {
-    let att = attempt.split(",").map(phrase => phrase.trim());
-    let ans = answer.split(",").map(phrase => phrase.trim());
-
-    const partialSolution = (att: string[], ans: string[]): boolean => {
-      return att.every(v => ans.includes(v));
-    };
-
-    const completeSolution = (att: string[], ans: string[]): boolean => {
-      return partialSolution(att, ans) && att.length === ans.length;
-    };
-
-    if (completeSolution(att, ans)) {
-      return "complete solution";
-    } else if (partialSolution(att, ans)) {
-      return "partial solution";
-    }
-    return false;
-  }
 
   function checkAnswers(): void {
     if (
@@ -63,10 +44,10 @@ export default function Verb(props: VerbProps) {
       (document.getElementById(`attempt-${category}`) as HTMLInputElement).value
     );
     const answer = accepted_answer[category as keyof VerbSolution];
-    switch (checkMultiplePossibleSolutions(attempt, answer)) {
-      case "complete solution":
+    switch (checkMultiplePossibleSolutions({ attempt, answer })) {
+      case COMPLETE_SOLUTION:
         return markCorrect({ accepted_answer, category });
-      case "partial solution":
+      case PARTIAL_SOLUTION:
         return markPartiallyCorrect({ accepted_answer, category });
       default:
         return markIncorrect({ accepted_answer, category });
@@ -154,4 +135,38 @@ function markPartiallyCorrect({
   correction.className = "partially-correct_correction";
   correction.innerText = accepted_answer[category as keyof VerbSolution];
   return true;
+}
+
+interface CheckMultiplePossibleSolutionsProps {
+  attempt: string;
+  answer: string;
+}
+
+type MarkedSolution =
+  | typeof COMPLETE_SOLUTION
+  | typeof PARTIAL_SOLUTION
+  | typeof INCORRECT_SOLUTION;
+
+/** Compares an answer and an attempt. Returns false if attempt differs from answer */
+export function checkMultiplePossibleSolutions(
+  props: CheckMultiplePossibleSolutionsProps
+): MarkedSolution {
+  const { attempt, answer } = props;
+  let att = attempt.split(",").map(phrase => phrase.trim());
+  let ans = answer.split(",").map(phrase => phrase.trim());
+
+  const partialSolution = (att: string[], ans: string[]): boolean => {
+    return att.every(v => ans.includes(v));
+  };
+
+  const completeSolution = (att: string[], ans: string[]): boolean => {
+    return partialSolution(att, ans) && att.length === ans.length;
+  };
+
+  if (completeSolution(att, ans)) {
+    return COMPLETE_SOLUTION;
+  } else if (partialSolution(att, ans)) {
+    return PARTIAL_SOLUTION;
+  }
+  return INCORRECT_SOLUTION;
 }
