@@ -74,19 +74,12 @@ function hideCheckmark(): void {
 function eraseForm(): void {
   all_input_categories.forEach(tense => {
     markBlank(tense as keyof VerbSolution);
-    eraseAnswer(tense);
   });
 }
 
-function eraseAnswer(format: string): void {
-  const answer = document.getElementById(
-    `attempt-${format}`
-  ) as HTMLInputElement;
-  answer.value = "";
-}
-
 function markBlank(category: keyof VerbSolution): void {
-  const [attempt, correction] = getAttemptAndCorrectionElements({ category });
+  const { attempt, correction } = getAttemptAndCorrectionElements({ category });
+  attempt.value = "";
   correction.innerText = "";
   attempt.className = "clean-verb";
 }

@@ -13,5 +13,5 @@ export default function getAttemptAndCorrectionElements({
     `answer-${category}`
   ) as HTMLInputElement;
 
-  return [attempt, correction];
+  return { attempt, correction };
 }

@@ -90,7 +90,7 @@ interface MarkingProps {
 
 /** Adds an 'incorrect' class to an element */
 function markIncorrect({ accepted_answer, category }: MarkingProps): boolean {
-  const [attempt, correction] = getAttemptAndCorrectionElements({ category });
+  const { attempt, correction } = getAttemptAndCorrectionElements({ category });
   attempt.className = "incorrect_attempt";
   correction.className = "incorrect_correction";
   correction.innerText = accepted_answer[category as keyof VerbSolution];
@@ -99,7 +99,7 @@ function markIncorrect({ accepted_answer, category }: MarkingProps): boolean {
 
 /** Adds a 'correct' class to an element */
 function markCorrect({ category }: MarkingProps): boolean {
-  const [attempt, correction] = getAttemptAndCorrectionElements({ category });
+  const { attempt, correction } = getAttemptAndCorrectionElements({ category });
   attempt.className = "correct_attempt";
   correction.innerText = "";
   return true;
@@ -110,7 +110,7 @@ function markPartiallyCorrect({
   accepted_answer,
   category
 }: MarkingProps): boolean {
-  const [attempt, correction] = getAttemptAndCorrectionElements({ category });
+  const { attempt, correction } = getAttemptAndCorrectionElements({ category });
   attempt.className = "partially-correct_attempt";
   correction.className = "partially-correct_correction";
   correction.innerText = accepted_answer[category as keyof VerbSolution];
