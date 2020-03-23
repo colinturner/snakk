@@ -1,9 +1,9 @@
+import { checkMultiplePossibleSolutions } from "./Verb";
 import {
-  checkMultiplePossibleSolutions,
   COMPLETE_SOLUTION,
   PARTIAL_SOLUTION,
   INCORRECT_SOLUTION
-} from "./Verb";
+} from "../../constants/variables";
 
 const ANSWER = "think, intend";
 

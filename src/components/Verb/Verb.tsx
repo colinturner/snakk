@@ -3,23 +3,18 @@ import { all_input_categories } from "../../constants/variables";
 import Button from "react-bootstrap/Button";
 import "./Verb.css";
 import InputBox from "../InputBox/InputBox";
-
-interface VerbSolution {
-  infinitive: string;
-  present: string;
-  past: string;
-  "present-perfect": string;
-  english: string;
-}
+import { VerbSolution, MarkedSolution } from "../../interfaces/interfaces";
+import { getAttemptAndCorrectionElements } from "../../tools";
+import {
+  COMPLETE_SOLUTION,
+  PARTIAL_SOLUTION,
+  INCORRECT_SOLUTION
+} from "../../constants/variables";
 interface VerbProps {
   answer: VerbSolution;
   nextVerb: () => void;
   eraseForm: () => void;
 }
-
-export const COMPLETE_SOLUTION = "complete solution";
-export const PARTIAL_SOLUTION = "partial solution";
-export const INCORRECT_SOLUTION = "incorrect solution";
 
 /** Page that displays verb exercise sheet */
 export default function Verb(props: VerbProps) {
@@ -84,21 +79,6 @@ function Infinitive({ text }: { text: string }) {
 }
 
 // HELPERS
-function getAttemptAndCorrectionElements({
-  category
-}: {
-  category: keyof VerbSolution;
-}) {
-  const attempt = document.getElementById(
-    `attempt-${category}`
-  ) as HTMLInputElement;
-  const correction = document.getElementById(
-    `answer-${category}`
-  ) as HTMLInputElement;
-
-  return [attempt, correction];
-}
-
 function normalizeString(str: string): string {
   return str.toLowerCase().trim();
 }
@@ -141,11 +121,6 @@ interface CheckMultiplePossibleSolutionsProps {
   attempt: string;
   answer: string;
 }
-
-type MarkedSolution =
-  | typeof COMPLETE_SOLUTION
-  | typeof PARTIAL_SOLUTION
-  | typeof INCORRECT_SOLUTION;
 
 /** Compares an answer and an attempt. Returns false if attempt differs from answer */
 export function checkMultiplePossibleSolutions(

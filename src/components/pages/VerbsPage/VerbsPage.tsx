@@ -7,6 +7,8 @@ import data from "../../../constants/data";
 import { all_input_categories } from "../../../constants/variables";
 import "./VerbsPage.css";
 import SnakkNavbar from "../../SnakkNavbar/SnakkNavbar";
+import { getAttemptAndCorrectionElements } from "../../../tools";
+import { VerbSolution } from "../../../interfaces/interfaces";
 
 // MAIN COMPONENT
 /** Page that displays the verb exercise sheet */
@@ -71,7 +73,7 @@ function hideCheckmark(): void {
 
 function eraseForm(): void {
   all_input_categories.forEach(tense => {
-    markBlank(tense);
+    markBlank(tense as keyof VerbSolution);
     eraseAnswer(tense);
   });
 }
@@ -83,9 +85,8 @@ function eraseAnswer(format: string): void {
   answer.value = "";
 }
 
-function markBlank(format: string): void {
-  const attempt = document.getElementById(`attempt-${format}`);
-  const correction = document.getElementById(`answer-${format}`);
-  correction && (correction.innerText = "");
-  attempt && (attempt.style.border = "thin solid lightgrey");
+function markBlank(category: keyof VerbSolution): void {
+  const [attempt, correction] = getAttemptAndCorrectionElements({ category });
+  correction.innerText = "";
+  attempt.className = "clean-verb";
 }

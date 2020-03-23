@@ -6,6 +6,10 @@ export const all_input_categories = norwegian_categories.concat(
   translation_language
 );
 
+export const COMPLETE_SOLUTION = "complete solution";
+export const PARTIAL_SOLUTION = "partial solution";
+export const INCORRECT_SOLUTION = "incorrect solution";
+
 const size = {
   mobileS: "320px",
   mobileM: "375px",

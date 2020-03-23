@@ -25,6 +25,10 @@
   margin-top: 20px;
 }
 
+.clean-verb {
+  border: thin solid lightgrey;
+}
+
 /* big screen */
 @media screen and (min-width: 800px) {
   .flag {
