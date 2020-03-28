@@ -26,7 +26,10 @@ export default function Verb(props: VerbProps) {
   const { answer: accepted_answer, loadNextVerb, eraseMarkings } = props;
 
   function checkAnswers(e?: any): void {
-    if (e && ![ENTER_KEY, TAB_KEY].includes(e.keyCode)) {
+    const invalid_keyboard_stroke =
+      e && e.type === "keydown" && ![ENTER_KEY, TAB_KEY].includes(e.keyCode);
+
+    if (invalid_keyboard_stroke) {
       return;
     }
 
