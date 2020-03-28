@@ -17,13 +17,13 @@ import {
 } from "../../constants/variables";
 interface VerbProps {
   answer: VerbSolution;
-  nextVerb: () => void;
-  eraseForm: () => void;
+  loadNextVerb: () => void;
+  eraseMarkings: () => void;
 }
 
 /** Page that displays verb exercise sheet */
 export default function Verb(props: VerbProps) {
-  const { answer: accepted_answer, nextVerb, eraseForm } = props;
+  const { answer: accepted_answer, loadNextVerb, eraseMarkings } = props;
 
   function checkAnswers(e?: any): void {
     if (e && ![ENTER_KEY, TAB_KEY].includes(e.keyCode)) {
@@ -64,8 +64,8 @@ export default function Verb(props: VerbProps) {
   }
 
   function prepareNextVerb(e: any) {
-    nextVerb();
-    eraseForm();
+    loadNextVerb();
+    eraseMarkings();
     focusFirstInputField(e);
   }
 

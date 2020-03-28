@@ -19,7 +19,7 @@ function VerbsPage(): ReactElement {
     index < data.length - 1 ? setIndex(index + 1) : setIndex(0);
   }
 
-  function nextVerb(): void {
+  function loadNextVerb(): void {
     incrementIndex();
     congratulate();
   }
@@ -32,7 +32,7 @@ function VerbsPage(): ReactElement {
   function selectVerb(selection: string): void {
     let i = data.findIndex(verb => verb.infinitive === selection);
     setIndex(i);
-    eraseForm();
+    eraseMarkings();
   }
 
   return (
@@ -46,8 +46,8 @@ function VerbsPage(): ReactElement {
             <div className="verb-checkmark-group">
               <Verb
                 answer={data[index]}
-                nextVerb={nextVerb}
-                eraseForm={eraseForm}
+                loadNextVerb={loadNextVerb}
+                eraseMarkings={eraseMarkings}
                 // myFocus={myFocus}
               />
               <Checkmark />
@@ -72,7 +72,7 @@ function hideCheckmark(): void {
   checkmark.className = "checkmark hidden";
 }
 
-function eraseForm(): void {
+function eraseMarkings(): void {
   all_input_categories.forEach(tense => {
     markBlank(tense as keyof VerbSolution);
   });
