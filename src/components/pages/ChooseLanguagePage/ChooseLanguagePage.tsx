@@ -12,10 +12,12 @@ function ChooseLanguagePage() {
 
   const SlideInHeaderOne = styled.h1`
     animation: 0.7s ${SlideInLeftAnimation};
+    padding-left: 20px;
   `;
 
   const SlideInHeaderTwo = styled.h2`
     animation: 1.7s ${SlideInLeftAnimation};
+    padding-left: 20px;
   `;
 
   const StyledButton = styled(Button)`

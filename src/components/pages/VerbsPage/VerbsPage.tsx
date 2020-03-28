@@ -1,7 +1,7 @@
 import React, { useState, ReactElement } from "react";
 import Verb from "../../Verb/Verb";
 import Sidebar from "../../Sidebar/Sidebar";
-import CollapsibleInstructions from "./ChildComponents/CollapsibleInstructions";
+import CollapsibleInstructions from "./ChildComponents/CollapsibleInstructions/CollapsibleInstructions";
 import Checkmark from "./ChildComponents/Checkmark";
 import data from "../../../constants/data";
 import { all_input_categories } from "../../../constants/variables";
@@ -48,6 +48,7 @@ function VerbsPage(): ReactElement {
                 answer={data[index]}
                 nextVerb={nextVerb}
                 eraseForm={eraseForm}
+                // myFocus={myFocus}
               />
               <Checkmark />
             </div>

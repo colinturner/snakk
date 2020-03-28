@@ -21,6 +21,7 @@
 
 .body-wrapper {
   display: flex;
+  padding-left: 20px;
   height: 80vh;
   margin-top: 20px;
 }
