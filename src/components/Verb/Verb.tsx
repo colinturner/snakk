@@ -4,11 +4,16 @@ import Button from "react-bootstrap/Button";
 import "./Verb.css";
 import InputBox from "../InputBox/InputBox";
 import { VerbSolution, MarkedSolution } from "../../interfaces/interfaces";
-import { getAttemptAndCorrectionElements } from "../../tools";
+import {
+  getAttemptAndCorrectionElements,
+  focusFirstInputField
+} from "../../tools";
 import {
   COMPLETE_SOLUTION,
   PARTIAL_SOLUTION,
-  INCORRECT_SOLUTION
+  INCORRECT_SOLUTION,
+  ENTER_KEY,
+  TAB_KEY
 } from "../../constants/variables";
 interface VerbProps {
   answer: VerbSolution;
@@ -20,17 +25,26 @@ interface VerbProps {
 export default function Verb(props: VerbProps) {
   const { answer: accepted_answer, nextVerb, eraseForm } = props;
 
-  function checkAnswers(): void {
+  function checkAnswers(e?: any): void {
+    if (e && ![ENTER_KEY, TAB_KEY].includes(e.keyCode)) {
+      return;
+    }
+
+    if (e.keyCode === TAB_KEY) {
+      focusFirstInputField(e);
+      return;
+    }
     if (
       (all_input_categories as (keyof VerbSolution)[]).every(category =>
         checkAnswer(category)
       )
     ) {
-      loadNextVerbAndEraseForm();
+      prepareNextVerb(e);
     } else {
       (all_input_categories as (keyof VerbSolution)[]).forEach(category =>
         checkAnswer(category)
       );
+      focusFirstInputField(e);
     }
   }
 
@@ -49,9 +63,10 @@ export default function Verb(props: VerbProps) {
     }
   }
 
-  function loadNextVerbAndEraseForm() {
+  function prepareNextVerb(e: any) {
     nextVerb();
     eraseForm();
+    focusFirstInputField(e);
   }
 
   return (
@@ -61,7 +76,11 @@ export default function Verb(props: VerbProps) {
       <InputBox header="Past" />
       <InputBox header="Present Perfect" />
       <InputBox header="English" />
-      <Button className="submit-button" onClick={checkAnswers}>
+      <Button
+        className="submit-button"
+        onClick={checkAnswers}
+        onKeyDown={checkAnswers}
+      >
         Submit
       </Button>
     </div>

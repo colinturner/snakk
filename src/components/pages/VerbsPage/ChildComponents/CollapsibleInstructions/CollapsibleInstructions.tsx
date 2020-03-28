@@ -15,6 +15,7 @@ export default function CollapsibleInstructions(): ReactElement {
           aria-controls="instructions"
           aria-expanded={open}
           variant="info"
+          id="instructions-button"
         >
           {open ? "Hide instructions" : "Show instructions"}
         </Button>
