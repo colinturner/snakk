@@ -6,7 +6,8 @@ import InputBox from "../InputBox/InputBox";
 import { VerbSolution, MarkedSolution } from "../../interfaces/interfaces";
 import {
   getAttemptAndCorrectionElements,
-  focusFirstInputField
+  focusFirstInputField,
+  focusFirstErrorInputField
 } from "../../tools";
 import {
   COMPLETE_SOLUTION,
@@ -47,7 +48,7 @@ export default function Verb(props: VerbProps) {
       (all_input_categories as (keyof VerbSolution)[]).forEach(category =>
         checkAnswer(category)
       );
-      focusFirstInputField(e);
+      focusFirstErrorInputField(e);
     }
   }
 

@@ -7,3 +7,10 @@ export function focusFirstInputField(e: any): void {
       : document.getElementById("attempt-present");
   first_input && first_input.focus();
 }
+
+export function focusFirstErrorInputField(e: any): void {
+  const first_error_input = document.getElementsByClassName(
+    "incorrect_attempt"
+  )[0] as HTMLElement;
+  first_error_input && first_error_input.focus();
+}
