@@ -29,8 +29,19 @@ function VerbsPage(): ReactElement {
     setTimeout(() => hideCheckmark(), 800);
   }
 
-  function selectVerb(selection: string): void {
-    let i = data.findIndex(verb => verb.infinitive === selection);
+  function selectVerb({
+    selection,
+    letter
+  }: {
+    selection?: string;
+    letter?: string;
+  }): void {
+    let i = 0;
+    if (selection) {
+      i = data.findIndex(verb => verb.infinitive === selection);
+    } else if (letter) {
+      i = data.findIndex(verb => verb.infinitive[0] === letter.toLowerCase());
+    }
     setIndex(i);
     eraseMarkings();
   }

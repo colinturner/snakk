@@ -4,21 +4,21 @@ export default function useMultiKeyPress(
   necessary_keys: string[],
   callback: Function
 ) {
-  const [keys_pressed, setKeysPressed] = useState(new Set());
+  const [pressed_keys, setPressedKeys] = useState(new Set());
 
   function downHandler({ key }: { key: string }): void {
-    setKeysPressed(keys_pressed.add(key));
+    setPressedKeys(pressed_keys.add(key));
     if (
-      keys_pressed.size === necessary_keys.length &&
-      necessary_keys.every(necessary_key => keys_pressed.has(necessary_key))
+      pressed_keys.size === necessary_keys.length &&
+      necessary_keys.every(necessary_key => pressed_keys.has(necessary_key))
     ) {
-      callback();
+      callback({ necessary_keys, pressed_keys });
     }
   }
 
   function upHandler({ key }: { key: string }): void {
-    key === "Meta" ? keys_pressed.clear() : keys_pressed.delete(key);
-    setKeysPressed(keys_pressed);
+    key === "Meta" ? pressed_keys.clear() : pressed_keys.delete(key);
+    setPressedKeys(pressed_keys);
   }
 
   useEffect(() => {
@@ -31,5 +31,5 @@ export default function useMultiKeyPress(
     };
   }, []);
 
-  return keys_pressed;
+  return pressed_keys;
 }

@@ -12,6 +12,35 @@ export const INCORRECT_SOLUTION = "incorrect solution";
 export const ENTER_KEY = 13;
 export const TAB_KEY = 9;
 
+export const alphabet_letters = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z"
+];
+
 const size = {
   mobileS: "320px",
   mobileM: "375px",

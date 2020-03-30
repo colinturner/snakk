@@ -1,20 +1,65 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import data from "../../constants/data";
 import styled from "styled-components";
 import { device } from "../../constants/variables";
+import useMultiKeyPress from "../../tools/useMultiKeyPress";
+import { alphabet_letters } from "../../constants/variables";
 
 interface SidebarProps {
-  selectVerb: (selection: string) => void;
+  selectVerb: Function;
 }
 
 export default function Sidebar(props: SidebarProps): ReactElement {
   const { selectVerb } = props;
+  useMultiKeyPress(["Shift", "A"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "B"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "C"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "D"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "E"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "F"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "G"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "H"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "I"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "J"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "K"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "L"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "M"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "N"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "O"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "P"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "Q"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "R"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "S"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "T"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "U"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "V"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "W"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "X"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "Y"], selectVerbBeginningWithLetter);
+  useMultiKeyPress(["Shift", "Z"], selectVerbBeginningWithLetter);
+
+  // alphabet_letters.map(letter =>
+  //   useMultiKeyPress(["Shift", letter], selectVerbBeginningWithLetter)
+  // );
+
+  function selectVerbBeginningWithLetter({
+    pressed_keys
+  }: {
+    pressed_keys: string[];
+  }) {
+    console.log("triggered");
+    selectVerb({
+      letter:
+        Array.from(pressed_keys).find(letter => letter.length === 1) || "a"
+    });
+  }
+
   return (
     <Container>
       {data.map(verb => (
         <Word
           key={`${verb.infinitive} --> ${verb.english}`}
-          onClick={() => selectVerb(verb.infinitive)}
+          onClick={() => selectVerb({ selection: verb.infinitive })}
         >
           {verb.infinitive}
         </Word>
