@@ -17,7 +17,7 @@ export default function useMultiKeyPress(
   }
 
   function upHandler({ key }: { key: string }): void {
-    keys_pressed.delete(key);
+    key === "Meta" ? keys_pressed.clear() : keys_pressed.delete(key);
     setKeysPressed(keys_pressed);
   }
 
