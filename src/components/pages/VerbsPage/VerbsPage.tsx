@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from "react";
+import React, { useState, ReactElement, useEffect } from "react";
 import Verb from "../../Verb/Verb";
 import Sidebar from "../../Sidebar/Sidebar";
 import CollapsibleInstructions from "./ChildComponents/CollapsibleInstructions/CollapsibleInstructions";
@@ -48,7 +48,6 @@ function VerbsPage(): ReactElement {
                 answer={data[index]}
                 loadNextVerb={loadNextVerb}
                 eraseMarkings={eraseMarkings}
-                // myFocus={myFocus}
               />
               <Checkmark />
             </div>

@@ -16,6 +16,7 @@ import {
   ENTER_KEY,
   TAB_KEY
 } from "../../constants/variables";
+import useMultiKeyPress from "../../tools/useMultiKeyPress";
 interface VerbProps {
   answer: VerbSolution;
   loadNextVerb: () => void;
@@ -25,6 +26,11 @@ interface VerbProps {
 /** Page that displays verb exercise sheet */
 export default function Verb(props: VerbProps) {
   const { answer: accepted_answer, loadNextVerb, eraseMarkings } = props;
+  useMultiKeyPress(["Shift", "Enter"], clickSubmitButton);
+
+  function clickSubmitButton(): void {
+    (document.getElementById("submit_button") as HTMLElement).click();
+  }
 
   function checkAnswers(e?: any): void {
     const invalid_keyboard_stroke =
@@ -81,6 +87,7 @@ export default function Verb(props: VerbProps) {
       <InputBox header="Present Perfect" />
       <InputBox header="English" />
       <Button
+        id="submit_button"
         className="submit-button"
         onClick={checkAnswers}
         onKeyDown={checkAnswers}
