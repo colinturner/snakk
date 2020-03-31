@@ -36,11 +36,14 @@ function VerbsPage(): ReactElement {
     selection?: string;
     letter?: string;
   }): void {
-    let i = 0;
+    let i;
     if (selection) {
       i = data.findIndex(verb => verb.infinitive === selection);
     } else if (letter) {
       i = data.findIndex(verb => verb.infinitive[0] === letter.toLowerCase());
+    }
+    if (!i) {
+      i = 0;
     }
     setIndex(i);
     eraseMarkings();

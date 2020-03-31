@@ -13,7 +13,6 @@ export default function Sidebar(props: SidebarProps): ReactElement {
   const { selectVerb } = props;
   useMultiKeyPress(["Shift", "A"], selectVerbBeginningWithLetter);
   useMultiKeyPress(["Shift", "B"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "C"], selectVerbBeginningWithLetter);
   useMultiKeyPress(["Shift", "D"], selectVerbBeginningWithLetter);
   useMultiKeyPress(["Shift", "E"], selectVerbBeginningWithLetter);
   useMultiKeyPress(["Shift", "F"], selectVerbBeginningWithLetter);
@@ -25,22 +24,11 @@ export default function Sidebar(props: SidebarProps): ReactElement {
   useMultiKeyPress(["Shift", "L"], selectVerbBeginningWithLetter);
   useMultiKeyPress(["Shift", "M"], selectVerbBeginningWithLetter);
   useMultiKeyPress(["Shift", "N"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "O"], selectVerbBeginningWithLetter);
   useMultiKeyPress(["Shift", "P"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "Q"], selectVerbBeginningWithLetter);
   useMultiKeyPress(["Shift", "R"], selectVerbBeginningWithLetter);
   useMultiKeyPress(["Shift", "S"], selectVerbBeginningWithLetter);
   useMultiKeyPress(["Shift", "T"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "U"], selectVerbBeginningWithLetter);
   useMultiKeyPress(["Shift", "V"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "W"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "X"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "Y"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "Z"], selectVerbBeginningWithLetter);
-
-  // alphabet_letters.map(letter =>
-  //   useMultiKeyPress(["Shift", letter], selectVerbBeginningWithLetter)
-  // );
 
   function selectVerbBeginningWithLetter({
     pressed_keys
