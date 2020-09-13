@@ -31,16 +31,16 @@ function VerbsPage(): ReactElement {
 
   function selectVerb({
     selection,
-    letter
+    letter,
   }: {
     selection?: string;
     letter?: string;
   }): void {
     let i;
     if (selection) {
-      i = data.findIndex(verb => verb.infinitive === selection);
+      i = data.findIndex((verb) => verb.infinitive === selection);
     } else if (letter) {
-      i = data.findIndex(verb => verb.infinitive[0] === letter.toLowerCase());
+      i = data.findIndex((verb) => verb.infinitive[0] === letter.toLowerCase());
     }
     if (!i) {
       i = 0;
@@ -86,7 +86,7 @@ function hideCheckmark(): void {
 }
 
 function eraseMarkings(): void {
-  all_input_categories.forEach(tense => {
+  all_input_categories.forEach((tense) => {
     markBlank(tense as keyof VerbSolution);
   });
 }

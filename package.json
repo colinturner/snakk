@@ -1,8 +1,8 @@
 {
-  "name": "norwegian-verbs",
+  "name": "snakk",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://snakk.org",
+  "homepage": "https://colinturner.github.io/snakk",
   "dependencies": {
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.0",

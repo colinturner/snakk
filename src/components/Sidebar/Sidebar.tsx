@@ -35,7 +35,6 @@ export default function Sidebar(props: SidebarProps): ReactElement {
   }: {
     pressed_keys: string[];
   }) {
-    console.log("triggered");
     selectVerb({
       letter:
         Array.from(pressed_keys).find(letter => letter.length === 1) || "a"
