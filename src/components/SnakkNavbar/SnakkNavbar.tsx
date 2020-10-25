@@ -17,8 +17,6 @@ export default function SnakkNavbar(): ReactElement {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="#languages">Languages</Nav.Link>
-          <Nav.Link href="#learn">Learn verbs</Nav.Link>
-          <Nav.Link href="#additional-resources">Additional resources</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
