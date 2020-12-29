@@ -1,7 +1,3 @@
-.app-container {
-  display: flex;
-}
-
 .visible {
   visibility: visible;
   opacity: 1;

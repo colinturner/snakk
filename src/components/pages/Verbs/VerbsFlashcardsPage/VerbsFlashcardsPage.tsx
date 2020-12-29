@@ -1,18 +1,22 @@
 import React, { useState, ReactElement, useEffect } from "react";
-import Verb from "../../Verb/Verb";
-import Sidebar from "../../Sidebar/Sidebar";
+import Verb from "../../../Verb/Verb";
+import Sidebar from "../../../Sidebar/Sidebar";
 import CollapsibleInstructions from "./ChildComponents/CollapsibleInstructions/CollapsibleInstructions";
 import Checkmark from "./ChildComponents/Checkmark";
-import data from "../../../constants/data";
-import { all_input_categories } from "../../../constants/variables";
-import "./VerbsPage.css";
-import SnakkNavbar from "../../SnakkNavbar/SnakkNavbar";
-import { getAttemptAndCorrectionElements } from "../../../tools";
-import { VerbSolution } from "../../../interfaces/interfaces";
+import data from "../../../../constants/data";
+import { all_input_categories } from "../../../../constants/variables";
+import "./VerbsFlashcardsPage.css";
+import SnakkNavbar from "../../../SnakkNavbar/SnakkNavbar";
+import { getAttemptAndCorrectionElements } from "../../../../tools";
+import { VerbSolution } from "../../../../interfaces/interfaces";
+
+// Styled components
+
+
 
 // MAIN COMPONENT
 /** Page that displays the verb exercise sheet */
-function VerbsPage(): ReactElement {
+function VerbsFlashcardsPage(): ReactElement {
   const [index, setIndex] = useState(0);
 
   function incrementIndex() {
@@ -72,7 +76,7 @@ function VerbsPage(): ReactElement {
   );
 }
 
-export default VerbsPage;
+export default VerbsFlashcardsPage;
 
 // HELPERS
 function showCheckmark(): void {

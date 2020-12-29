@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import checkmark from "../../../../assets/greenCheckmark.png";
+import checkmark from "../../../../../assets/greenCheckmark.png";
 
 export default function Checkmark(): ReactElement {
   return (
