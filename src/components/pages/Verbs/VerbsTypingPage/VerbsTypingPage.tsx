@@ -3,7 +3,7 @@ import Verb from "../../../Verb/Verb";
 import Sidebar from "../../../Sidebar/Sidebar";
 import CollapsibleInstructions from "./ChildComponents/CollapsibleInstructions/CollapsibleInstructions";
 import Checkmark from "./ChildComponents/Checkmark";
-import data from "../../../../constants/data";
+import { data_array as data } from "../../../../constants/data";
 import { all_input_categories } from "../../../../constants/variables";
 import "./VerbsTypingPage.css";
 import SnakkNavbar from "../../../SnakkNavbar/SnakkNavbar";
@@ -84,18 +84,16 @@ export default function VerbsTypingPage(): ReactElement {
       <CollapsibleInstructions />
       <BodyWrapper>
         <Sidebar selectVerb={selectVerb} />
-        <div>
-          <ExerciseGroup>
-            <VerbCheckmarkGroup>
-              <Verb
-                answer={data[index]}
-                loadNextVerb={loadNextVerb}
-                eraseMarkings={eraseMarkings}
-              />
-              <Checkmark />
-            </VerbCheckmarkGroup>
-          </ExerciseGroup>
-        </div>
+        <ExerciseGroup>
+          <VerbCheckmarkGroup>
+            <Verb
+              answer={data[index]}
+              loadNextVerb={loadNextVerb}
+              eraseMarkings={eraseMarkings}
+            />
+            <Checkmark />
+          </VerbCheckmarkGroup>
+        </ExerciseGroup>
       </BodyWrapper>
     </>
   );

@@ -21,9 +21,14 @@ import { theme } from "../../theme";
 import styled from "styled-components";
 
 const VerbWrapper = styled.div`
+  background-color: white;
+  padding: 16px;
+  border-radius: 18px;
+  ${theme.shadow.topLeft};
   @media ${theme.device.mobile} {
     display: flex;
     flex-direction: column;
+    /* min-width: 250px; */
   }
   @media ${theme.device.tablet} {
     display: flex;

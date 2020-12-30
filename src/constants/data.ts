@@ -1,1593 +1,3169 @@
-const data = [
+export const data_array = [
   {
     infinitive: "angre",
     present: "angrer",
     past: "angret, angra",
     "present-perfect": "har angret, har angra",
-    english: "regret"
+    english: "regret",
   },
   {
     infinitive: "arbeide",
     present: "arbeider",
     past: "arbeidet",
     "present-perfect": "har arbeidet",
-    english: "work"
+    english: "work",
   },
   {
     infinitive: "arrangere",
     present: "arrangerer",
     past: "arrangerte",
     "present-perfect": "har arrangert",
-    english: "arrange"
+    english: "arrange",
   },
   {
     infinitive: "arve",
     present: "arver",
     past: "arvet, arva",
     "present-perfect": "har arvet, har arva",
-    english: "inherit"
+    english: "inherit",
   },
   {
     infinitive: "be",
     present: "ber",
     past: "ba",
     "present-perfect": "har bedt",
-    english: "ask, request"
+    english: "ask, request",
   },
   {
     infinitive: "begrave",
     present: "begraver",
     past: "begravde",
     "present-perfect": "har begravd",
-    english: "bury"
+    english: "bury",
   },
   {
     infinitive: "begynne",
     present: "begynner",
     past: "begynte",
     "present-perfect": "har begynt",
-    english: "begin"
+    english: "begin",
   },
   {
     infinitive: "behandle",
     present: "behandler",
     past: "behandlet, behandla",
     "present-perfect": "har behandlet, har behandla",
-    english: "handle, manage"
+    english: "handle, manage",
   },
   {
     infinitive: "beholde",
     present: "beholder",
     past: "beholdt",
     "present-perfect": "har beholdt",
-    english: "retain, keep"
+    english: "retain, keep",
   },
   {
     infinitive: "bestemme",
     present: "bestemmer",
     past: "bestemte",
     "present-perfect": "har bestemt",
-    english: "decide"
+    english: "decide",
   },
   {
     infinitive: "bestille",
     present: "bestiller",
     past: "bestilte",
     "present-perfect": "har bestilt",
-    english: "order"
+    english: "order",
   },
   {
     infinitive: "besøke",
     present: "besøker",
     past: "besøkte",
     "present-perfect": "har besøkt",
-    english: "visit"
+    english: "visit",
   },
   {
     infinitive: "betale",
     present: "betaler",
     past: "betalte",
     "present-perfect": "har betalt",
-    english: "pay"
+    english: "pay",
   },
   {
     infinitive: "betrakte",
     present: "betrakter",
     past: "betraktet, betrakta",
     "present-perfect": "har betraktet, har betrakta",
-    english: "view, regard"
+    english: "view, regard",
   },
   {
     infinitive: "bety",
     present: "betyr",
     past: "betydde",
     "present-perfect": "har betydd",
-    english: "mean, signify"
+    english: "mean, signify",
   },
   {
     infinitive: "bevare",
     present: "bevarer",
     past: "bevarte",
     "present-perfect": "har bevart",
-    english: "save, maintain"
+    english: "save, maintain",
   },
   {
     infinitive: "bidra",
     present: "bidrar",
     past: "bidro",
     "present-perfect": "har bidratt",
-    english: "contribute"
+    english: "contribute",
   },
   {
     infinitive: "binde",
     present: "binder",
     past: "bandt",
     "present-perfect": "har bundet",
-    english: "bind"
+    english: "bind",
   },
   {
     infinitive: "bite",
     present: "biter",
     past: "bet, beit",
     "present-perfect": "har bitt",
-    english: "bite"
+    english: "bite",
   },
   {
     infinitive: "blande",
     present: "blander",
     past: "blandet, blanda",
     "present-perfect": "har blandet, har blanda",
-    english: "blend, mix"
+    english: "blend, mix",
   },
   {
     infinitive: "bli",
     present: "blir",
     past: "ble",
     "present-perfect": "har blitt",
-    english: "remain, become"
+    english: "remain, become",
   },
   {
     infinitive: "bo",
     present: "bor",
     past: "bodde",
     "present-perfect": "har bodd",
-    english: "to live (location)"
+    english: "to live (location)",
   },
   {
     infinitive: "bre",
     present: "brer",
     past: "bredte",
     "present-perfect": "har bredt",
-    english: "spread"
+    english: "spread",
   },
   {
     infinitive: "brekke",
     present: "brekker",
     past: "brakk",
     "present-perfect": "har brukket",
-    english: "break"
+    english: "break",
   },
   {
     infinitive: "brenne (opp)",
     present: "brenner (opp)",
     past: "brant (opp)",
     "present-perfect": "har brant (opp)",
-    english: "burn up"
+    english: "burn up",
   },
   {
     infinitive: "brenne",
     present: "brenner",
     past: "brente",
     "present-perfect": "har brent",
-    english: "set fire to"
+    english: "set fire to",
   },
   {
     infinitive: "bringe",
     present: "bringer",
     past: "brakte",
     "present-perfect": "har brakt",
-    english: "bring"
+    english: "bring",
   },
   {
     infinitive: "bruke",
     present: "bruker",
     past: "brukte",
     "present-perfect": "har brukt",
-    english: "use"
+    english: "use",
   },
   {
     infinitive: "bryte",
     present: "bryter",
     past: "brøt",
     "present-perfect": "har brutt",
-    english: "break"
+    english: "break",
   },
   {
     infinitive: "burde",
     present: "bør",
     past: "burde",
     "present-perfect": "burdet",
-    english: "should"
+    english: "should",
   },
   {
     infinitive: "by",
     present: "byr",
     past: "bydde, bød",
     "present-perfect": "har bydd, har budt",
-    english: "bid, command"
+    english: "bid, command",
   },
   {
     infinitive: "bygge",
     present: "bygger",
     past: "bygde",
     "present-perfect": "har bygd",
-    english: "build"
+    english: "build",
   },
   {
     infinitive: "bære",
     present: "bærer",
     past: "bar",
     "present-perfect": "har båret",
-    english: "bear, carry"
+    english: "bear, carry",
   },
   {
     infinitive: "bøye",
     present: "bøyer",
     past: "bøyde",
     "present-perfect": "har bøyd",
-    english: "bend, conjugate"
+    english: "bend, conjugate",
   },
   {
     infinitive: "danne",
     present: "danner",
     past: "dannet, danna",
     "present-perfect": "har dannet, har danna",
-    english: "form, create"
+    english: "form, create",
   },
   {
     infinitive: "danse",
     present: "danser",
     past: "danset, dansa",
     "present-perfect": "har danset, har dansa",
-    english: "dance"
+    english: "dance",
   },
   {
     infinitive: "dekke",
     present: "dekker",
     past: "dekket, dekka",
     "present-perfect": "har dekket, har dekka",
-    english: "cover, set"
+    english: "cover, set",
   },
   {
     infinitive: "dele",
     present: "deler",
     past: "delte",
     "present-perfect": "har delt",
-    english: "divide, share"
+    english: "divide, share",
   },
   {
     infinitive: "dra",
     present: "drar",
     past: "dro",
     "present-perfect": "har dradd, har dratt",
-    english: "drag, travel"
+    english: "drag, travel",
   },
   {
     infinitive: "drepe",
     present: "dreper",
     past: "drepte",
     "present-perfect": "har drept",
-    english: "kill"
+    english: "kill",
   },
   {
     infinitive: "drikke",
     present: "drikker",
     past: "drakk",
     "present-perfect": "har drukket",
-    english: "drink"
+    english: "drink",
   },
   {
     infinitive: "drive",
     present: "driver",
     past: "drev, dreiv",
     "present-perfect": "har drevet",
-    english: "operate, run"
+    english: "operate, run",
   },
   {
     infinitive: "dyrke",
     present: "dyrker",
     past: "dyrket, dyrka",
     "present-perfect": "har dyrket, har dyrka",
-    english: "cultivate, raise"
+    english: "cultivate, raise",
   },
   {
     infinitive: "dø",
     present: "dør",
     past: "døde",
     "present-perfect": "har dødd",
-    english: "die"
+    english: "die",
   },
   {
     infinitive: "døpe",
     present: "døper",
     past: "døpte",
     "present-perfect": "har døpt",
-    english: "baptize"
+    english: "baptize",
   },
   {
     infinitive: "eie",
     present: "eier",
     past: "eide",
     "present-perfect": "har eid",
-    english: "own"
+    english: "own",
   },
   {
     infinitive: "elske",
     present: "elsker",
     past: "elsket",
     "present-perfect": "har elsket",
-    english: "love"
+    english: "love",
   },
   {
     infinitive: "ete",
     present: "eter",
     past: "åt",
     "present-perfect": "har ett",
-    english: "eat (slang)"
+    english: "eat (slang)",
   },
   {
     infinitive: "falle",
     present: "faller",
     past: "falt",
     "present-perfect": "har falt",
-    english: "fall"
+    english: "fall",
   },
   {
     infinitive: "fare",
     present: "farer",
     past: "for",
     "present-perfect": "har faret",
-    english: "fare, travel"
+    english: "fare, travel",
   },
   {
     infinitive: "finne",
     present: "finner",
     past: "fant",
     "present-perfect": "har funnet",
-    english: "find"
+    english: "find",
   },
   {
     infinitive: "finnes",
     present: "finnes, fins",
     past: "fantes",
     "present-perfect": "har fantes",
-    english: "be found, exist"
+    english: "be found, exist",
   },
   {
     infinitive: "fly",
     present: "flyr",
     past: "fløy",
     "present-perfect": "har fløyet, har flydd",
-    english: "fly"
+    english: "fly",
   },
   {
     infinitive: "flyte",
     present: "flyter",
     past: "fløt",
     "present-perfect": "har flytt",
-    english: "flow"
+    english: "flow",
   },
   {
     infinitive: "flytte",
     present: "flytter",
     past: "flyttet, flytta",
     "present-perfect": "har flyttet, har flytta",
-    english: "move"
+    english: "move",
   },
   {
     infinitive: "forberede",
     present: "forbereder",
     past: "forberedte",
     "present-perfect": "har forberedt",
-    english: "prepare"
+    english: "prepare",
   },
   {
     infinitive: "forby",
     present: "forbyr",
     past: "forbød",
     "present-perfect": "har forbudt",
-    english: "forbid, prohibit"
+    english: "forbid, prohibit",
   },
   {
     infinitive: "forene",
     present: "forener",
     past: "forente",
     "present-perfect": "har forent",
-    english: "unite"
+    english: "unite",
   },
   {
     infinitive: "foretrekke",
     present: "foretrekker",
     past: "foretrakk",
     "present-perfect": "har foretrukket",
-    english: "prefer"
+    english: "prefer",
   },
   {
     infinitive: "forklare",
     present: "forklarer",
     past: "forklarte",
     "present-perfect": "har forklart",
-    english: "explain"
+    english: "explain",
   },
   {
     infinitive: "forlate",
     present: "forlater",
     past: "forlot",
     "present-perfect": "har forlatt",
-    english: "forsake, leave"
+    english: "forsake, leave",
   },
   {
     infinitive: "forlove (seg)",
     present: "forlover (seg)",
     past: "forlovet (seg), forlova (seg)",
     "present-perfect": "har forlovet (seg), har forlova (seg)",
-    english: "become engaged"
+    english: "become engaged",
   },
   {
     infinitive: "fornemme",
     present: "fornemmer",
     past: "fornemmet",
     "present-perfect": "har fornemmet",
-    english: "perceive, notice"
+    english: "perceive, notice",
   },
   {
     infinitive: "forstå",
     present: "forstår",
     past: "forstod",
     "present-perfect": "har forstått",
-    english: "understand"
+    english: "understand",
   },
   {
     infinitive: "forsvinne",
     present: "forsvinner",
     past: "forsvant",
     "present-perfect": "har forsvunnet",
-    english: "disappear"
+    english: "disappear",
   },
   {
     infinitive: "forsyne",
     present: "forsyner",
     past: "forsynte",
     "present-perfect": "har forsynt",
-    english: "supply, provide"
+    english: "supply, provide",
   },
   {
     infinitive: "fortelle",
     present: "forteller",
     past: "fortalte",
     "present-perfect": "har fortalt",
-    english: "tell, explain"
+    english: "tell, explain",
   },
   {
     infinitive: "fryse",
     present: "fryser",
     past: "frøs",
     "present-perfect": "har frosset",
-    english: "freeze, feel cold"
+    english: "freeze, feel cold",
   },
   {
     infinitive: "følge",
     present: "følger",
     past: "fulgte",
     "present-perfect": "har fulgt",
-    english: "follow"
+    english: "follow",
   },
   {
     infinitive: "få",
     present: "får",
     past: "fikk",
     "present-perfect": "har fått",
-    english: "get, receive"
+    english: "get, receive",
   },
   {
     infinitive: "gi",
     present: "gir",
     past: "gav",
     "present-perfect": "har gitt",
-    english: "give"
+    english: "give",
   },
   {
     infinitive: "gidde",
     present: "gidder",
     past: "gadd",
     "present-perfect": "har giddet",
-    english: "manage to do something"
+    english: "manage to do something",
   },
   {
     infinitive: "gjelde",
     present: "gjelder",
     past: "gjaldt",
     "present-perfect": "har gjeldt",
-    english: "be in force, apply"
+    english: "be in force, apply",
   },
   {
     infinitive: "gjøre",
     present: "gjør",
     past: "gjorde",
     "present-perfect": "har gjort",
-    english: "do"
+    english: "do",
   },
   {
     infinitive: "glede",
     present: "gleder",
     past: "gledet",
     "present-perfect": "har gledet",
-    english: "please, make happy"
+    english: "please, make happy",
   },
   {
     infinitive: "glemme",
     present: "glemmer",
     past: "glemte",
     "present-perfect": "har glemt",
-    english: "forget"
+    english: "forget",
   },
   {
     infinitive: "gli",
     present: "glir",
     past: "glei",
     "present-perfect": "har glidd",
-    english: "glide"
+    english: "glide",
   },
   {
     infinitive: "glimre",
     present: "glimrer",
     past: "glimret",
     "present-perfect": "har glimret",
-    english: "glisten"
+    english: "glisten",
   },
   {
     infinitive: "gnage",
     present: "gnager",
     past: "gnog, gnagde",
     "present-perfect": "har gnagd",
-    english: "gnaw"
+    english: "gnaw",
   },
   {
     infinitive: "gni",
     present: "gnir",
     past: "gned, gnidde, gnei",
     "present-perfect": "har gnidd",
-    english: "rub"
+    english: "rub",
   },
   {
     infinitive: "grave",
     present: "graver",
     past: "gravde",
     "present-perfect": "har gravd",
-    english: "dig"
+    english: "dig",
   },
   {
     infinitive: "gre (seg)",
     present: "grer (seg)",
     past: "gredde (seg)",
     "present-perfect": "har gredd (seg)",
-    english: "comb one's hair"
+    english: "comb one's hair",
   },
   {
     infinitive: "greie",
     present: "greier",
     past: "greide",
     "present-perfect": "har greid",
-    english: "manage, deal with"
+    english: "manage, deal with",
   },
   {
     infinitive: "gripe",
     present: "griper",
     past: "grep, greip",
     "present-perfect": "har grepet",
-    english: "grasp, seize"
+    english: "grasp, seize",
   },
   {
     infinitive: "gråte",
     present: "gråter",
     past: "gråt",
     "present-perfect": "har grått",
-    english: "cry, weep"
+    english: "cry, weep",
   },
   {
     infinitive: "gå",
     present: "går",
     past: "gikk",
     "present-perfect": "har gått",
-    english: "go, walk"
+    english: "go, walk",
   },
   {
     infinitive: "ha",
     present: "har",
     past: "hadde",
     "present-perfect": "har hatt",
-    english: "have"
+    english: "have",
   },
   {
     infinitive: "handle",
     present: "handler",
     past: "handlet, handla",
     "present-perfect": "har handlet, har handla",
-    english: "act, shop, deal with"
+    english: "act, shop, deal with",
   },
   {
     infinitive: "hende",
     present: "hender",
     past: "hendte",
     "present-perfect": "har hendt",
-    english: "happen"
+    english: "happen",
   },
   {
     infinitive: "henge",
     present: "henger",
     past: "hang",
     "present-perfect": "har hengt",
-    english: "hang, droop"
+    english: "hang, droop",
   },
   {
     infinitive: "henge",
     present: "henger",
     past: "hengte",
     "present-perfect": "har hengt",
-    english: "hang up"
+    english: "hang up",
   },
   {
     infinitive: "hente",
     present: "henter",
     past: "hentet, henta",
     "present-perfect": "har hentet, har henta",
-    english: "fetch, bring"
+    english: "fetch, bring",
   },
   {
     infinitive: "hete",
     present: "heter",
     past: "het",
     "present-perfect": "har hett",
-    english: "be named"
+    english: "be named",
   },
   {
     infinitive: "heve",
     present: "hever",
     past: "hevet, hevde",
     "present-perfect": "har hevet, har hevd",
-    english: "raise"
+    english: "raise",
   },
   {
     infinitive: "hilse",
     present: "hilser",
     past: "hilste",
     "present-perfect": "har hilst",
-    english: "greet"
+    english: "greet",
   },
   {
     infinitive: "hjelpe",
     present: "hjelper",
     past: "hjalp",
     "present-perfect": "har hjulpet",
-    english: "help"
+    english: "help",
   },
   {
     infinitive: "holde",
     present: "holder",
     past: "holdt",
     "present-perfect": "har holdt",
-    english: "keep, hold"
+    english: "keep, hold",
   },
   {
     infinitive: "hoppe",
     present: "hopper",
     past: "hoppet, hoppa",
     "present-perfect": "har hoppet, har hoppa",
-    english: "hop"
+    english: "hop",
   },
   {
     infinitive: "huske",
     present: "husker",
     past: "husket",
     "present-perfect": "har husket",
-    english: "remember"
+    english: "remember",
   },
   {
     infinitive: "hvile",
     present: "hviler",
     past: "hvilte",
     "present-perfect": "har hvilt",
-    english: "rest"
+    english: "rest",
   },
   {
     infinitive: "høre",
     present: "hører",
     past: "hørte",
     "present-perfect": "har hørt",
-    english: "hear"
+    english: "hear",
   },
   {
     infinitive: "håndhilse",
     present: "håndhilser",
     past: "håndhilste",
     "present-perfect": "har håndhilst",
-    english: "shake hands"
+    english: "shake hands",
   },
   {
     infinitive: "inkludere",
     present: "inkluderer",
     past: "inkluderte",
     "present-perfect": "har inkludert",
-    english: "include"
+    english: "include",
   },
   {
     infinitive: "innføre",
     present: "innfører",
     past: "innførte",
     "present-perfect": "har innført",
-    english: "introduce"
+    english: "introduce",
   },
   {
     infinitive: "interessere",
     present: "interesserer",
     past: "interesserte",
     "present-perfect": "har interessert",
-    english: "interest"
+    english: "interest",
   },
   {
     infinitive: "invitere",
     present: "inviterer",
     past: "inviterte",
     "present-perfect": "har invitert",
-    english: "invite"
+    english: "invite",
   },
   {
     infinitive: "jobbe",
     present: "jobber",
     past: "jobbet, jobba",
     "present-perfect": "har jobbet, har jobba",
-    english: "work"
+    english: "work",
   },
   {
     infinitive: "kjempe",
     present: "kjemper",
     past: "kjempet, kjempa",
     "present-perfect": "har kjempet, har kjempa",
-    english: "fight"
+    english: "fight",
   },
   {
     infinitive: "kjenne",
     present: "kjenner",
     past: "kjente",
     "present-perfect": "har kjent",
-    english: "know (person, place)"
+    english: "know (person, place)",
   },
   {
     infinitive: "kjøpe",
     present: "kjøper",
     past: "kjøpte",
     "present-perfect": "har kjøpt",
-    english: "purchase"
+    english: "purchase",
   },
   {
     infinitive: "kjøre",
     present: "kjører",
     past: "kjørte",
     "present-perfect": "har kjørt",
-    english: "drive"
+    english: "drive",
   },
   {
     infinitive: "klage",
     present: "klager",
     past: "klaget, klaga, klagde",
     "present-perfect": "har klaget, har klaga, har klagd",
-    english: "complain"
+    english: "complain",
   },
   {
     infinitive: "klare",
     present: "klarer",
     past: "klarte",
     "present-perfect": "har klart",
-    english: "manage"
+    english: "manage",
   },
   {
     infinitive: "kle",
     present: "kler",
     past: "kledde",
     "present-perfect": "har kledd",
-    english: "dress, suit one"
+    english: "dress, suit one",
   },
   {
     infinitive: "klippe",
     present: "klipper",
     past: "klippet, klippa",
     "present-perfect": "har klippet, har klippa",
-    english: "cut"
+    english: "cut",
   },
   {
     infinitive: "knekke",
     present: "knekker",
     past: "knakk",
     "present-perfect": "har knekt, har knekket",
-    english: "crack, snap"
+    english: "crack, snap",
   },
   {
     infinitive: "koke",
     present: "koker",
     past: "kokte",
     "present-perfect": "har kokt",
-    english: "boil"
+    english: "boil",
   },
   {
     infinitive: "komme",
     present: "kommer",
     past: "kom",
     "present-perfect": "har kommet",
-    english: "come"
+    english: "come",
   },
   {
     infinitive: "kose",
     present: "koser",
     past: "koste, kosa",
     "present-perfect": "har kost, har kosa",
-    english: "make cozy"
+    english: "make cozy",
   },
   {
     infinitive: "koste",
     present: "koster",
     past: "kostet, kosta",
     "present-perfect": "har kostet, har kosta",
-    english: "cost, sweep"
+    english: "cost, sweep",
   },
   {
     infinitive: "kreve",
     present: "krever",
     past: "krevde",
     "present-perfect": "har krevd",
-    english: "demand"
+    english: "demand",
   },
   {
     infinitive: "kritisere",
     present: "kritiserer",
     past: "kritiserte",
     "present-perfect": "har kritisert",
-    english: "criticize"
+    english: "criticize",
   },
   {
     infinitive: "krype",
     present: "kryper",
     past: "krøp",
     "present-perfect": "har krøpet",
-    english: "creep"
+    english: "creep",
   },
   {
     infinitive: "kunne",
     present: "kan",
     past: "kunne",
     "present-perfect": "har kunnet",
-    english: "be able to"
+    english: "be able to",
   },
   {
     infinitive: "kvede",
     present: "kveder",
     past: "kvad",
     "present-perfect": "har kvedet",
-    english: "chant, sing"
+    english: "chant, sing",
   },
   {
     infinitive: "la",
     present: "lar",
     past: "lot",
     "present-perfect": "har latt",
-    english: "allow, let"
+    english: "allow, let",
   },
   {
     infinitive: "lage",
     present: "lager",
     past: "laget, lagde",
     "present-perfect": "har laget, har lagd",
-    english: "make, create"
+    english: "make, create",
   },
   {
     infinitive: "late",
     present: "later",
     past: "lot",
     "present-perfect": "har latt",
-    english: "pretend"
+    english: "pretend",
   },
   {
     infinitive: "le",
     present: "ler",
     past: "lo",
     "present-perfect": "har ledd",
-    english: "laugh"
+    english: "laugh",
   },
   {
     infinitive: "lede",
     present: "leder",
     past: "ledet",
     "present-perfect": "har ledet",
-    english: "lead"
+    english: "lead",
   },
   {
     infinitive: "lege",
     present: "leger",
     past: "leget",
     "present-perfect": "har leget",
-    english: "heal, cure"
+    english: "heal, cure",
   },
   {
     infinitive: "legge",
     present: "legger",
     past: "la",
     "present-perfect": "har lagt",
-    english: "lay, place"
+    english: "lay, place",
   },
   {
     infinitive: "leie",
     present: "leier",
     past: "leide",
     "present-perfect": "har leid",
-    english: "rent"
+    english: "rent",
   },
   {
     infinitive: "leke",
     present: "leker",
     past: "lekte",
     "present-perfect": "har lekt",
-    english: "play"
+    english: "play",
   },
   {
     infinitive: "lekke",
     present: "lekker",
     past: "lakk",
     "present-perfect": "har lekket",
-    english: "leak"
+    english: "leak",
   },
   {
     infinitive: "lese",
     present: "leser",
     past: "leste",
     "present-perfect": "har lest",
-    english: "read, study"
+    english: "read, study",
   },
   {
     infinitive: "leve",
     present: "lever",
     past: "levde",
     "present-perfect": "har levd",
-    english: "live, be alive"
+    english: "live, be alive",
   },
   {
     infinitive: "lide",
     present: "lider",
     past: "led",
     "present-perfect": "har lidd",
-    english: "suffer"
+    english: "suffer",
   },
   {
     infinitive: "ligge",
     present: "ligger",
     past: "lå",
     "present-perfect": "har ligget",
-    english: "lie"
+    english: "lie",
   },
   {
     infinitive: "ligne",
     present: "ligner",
     past: "lignet, ligna",
     "present-perfect": "har lignet, har ligna",
-    english: "resemble, look like"
+    english: "resemble, look like",
   },
   {
     infinitive: "likne",
     present: "likner",
     past: "liknet, likna",
     "present-perfect": "har liknet, har likna",
-    english: "resemble, look like"
+    english: "resemble, look like",
   },
   {
     infinitive: "like",
     present: "liker",
     past: "likte",
     "present-perfect": "har likt",
-    english: "like"
+    english: "like",
   },
   {
     infinitive: "love",
     present: "lover",
     past: "lovet, lova",
     "present-perfect": "har lovet, har lova",
-    english: "promise, praise"
+    english: "promise, praise",
   },
   {
     infinitive: "lukke",
     present: "lukker",
     past: "lukket, lukka",
     "present-perfect": "har lukket, har lukka",
-    english: "shut"
+    english: "shut",
   },
   {
     infinitive: "lukte",
     present: "lukter",
     past: "luktet, lukta",
     "present-perfect": "har luktet, har lukta",
-    english: "smell"
+    english: "smell",
   },
   {
     infinitive: "lure",
     present: "lurer",
     past: "lurte",
     "present-perfect": "har lurt",
-    english: "wonder, dupe"
+    english: "wonder, dupe",
   },
   {
     infinitive: "lytte",
     present: "lytter",
     past: "lyttet, lytta",
     "present-perfect": "har lyttet, har lytta",
-    english: "listen"
+    english: "listen",
   },
   {
     infinitive: "lyve",
     present: "lyver",
     past: "løy",
     "present-perfect": "har løyet",
-    english: "lie, fib"
+    english: "lie, fib",
   },
   {
     infinitive: "lære",
     present: "lærer",
     past: "lærte",
     "present-perfect": "har lært",
-    english: "learn, teach"
+    english: "learn, teach",
   },
   {
     infinitive: "løpe",
     present: "løper",
     past: "løp",
     "present-perfect": "har løpt",
-    english: "run"
+    english: "run",
   },
   {
     infinitive: "låne",
     present: "låner",
     past: "lånte",
     "present-perfect": "har lånt",
-    english: "lend, borrow"
+    english: "lend, borrow",
   },
   {
     infinitive: "male",
     present: "maler",
     past: "malte",
     "present-perfect": "har malt",
-    english: "paint, purr"
+    english: "paint, purr",
   },
   {
     infinitive: "melde",
     present: "melder",
     past: "meldte",
     "present-perfect": "har meldt",
-    english: "announce, report"
+    english: "announce, report",
   },
   {
     infinitive: "mene",
     present: "mener",
     past: "mente",
     "present-perfect": "har ment",
-    english: "think, be of the opinion"
+    english: "think, be of the opinion",
   },
   {
     infinitive: "merke",
     present: "merker",
     past: "merket, merka",
     "present-perfect": "har merket, har merka",
-    english: "mark"
+    english: "mark",
   },
   {
     infinitive: "misbruke",
     present: "misbruker",
     past: "misbrukte",
     "present-perfect": "har misbrukt",
-    english: "misuse, abuse"
+    english: "misuse, abuse",
   },
   {
     infinitive: "mislike",
     present: "misliker",
     past: "mislikte",
     "present-perfect": "har mislikt",
-    english: "dislike"
+    english: "dislike",
   },
   {
     infinitive: "motta",
     present: "mottar",
     past: "mottok",
     "present-perfect": "har mottatt",
-    english: "receive"
+    english: "receive",
   },
   {
     infinitive: "møte",
     present: "møter",
     past: "møtte",
     "present-perfect": "har møtt",
-    english: "meet"
+    english: "meet",
   },
   {
     infinitive: "måtte",
     present: "må",
     past: "måtte",
     "present-perfect": "har måttet",
-    english: "have to, be obliged to"
+    english: "have to, be obliged to",
   },
   {
     infinitive: "nyte",
     present: "nyter",
     past: "nøt",
     "present-perfect": "har nytt",
-    english: "enjoy"
+    english: "enjoy",
   },
   {
     infinitive: "pipe",
     present: "piper",
     past: "pep",
     "present-perfect": "har pepet",
-    english: "whistle, pipe"
+    english: "whistle, pipe",
   },
   {
     infinitive: "prøve",
     present: "prøver",
     past: "prøvde",
     "present-perfect": "har prøvd",
-    english: "try, attempt"
+    english: "try, attempt",
   },
   {
     infinitive: "reise",
     present: "reiser",
     past: "reiste",
     "present-perfect": "har reist",
-    english: "travel, raise"
+    english: "travel, raise",
   },
   {
     infinitive: "rekke",
     present: "rekker",
     past: "rakk",
     "present-perfect": "har rukket",
-    english: "reach, be enough"
+    english: "reach, be enough",
   },
   {
     infinitive: "rekke",
     present: "rekker",
     past: "rakte",
     "present-perfect": "har rakt",
-    english: "stretch"
+    english: "stretch",
   },
   {
     infinitive: "ri",
     present: "rir",
     past: "red, rei",
     "present-perfect": "har ridd",
-    english: "ride (horse)"
+    english: "ride (horse)",
   },
   {
     infinitive: "rive",
     present: "river",
     past: "rev, reiv",
     "present-perfect": "har revet",
-    english: "tear apart"
+    english: "tear apart",
   },
   {
     infinitive: "ryke",
     present: "ryker",
     past: "røk",
     "present-perfect": "har røket",
-    english: "send out smoke, steam"
+    english: "send out smoke, steam",
   },
   {
     infinitive: "røyke",
     present: "røyker",
     past: "røykte",
     "present-perfect": "har røykt",
-    english: "smoke (a cigarette)"
+    english: "smoke (a cigarette)",
   },
   {
     infinitive: "se",
     present: "ser",
     past: "så",
     "present-perfect": "har sett",
-    english: "see"
+    english: "see",
   },
   {
     infinitive: "selge",
     present: "selger",
     past: "solgte",
     "present-perfect": "har solgt",
-    english: "sell"
+    english: "sell",
   },
   {
     infinitive: "sende",
     present: "sender",
     past: "sendte",
     "present-perfect": "har sendt",
-    english: "send"
+    english: "send",
   },
   {
     infinitive: "sette",
     present: "setter",
     past: "satte",
     "present-perfect": "har satt",
-    english: "set, place"
+    english: "set, place",
   },
   {
     infinitive: "si",
     present: "sier",
     past: "sa",
     "present-perfect": "har sagt",
-    english: "say, tell"
+    english: "say, tell",
   },
   {
     infinitive: "sige",
     present: "siger",
     past: "seig",
     "present-perfect": "har seget",
-    english: "sink"
+    english: "sink",
   },
   {
     infinitive: "sitte",
     present: "sitter",
     past: "satt",
     "present-perfect": "har sittet",
-    english: "sit"
+    english: "sit",
   },
   {
     infinitive: "skje",
     present: "skjer",
     past: "skjedde",
     "present-perfect": "har skjedd",
-    english: "happen"
+    english: "happen",
   },
   {
     infinitive: "skjelve",
     present: "skjelver",
     past: "skalv",
     "present-perfect": "har skjelvet",
-    english: "sjake, tremble"
+    english: "sjake, tremble",
   },
   {
     infinitive: "skjære",
     present: "skjærer",
     past: "skar",
     "present-perfect": "har skåret",
-    english: "cut"
+    english: "cut",
   },
   {
     infinitive: "skli",
     present: "sklir",
     past: "sklei, sklidde",
     "present-perfect": "har sklidd",
-    english: "slide"
+    english: "slide",
   },
   {
     infinitive: "skrike",
     present: "skriker",
     past: "skrek, skreik",
     "present-perfect": "har skreket",
-    english: "scream"
+    english: "scream",
   },
   {
     infinitive: "skrive",
     present: "skriver",
     past: "skrev, skreiv",
     "present-perfect": "har skrevet",
-    english: "write"
+    english: "write",
   },
   {
     infinitive: "skulle",
     present: "skal",
     past: "skulle",
     "present-perfect": "har skullet",
-    english: "should, shall"
+    english: "should, shall",
   },
   {
     infinitive: "skvette",
     present: "skvetter",
     past: "skvatt",
     "present-perfect": "har skvettet",
-    english: "start suddenly, splash"
+    english: "start suddenly, splash",
   },
   {
     infinitive: "skyte",
     present: "skyter",
     past: "skjøt",
     "present-perfect": "har skutt",
-    english: "shoot"
+    english: "shoot",
   },
   {
     infinitive: "skyve",
     present: "skyver",
     past: "skjøv",
     "present-perfect": "har skjøvet",
-    english: "shove"
+    english: "shove",
   },
   {
     infinitive: "slippe",
     present: "slipper",
     past: "slapp",
     "present-perfect": "har sloppet",
-    english: "let go"
+    english: "let go",
   },
   {
     infinitive: "slite",
     present: "sliter",
     past: "slet, sleit",
     "present-perfect": "har slitt",
-    english: "toil, wear out"
+    english: "toil, wear out",
   },
   {
     infinitive: "slå",
     present: "slår",
     past: "slo",
     "present-perfect": "har slått",
-    english: "hit, strike"
+    english: "hit, strike",
   },
   {
     infinitive: "slåss",
     present: "slåss",
     past: "sloss",
     "present-perfect": "har slåss",
-    english: "fight"
+    english: "fight",
   },
   {
     infinitive: "smøre",
     present: "smører",
     past: "smurte",
     "present-perfect": "har smurt",
-    english: "butter, smear"
+    english: "butter, smear",
   },
   {
     infinitive: "sove",
     present: "sover",
     past: "sov",
     "present-perfect": "har sovet",
-    english: "sleep"
+    english: "sleep",
   },
   {
     infinitive: "sprekke",
     present: "sprekker",
     past: "sprakk",
     "present-perfect": "har sprukket",
-    english: "burst, split"
+    english: "burst, split",
   },
   {
     infinitive: "springe",
     present: "springer",
     past: "sprang",
     "present-perfect": "har sprunget",
-    english: "run"
+    english: "run",
   },
   {
     infinitive: "spørre",
     present: "spør",
     past: "spurte",
     "present-perfect": "har spurt",
-    english: "ask"
+    english: "ask",
   },
   {
     infinitive: "stige",
     present: "stiger",
     past: "steg",
     "present-perfect": "har steget",
-    english: "climb"
+    english: "climb",
   },
   {
     infinitive: "stikke",
     present: "stikker",
     past: "stakk",
     "present-perfect": "har stukket",
-    english: "stick, stab, leave (slang)"
+    english: "stick, stab, leave (slang)",
   },
   {
     infinitive: "stjele",
     present: "stjeler",
     past: "stjal",
     "present-perfect": "har stålet",
-    english: "steal"
+    english: "steal",
   },
   {
     infinitive: "stryke",
     present: "stryker",
     past: "strøk",
     "present-perfect": "har strøket",
-    english: "strike, iron, remove, fail"
+    english: "strike, iron, remove, fail",
   },
   {
     infinitive: "stå",
     present: "står",
     past: "stod",
     "present-perfect": "har stått",
-    english: "stand, stand up"
+    english: "stand, stand up",
   },
   {
     infinitive: "svi",
     present: "svir",
     past: "svidde, svei",
     "present-perfect": "har svidd",
-    english: "burn, suffer"
+    english: "burn, suffer",
   },
   {
     infinitive: "svike",
     present: "sviker",
     past: "svek, sveik",
     "present-perfect": "har sveket",
-    english: "betray, disappoint"
+    english: "betray, disappoint",
   },
   {
     infinitive: "synes",
     present: "synes, syns",
     past: "syntes",
     "present-perfect": "har synes, har syns",
-    english: "seem, think, be visible"
+    english: "seem, think, be visible",
   },
   {
     infinitive: "synge",
     present: "synger",
     past: "sang",
     "present-perfect": "har sunget",
-    english: "sing"
+    english: "sing",
   },
   {
     infinitive: "synke",
     present: "synker",
     past: "sank",
     "present-perfect": "har sunket",
-    english: "sink"
+    english: "sink",
   },
   {
     infinitive: "søke",
     present: "søker",
     past: "søkte",
     "present-perfect": "har søkt",
-    english: "seek"
+    english: "seek",
   },
   {
     infinitive: "ta",
     present: "tar",
     past: "tok",
     "present-perfect": "har tatt",
-    english: "take"
+    english: "take",
   },
   {
     infinitive: "telle",
     present: "teller",
     past: "talte",
     "present-perfect": "har talt",
-    english: "count"
+    english: "count",
   },
   {
     infinitive: "tenke",
     present: "tenker",
     past: "tenkte",
     "present-perfect": "har tenkt",
-    english: "think, intend"
+    english: "think, intend",
   },
   {
     infinitive: "tigge",
     present: "tigger",
     past: "tagg",
     "present-perfect": "har tigget",
-    english: "beg, implore"
+    english: "beg, implore",
   },
   {
     infinitive: "tørre",
     present: "tør",
     past: "turte",
     "present-perfect": "har turt",
-    english: "dare"
+    english: "dare",
   },
   {
     infinitive: "treffe",
     present: "treffer",
     past: "traff",
     "present-perfect": "har truffet",
-    english: "meet, hit"
+    english: "meet, hit",
   },
   {
     infinitive: "trekke",
     present: "trekker",
     past: "trakk",
     "present-perfect": "har trukket",
-    english: "drag, pull"
+    english: "drag, pull",
   },
   {
     infinitive: "trives",
     present: "trives",
     past: "trivdes",
     "present-perfect": "har trives",
-    english: "enjoy, thrive"
+    english: "enjoy, thrive",
   },
   {
     infinitive: "tro",
     present: "tror",
     past: "trodde",
     "present-perfect": "har trodd",
-    english: "believe"
+    english: "believe",
   },
   {
     infinitive: "tvile",
     present: "tviler",
     past: "tvilte",
     "present-perfect": "har tvilt",
-    english: "doubt"
+    english: "doubt",
   },
   {
     infinitive: "tvinge",
     present: "tvinger",
     past: "tvang",
     "present-perfect": "har tvunget",
-    english: "force"
+    english: "force",
   },
   {
     infinitive: "velge",
     present: "velger",
     past: "valgte",
     "present-perfect": "har valgt",
-    english: "choose, elect"
+    english: "choose, elect",
   },
   {
     infinitive: "vente",
     present: "venter",
     past: "ventet",
     "present-perfect": "har ventet",
-    english: "wait, expect"
+    english: "wait, expect",
   },
   {
     infinitive: "ville",
     present: "vil",
     past: "ville",
     "present-perfect": "har villet",
-    english: "want to, will"
+    english: "want to, will",
   },
   {
     infinitive: "vinne",
     present: "vinner",
     past: "vant",
     "present-perfect": "har vunnet",
-    english: "win, gain"
+    english: "win, gain",
   },
   {
     infinitive: "vise",
     present: "viser",
     past: "viste",
     "present-perfect": "har vist",
-    english: "show"
+    english: "show",
   },
   {
     infinitive: "vite",
     present: "vet",
     past: "visste",
     "present-perfect": "har visst",
-    english: "know (fact)"
+    english: "know (fact)",
   },
   {
     infinitive: "være",
     present: "er",
     past: "var",
     "present-perfect": "har vært",
-    english: "be, exist"
+    english: "be, exist",
   },
   {
     infinitive: "ønske",
     present: "ønsker",
     past: "ønsket, ønska",
     "present-perfect": "har ønsket, har ønska",
-    english: "wish, desire"
+    english: "wish, desire",
   },
   {
     infinitive: "åpne",
     present: "åpner",
     past: "åpnet, åpna",
     "present-perfect": "har åpnet, har åpna",
-    english: "open"
-  }
+    english: "open",
+  },
 ];
 
-export default data;
+export const data_json = {
+  angre: {
+    infinitive: "angre",
+    present: "angrer",
+    past: "angret, angra",
+    "present-perfect": "har angret, har angra",
+    english: "regret",
+  },
+  arbeide: {
+    infinitive: "arbeide",
+    present: "arbeider",
+    past: "arbeidet",
+    "present-perfect": "har arbeidet",
+    english: "work",
+  },
+  arrangere: {
+    infinitive: "arrangere",
+    present: "arrangerer",
+    past: "arrangerte",
+    "present-perfect": "har arrangert",
+    english: "arrange",
+  },
+  arve: {
+    infinitive: "arve",
+    present: "arver",
+    past: "arvet, arva",
+    "present-perfect": "har arvet, har arva",
+    english: "inherit",
+  },
+  be: {
+    infinitive: "be",
+    present: "ber",
+    past: "ba",
+    "present-perfect": "har bedt",
+    english: "ask, request",
+  },
+  begrave: {
+    infinitive: "begrave",
+    present: "begraver",
+    past: "begravde",
+    "present-perfect": "har begravd",
+    english: "bury",
+  },
+  begynne: {
+    infinitive: "begynne",
+    present: "begynner",
+    past: "begynte",
+    "present-perfect": "har begynt",
+    english: "begin",
+  },
+  behandle: {
+    infinitive: "behandle",
+    present: "behandler",
+    past: "behandlet, behandla",
+    "present-perfect": "har behandlet, har behandla",
+    english: "handle, manage",
+  },
+  beholde: {
+    infinitive: "beholde",
+    present: "beholder",
+    past: "beholdt",
+    "present-perfect": "har beholdt",
+    english: "retain, keep",
+  },
+  bestemme: {
+    infinitive: "bestemme",
+    present: "bestemmer",
+    past: "bestemte",
+    "present-perfect": "har bestemt",
+    english: "decide",
+  },
+  bestille: {
+    infinitive: "bestille",
+    present: "bestiller",
+    past: "bestilte",
+    "present-perfect": "har bestilt",
+    english: "order",
+  },
+  besøke: {
+    infinitive: "besøke",
+    present: "besøker",
+    past: "besøkte",
+    "present-perfect": "har besøkt",
+    english: "visit",
+  },
+  betale: {
+    infinitive: "betale",
+    present: "betaler",
+    past: "betalte",
+    "present-perfect": "har betalt",
+    english: "pay",
+  },
+  betrakte: {
+    infinitive: "betrakte",
+    present: "betrakter",
+    past: "betraktet, betrakta",
+    "present-perfect": "har betraktet, har betrakta",
+    english: "view, regard",
+  },
+  bety: {
+    infinitive: "bety",
+    present: "betyr",
+    past: "betydde",
+    "present-perfect": "har betydd",
+    english: "mean, signify",
+  },
+  bevare: {
+    infinitive: "bevare",
+    present: "bevarer",
+    past: "bevarte",
+    "present-perfect": "har bevart",
+    english: "save, maintain",
+  },
+  bidra: {
+    infinitive: "bidra",
+    present: "bidrar",
+    past: "bidro",
+    "present-perfect": "har bidratt",
+    english: "contribute",
+  },
+  binde: {
+    infinitive: "binde",
+    present: "binder",
+    past: "bandt",
+    "present-perfect": "har bundet",
+    english: "bind",
+  },
+  bite: {
+    infinitive: "bite",
+    present: "biter",
+    past: "bet, beit",
+    "present-perfect": "har bitt",
+    english: "bite",
+  },
+  blande: {
+    infinitive: "blande",
+    present: "blander",
+    past: "blandet, blanda",
+    "present-perfect": "har blandet, har blanda",
+    english: "blend, mix",
+  },
+  bli: {
+    infinitive: "bli",
+    present: "blir",
+    past: "ble",
+    "present-perfect": "har blitt",
+    english: "remain, become",
+  },
+  bo: {
+    infinitive: "bo",
+    present: "bor",
+    past: "bodde",
+    "present-perfect": "har bodd",
+    english: "to live (location)",
+  },
+  bre: {
+    infinitive: "bre",
+    present: "brer",
+    past: "bredte",
+    "present-perfect": "har bredt",
+    english: "spread",
+  },
+  brekke: {
+    infinitive: "brekke",
+    present: "brekker",
+    past: "brakk",
+    "present-perfect": "har brukket",
+    english: "break",
+  },
+  "brenne (opp)": {
+    infinitive: "brenne (opp)",
+    present: "brenner (opp)",
+    past: "brant (opp)",
+    "present-perfect": "har brant (opp)",
+    english: "burn up",
+  },
+  brenne: {
+    infinitive: "brenne",
+    present: "brenner",
+    past: "brente",
+    "present-perfect": "har brent",
+    english: "set fire to",
+  },
+  bringe: {
+    infinitive: "bringe",
+    present: "bringer",
+    past: "brakte",
+    "present-perfect": "har brakt",
+    english: "bring",
+  },
+  bruke: {
+    infinitive: "bruke",
+    present: "bruker",
+    past: "brukte",
+    "present-perfect": "har brukt",
+    english: "use",
+  },
+  bryte: {
+    infinitive: "bryte",
+    present: "bryter",
+    past: "brøt",
+    "present-perfect": "har brutt",
+    english: "break",
+  },
+  burde: {
+    infinitive: "burde",
+    present: "bør",
+    past: "burde",
+    "present-perfect": "burdet",
+    english: "should",
+  },
+  by: {
+    infinitive: "by",
+    present: "byr",
+    past: "bydde, bød",
+    "present-perfect": "har bydd, har budt",
+    english: "bid, command",
+  },
+  bygge: {
+    infinitive: "bygge",
+    present: "bygger",
+    past: "bygde",
+    "present-perfect": "har bygd",
+    english: "build",
+  },
+  bære: {
+    infinitive: "bære",
+    present: "bærer",
+    past: "bar",
+    "present-perfect": "har båret",
+    english: "bear, carry",
+  },
+  bøye: {
+    infinitive: "bøye",
+    present: "bøyer",
+    past: "bøyde",
+    "present-perfect": "har bøyd",
+    english: "bend, conjugate",
+  },
+  danne: {
+    infinitive: "danne",
+    present: "danner",
+    past: "dannet, danna",
+    "present-perfect": "har dannet, har danna",
+    english: "form, create",
+  },
+  danse: {
+    infinitive: "danse",
+    present: "danser",
+    past: "danset, dansa",
+    "present-perfect": "har danset, har dansa",
+    english: "dance",
+  },
+  dekke: {
+    infinitive: "dekke",
+    present: "dekker",
+    past: "dekket, dekka",
+    "present-perfect": "har dekket, har dekka",
+    english: "cover, set",
+  },
+  dele: {
+    infinitive: "dele",
+    present: "deler",
+    past: "delte",
+    "present-perfect": "har delt",
+    english: "divide, share",
+  },
+  dra: {
+    infinitive: "dra",
+    present: "drar",
+    past: "dro",
+    "present-perfect": "har dradd, har dratt",
+    english: "drag, travel",
+  },
+  drepe: {
+    infinitive: "drepe",
+    present: "dreper",
+    past: "drepte",
+    "present-perfect": "har drept",
+    english: "kill",
+  },
+  drikke: {
+    infinitive: "drikke",
+    present: "drikker",
+    past: "drakk",
+    "present-perfect": "har drukket",
+    english: "drink",
+  },
+  drive: {
+    infinitive: "drive",
+    present: "driver",
+    past: "drev, dreiv",
+    "present-perfect": "har drevet",
+    english: "operate, run",
+  },
+  dyrke: {
+    infinitive: "dyrke",
+    present: "dyrker",
+    past: "dyrket, dyrka",
+    "present-perfect": "har dyrket, har dyrka",
+    english: "cultivate, raise",
+  },
+  dø: {
+    infinitive: "dø",
+    present: "dør",
+    past: "døde",
+    "present-perfect": "har dødd",
+    english: "die",
+  },
+  døpe: {
+    infinitive: "døpe",
+    present: "døper",
+    past: "døpte",
+    "present-perfect": "har døpt",
+    english: "baptize",
+  },
+  eie: {
+    infinitive: "eie",
+    present: "eier",
+    past: "eide",
+    "present-perfect": "har eid",
+    english: "own",
+  },
+  elske: {
+    infinitive: "elske",
+    present: "elsker",
+    past: "elsket",
+    "present-perfect": "har elsket",
+    english: "love",
+  },
+  ete: {
+    infinitive: "ete",
+    present: "eter",
+    past: "åt",
+    "present-perfect": "har ett",
+    english: "eat (slang)",
+  },
+  falle: {
+    infinitive: "falle",
+    present: "faller",
+    past: "falt",
+    "present-perfect": "har falt",
+    english: "fall",
+  },
+  fare: {
+    infinitive: "fare",
+    present: "farer",
+    past: "for",
+    "present-perfect": "har faret",
+    english: "fare, travel",
+  },
+  finne: {
+    infinitive: "finne",
+    present: "finner",
+    past: "fant",
+    "present-perfect": "har funnet",
+    english: "find",
+  },
+  finnes: {
+    infinitive: "finnes",
+    present: "finnes, fins",
+    past: "fantes",
+    "present-perfect": "har fantes",
+    english: "be found, exist",
+  },
+  fly: {
+    infinitive: "fly",
+    present: "flyr",
+    past: "fløy",
+    "present-perfect": "har fløyet, har flydd",
+    english: "fly",
+  },
+  flyte: {
+    infinitive: "flyte",
+    present: "flyter",
+    past: "fløt",
+    "present-perfect": "har flytt",
+    english: "flow",
+  },
+  flytte: {
+    infinitive: "flytte",
+    present: "flytter",
+    past: "flyttet, flytta",
+    "present-perfect": "har flyttet, har flytta",
+    english: "move",
+  },
+  forberede: {
+    infinitive: "forberede",
+    present: "forbereder",
+    past: "forberedte",
+    "present-perfect": "har forberedt",
+    english: "prepare",
+  },
+  forby: {
+    infinitive: "forby",
+    present: "forbyr",
+    past: "forbød",
+    "present-perfect": "har forbudt",
+    english: "forbid, prohibit",
+  },
+  forene: {
+    infinitive: "forene",
+    present: "forener",
+    past: "forente",
+    "present-perfect": "har forent",
+    english: "unite",
+  },
+  foretrekke: {
+    infinitive: "foretrekke",
+    present: "foretrekker",
+    past: "foretrakk",
+    "present-perfect": "har foretrukket",
+    english: "prefer",
+  },
+  forklare: {
+    infinitive: "forklare",
+    present: "forklarer",
+    past: "forklarte",
+    "present-perfect": "har forklart",
+    english: "explain",
+  },
+  forlate: {
+    infinitive: "forlate",
+    present: "forlater",
+    past: "forlot",
+    "present-perfect": "har forlatt",
+    english: "forsake, leave",
+  },
+  "forlove (seg)": {
+    infinitive: "forlove (seg)",
+    present: "forlover (seg)",
+    past: "forlovet (seg), forlova (seg)",
+    "present-perfect": "har forlovet (seg), har forlova (seg)",
+    english: "become engaged",
+  },
+  fornemme: {
+    infinitive: "fornemme",
+    present: "fornemmer",
+    past: "fornemmet",
+    "present-perfect": "har fornemmet",
+    english: "perceive, notice",
+  },
+  forstå: {
+    infinitive: "forstå",
+    present: "forstår",
+    past: "forstod",
+    "present-perfect": "har forstått",
+    english: "understand",
+  },
+  forsvinne: {
+    infinitive: "forsvinne",
+    present: "forsvinner",
+    past: "forsvant",
+    "present-perfect": "har forsvunnet",
+    english: "disappear",
+  },
+  forsyne: {
+    infinitive: "forsyne",
+    present: "forsyner",
+    past: "forsynte",
+    "present-perfect": "har forsynt",
+    english: "supply, provide",
+  },
+  fortelle: {
+    infinitive: "fortelle",
+    present: "forteller",
+    past: "fortalte",
+    "present-perfect": "har fortalt",
+    english: "tell, explain",
+  },
+  fryse: {
+    infinitive: "fryse",
+    present: "fryser",
+    past: "frøs",
+    "present-perfect": "har frosset",
+    english: "freeze, feel cold",
+  },
+  følge: {
+    infinitive: "følge",
+    present: "følger",
+    past: "fulgte",
+    "present-perfect": "har fulgt",
+    english: "follow",
+  },
+  få: {
+    infinitive: "få",
+    present: "får",
+    past: "fikk",
+    "present-perfect": "har fått",
+    english: "get, receive",
+  },
+  gi: {
+    infinitive: "gi",
+    present: "gir",
+    past: "gav",
+    "present-perfect": "har gitt",
+    english: "give",
+  },
+  gidde: {
+    infinitive: "gidde",
+    present: "gidder",
+    past: "gadd",
+    "present-perfect": "har giddet",
+    english: "manage to do something",
+  },
+  gjelde: {
+    infinitive: "gjelde",
+    present: "gjelder",
+    past: "gjaldt",
+    "present-perfect": "har gjeldt",
+    english: "be in force, apply",
+  },
+  gjøre: {
+    infinitive: "gjøre",
+    present: "gjør",
+    past: "gjorde",
+    "present-perfect": "har gjort",
+    english: "do",
+  },
+  glede: {
+    infinitive: "glede",
+    present: "gleder",
+    past: "gledet",
+    "present-perfect": "har gledet",
+    english: "please, make happy",
+  },
+  glemme: {
+    infinitive: "glemme",
+    present: "glemmer",
+    past: "glemte",
+    "present-perfect": "har glemt",
+    english: "forget",
+  },
+  gli: {
+    infinitive: "gli",
+    present: "glir",
+    past: "glei",
+    "present-perfect": "har glidd",
+    english: "glide",
+  },
+  glimre: {
+    infinitive: "glimre",
+    present: "glimrer",
+    past: "glimret",
+    "present-perfect": "har glimret",
+    english: "glisten",
+  },
+  gnage: {
+    infinitive: "gnage",
+    present: "gnager",
+    past: "gnog, gnagde",
+    "present-perfect": "har gnagd",
+    english: "gnaw",
+  },
+  gni: {
+    infinitive: "gni",
+    present: "gnir",
+    past: "gned, gnidde, gnei",
+    "present-perfect": "har gnidd",
+    english: "rub",
+  },
+  grave: {
+    infinitive: "grave",
+    present: "graver",
+    past: "gravde",
+    "present-perfect": "har gravd",
+    english: "dig",
+  },
+  "gre (seg)": {
+    infinitive: "gre (seg)",
+    present: "grer (seg)",
+    past: "gredde (seg)",
+    "present-perfect": "har gredd (seg)",
+    english: "comb one's hair",
+  },
+  greie: {
+    infinitive: "greie",
+    present: "greier",
+    past: "greide",
+    "present-perfect": "har greid",
+    english: "manage, deal with",
+  },
+  gripe: {
+    infinitive: "gripe",
+    present: "griper",
+    past: "grep, greip",
+    "present-perfect": "har grepet",
+    english: "grasp, seize",
+  },
+  gråte: {
+    infinitive: "gråte",
+    present: "gråter",
+    past: "gråt",
+    "present-perfect": "har grått",
+    english: "cry, weep",
+  },
+  gå: {
+    infinitive: "gå",
+    present: "går",
+    past: "gikk",
+    "present-perfect": "har gått",
+    english: "go, walk",
+  },
+  ha: {
+    infinitive: "ha",
+    present: "har",
+    past: "hadde",
+    "present-perfect": "har hatt",
+    english: "have",
+  },
+  handle: {
+    infinitive: "handle",
+    present: "handler",
+    past: "handlet, handla",
+    "present-perfect": "har handlet, har handla",
+    english: "act, shop, deal with",
+  },
+  hende: {
+    infinitive: "hende",
+    present: "hender",
+    past: "hendte",
+    "present-perfect": "har hendt",
+    english: "happen",
+  },
+  henge: {
+    infinitive: "henge",
+    present: "henger",
+    past: "hang",
+    "present-perfect": "har hengt",
+    english: "hang, droop",
+  },
+  hente: {
+    infinitive: "hente",
+    present: "henter",
+    past: "hentet, henta",
+    "present-perfect": "har hentet, har henta",
+    english: "fetch, bring",
+  },
+  hete: {
+    infinitive: "hete",
+    present: "heter",
+    past: "het",
+    "present-perfect": "har hett",
+    english: "be named",
+  },
+  heve: {
+    infinitive: "heve",
+    present: "hever",
+    past: "hevet, hevde",
+    "present-perfect": "har hevet, har hevd",
+    english: "raise",
+  },
+  hilse: {
+    infinitive: "hilse",
+    present: "hilser",
+    past: "hilste",
+    "present-perfect": "har hilst",
+    english: "greet",
+  },
+  hjelpe: {
+    infinitive: "hjelpe",
+    present: "hjelper",
+    past: "hjalp",
+    "present-perfect": "har hjulpet",
+    english: "help",
+  },
+  holde: {
+    infinitive: "holde",
+    present: "holder",
+    past: "holdt",
+    "present-perfect": "har holdt",
+    english: "keep, hold",
+  },
+  hoppe: {
+    infinitive: "hoppe",
+    present: "hopper",
+    past: "hoppet, hoppa",
+    "present-perfect": "har hoppet, har hoppa",
+    english: "hop",
+  },
+  huske: {
+    infinitive: "huske",
+    present: "husker",
+    past: "husket",
+    "present-perfect": "har husket",
+    english: "remember",
+  },
+  hvile: {
+    infinitive: "hvile",
+    present: "hviler",
+    past: "hvilte",
+    "present-perfect": "har hvilt",
+    english: "rest",
+  },
+  høre: {
+    infinitive: "høre",
+    present: "hører",
+    past: "hørte",
+    "present-perfect": "har hørt",
+    english: "hear",
+  },
+  håndhilse: {
+    infinitive: "håndhilse",
+    present: "håndhilser",
+    past: "håndhilste",
+    "present-perfect": "har håndhilst",
+    english: "shake hands",
+  },
+  inkludere: {
+    infinitive: "inkludere",
+    present: "inkluderer",
+    past: "inkluderte",
+    "present-perfect": "har inkludert",
+    english: "include",
+  },
+  innføre: {
+    infinitive: "innføre",
+    present: "innfører",
+    past: "innførte",
+    "present-perfect": "har innført",
+    english: "introduce",
+  },
+  interessere: {
+    infinitive: "interessere",
+    present: "interesserer",
+    past: "interesserte",
+    "present-perfect": "har interessert",
+    english: "interest",
+  },
+  invitere: {
+    infinitive: "invitere",
+    present: "inviterer",
+    past: "inviterte",
+    "present-perfect": "har invitert",
+    english: "invite",
+  },
+  jobbe: {
+    infinitive: "jobbe",
+    present: "jobber",
+    past: "jobbet, jobba",
+    "present-perfect": "har jobbet, har jobba",
+    english: "work",
+  },
+  kjempe: {
+    infinitive: "kjempe",
+    present: "kjemper",
+    past: "kjempet, kjempa",
+    "present-perfect": "har kjempet, har kjempa",
+    english: "fight",
+  },
+  kjenne: {
+    infinitive: "kjenne",
+    present: "kjenner",
+    past: "kjente",
+    "present-perfect": "har kjent",
+    english: "know (person, place)",
+  },
+  kjøpe: {
+    infinitive: "kjøpe",
+    present: "kjøper",
+    past: "kjøpte",
+    "present-perfect": "har kjøpt",
+    english: "purchase",
+  },
+  kjøre: {
+    infinitive: "kjøre",
+    present: "kjører",
+    past: "kjørte",
+    "present-perfect": "har kjørt",
+    english: "drive",
+  },
+  klage: {
+    infinitive: "klage",
+    present: "klager",
+    past: "klaget, klaga, klagde",
+    "present-perfect": "har klaget, har klaga, har klagd",
+    english: "complain",
+  },
+  klare: {
+    infinitive: "klare",
+    present: "klarer",
+    past: "klarte",
+    "present-perfect": "har klart",
+    english: "manage",
+  },
+  kle: {
+    infinitive: "kle",
+    present: "kler",
+    past: "kledde",
+    "present-perfect": "har kledd",
+    english: "dress, suit one",
+  },
+  klippe: {
+    infinitive: "klippe",
+    present: "klipper",
+    past: "klippet, klippa",
+    "present-perfect": "har klippet, har klippa",
+    english: "cut",
+  },
+  knekke: {
+    infinitive: "knekke",
+    present: "knekker",
+    past: "knakk",
+    "present-perfect": "har knekt, har knekket",
+    english: "crack, snap",
+  },
+  koke: {
+    infinitive: "koke",
+    present: "koker",
+    past: "kokte",
+    "present-perfect": "har kokt",
+    english: "boil",
+  },
+  komme: {
+    infinitive: "komme",
+    present: "kommer",
+    past: "kom",
+    "present-perfect": "har kommet",
+    english: "come",
+  },
+  kose: {
+    infinitive: "kose",
+    present: "koser",
+    past: "koste, kosa",
+    "present-perfect": "har kost, har kosa",
+    english: "make cozy",
+  },
+  koste: {
+    infinitive: "koste",
+    present: "koster",
+    past: "kostet, kosta",
+    "present-perfect": "har kostet, har kosta",
+    english: "cost, sweep",
+  },
+  kreve: {
+    infinitive: "kreve",
+    present: "krever",
+    past: "krevde",
+    "present-perfect": "har krevd",
+    english: "demand",
+  },
+  kritisere: {
+    infinitive: "kritisere",
+    present: "kritiserer",
+    past: "kritiserte",
+    "present-perfect": "har kritisert",
+    english: "criticize",
+  },
+  krype: {
+    infinitive: "krype",
+    present: "kryper",
+    past: "krøp",
+    "present-perfect": "har krøpet",
+    english: "creep",
+  },
+  kunne: {
+    infinitive: "kunne",
+    present: "kan",
+    past: "kunne",
+    "present-perfect": "har kunnet",
+    english: "be able to",
+  },
+  kvede: {
+    infinitive: "kvede",
+    present: "kveder",
+    past: "kvad",
+    "present-perfect": "har kvedet",
+    english: "chant, sing",
+  },
+  la: {
+    infinitive: "la",
+    present: "lar",
+    past: "lot",
+    "present-perfect": "har latt",
+    english: "allow, let",
+  },
+  lage: {
+    infinitive: "lage",
+    present: "lager",
+    past: "laget, lagde",
+    "present-perfect": "har laget, har lagd",
+    english: "make, create",
+  },
+  late: {
+    infinitive: "late",
+    present: "later",
+    past: "lot",
+    "present-perfect": "har latt",
+    english: "pretend",
+  },
+  le: {
+    infinitive: "le",
+    present: "ler",
+    past: "lo",
+    "present-perfect": "har ledd",
+    english: "laugh",
+  },
+  lede: {
+    infinitive: "lede",
+    present: "leder",
+    past: "ledet",
+    "present-perfect": "har ledet",
+    english: "lead",
+  },
+  lege: {
+    infinitive: "lege",
+    present: "leger",
+    past: "leget",
+    "present-perfect": "har leget",
+    english: "heal, cure",
+  },
+  legge: {
+    infinitive: "legge",
+    present: "legger",
+    past: "la",
+    "present-perfect": "har lagt",
+    english: "lay, place",
+  },
+  leie: {
+    infinitive: "leie",
+    present: "leier",
+    past: "leide",
+    "present-perfect": "har leid",
+    english: "rent",
+  },
+  leke: {
+    infinitive: "leke",
+    present: "leker",
+    past: "lekte",
+    "present-perfect": "har lekt",
+    english: "play",
+  },
+  lekke: {
+    infinitive: "lekke",
+    present: "lekker",
+    past: "lakk",
+    "present-perfect": "har lekket",
+    english: "leak",
+  },
+  lese: {
+    infinitive: "lese",
+    present: "leser",
+    past: "leste",
+    "present-perfect": "har lest",
+    english: "read, study",
+  },
+  leve: {
+    infinitive: "leve",
+    present: "lever",
+    past: "levde",
+    "present-perfect": "har levd",
+    english: "live, be alive",
+  },
+  lide: {
+    infinitive: "lide",
+    present: "lider",
+    past: "led",
+    "present-perfect": "har lidd",
+    english: "suffer",
+  },
+  ligge: {
+    infinitive: "ligge",
+    present: "ligger",
+    past: "lå",
+    "present-perfect": "har ligget",
+    english: "lie",
+  },
+  ligne: {
+    infinitive: "ligne",
+    present: "ligner",
+    past: "lignet, ligna",
+    "present-perfect": "har lignet, har ligna",
+    english: "resemble, look like",
+  },
+  likne: {
+    infinitive: "likne",
+    present: "likner",
+    past: "liknet, likna",
+    "present-perfect": "har liknet, har likna",
+    english: "resemble, look like",
+  },
+  like: {
+    infinitive: "like",
+    present: "liker",
+    past: "likte",
+    "present-perfect": "har likt",
+    english: "like",
+  },
+  love: {
+    infinitive: "love",
+    present: "lover",
+    past: "lovet, lova",
+    "present-perfect": "har lovet, har lova",
+    english: "promise, praise",
+  },
+  lukke: {
+    infinitive: "lukke",
+    present: "lukker",
+    past: "lukket, lukka",
+    "present-perfect": "har lukket, har lukka",
+    english: "shut",
+  },
+  lukte: {
+    infinitive: "lukte",
+    present: "lukter",
+    past: "luktet, lukta",
+    "present-perfect": "har luktet, har lukta",
+    english: "smell",
+  },
+  lure: {
+    infinitive: "lure",
+    present: "lurer",
+    past: "lurte",
+    "present-perfect": "har lurt",
+    english: "wonder, dupe",
+  },
+  lytte: {
+    infinitive: "lytte",
+    present: "lytter",
+    past: "lyttet, lytta",
+    "present-perfect": "har lyttet, har lytta",
+    english: "listen",
+  },
+  lyve: {
+    infinitive: "lyve",
+    present: "lyver",
+    past: "løy",
+    "present-perfect": "har løyet",
+    english: "lie, fib",
+  },
+  lære: {
+    infinitive: "lære",
+    present: "lærer",
+    past: "lærte",
+    "present-perfect": "har lært",
+    english: "learn, teach",
+  },
+  løpe: {
+    infinitive: "løpe",
+    present: "løper",
+    past: "løp",
+    "present-perfect": "har løpt",
+    english: "run",
+  },
+  låne: {
+    infinitive: "låne",
+    present: "låner",
+    past: "lånte",
+    "present-perfect": "har lånt",
+    english: "lend, borrow",
+  },
+  male: {
+    infinitive: "male",
+    present: "maler",
+    past: "malte",
+    "present-perfect": "har malt",
+    english: "paint, purr",
+  },
+  melde: {
+    infinitive: "melde",
+    present: "melder",
+    past: "meldte",
+    "present-perfect": "har meldt",
+    english: "announce, report",
+  },
+  mene: {
+    infinitive: "mene",
+    present: "mener",
+    past: "mente",
+    "present-perfect": "har ment",
+    english: "think, be of the opinion",
+  },
+  merke: {
+    infinitive: "merke",
+    present: "merker",
+    past: "merket, merka",
+    "present-perfect": "har merket, har merka",
+    english: "mark",
+  },
+  misbruke: {
+    infinitive: "misbruke",
+    present: "misbruker",
+    past: "misbrukte",
+    "present-perfect": "har misbrukt",
+    english: "misuse, abuse",
+  },
+  mislike: {
+    infinitive: "mislike",
+    present: "misliker",
+    past: "mislikte",
+    "present-perfect": "har mislikt",
+    english: "dislike",
+  },
+  motta: {
+    infinitive: "motta",
+    present: "mottar",
+    past: "mottok",
+    "present-perfect": "har mottatt",
+    english: "receive",
+  },
+  møte: {
+    infinitive: "møte",
+    present: "møter",
+    past: "møtte",
+    "present-perfect": "har møtt",
+    english: "meet",
+  },
+  måtte: {
+    infinitive: "måtte",
+    present: "må",
+    past: "måtte",
+    "present-perfect": "har måttet",
+    english: "have to, be obliged to",
+  },
+  nyte: {
+    infinitive: "nyte",
+    present: "nyter",
+    past: "nøt",
+    "present-perfect": "har nytt",
+    english: "enjoy",
+  },
+  pipe: {
+    infinitive: "pipe",
+    present: "piper",
+    past: "pep",
+    "present-perfect": "har pepet",
+    english: "whistle, pipe",
+  },
+  prøve: {
+    infinitive: "prøve",
+    present: "prøver",
+    past: "prøvde",
+    "present-perfect": "har prøvd",
+    english: "try, attempt",
+  },
+  reise: {
+    infinitive: "reise",
+    present: "reiser",
+    past: "reiste",
+    "present-perfect": "har reist",
+    english: "travel, raise",
+  },
+  rekke: {
+    infinitive: "rekke",
+    present: "rekker",
+    past: "rakk",
+    "present-perfect": "har rukket",
+    english: "reach, be enough",
+  },
+  ri: {
+    infinitive: "ri",
+    present: "rir",
+    past: "red, rei",
+    "present-perfect": "har ridd",
+    english: "ride (horse)",
+  },
+  rive: {
+    infinitive: "rive",
+    present: "river",
+    past: "rev, reiv",
+    "present-perfect": "har revet",
+    english: "tear apart",
+  },
+  ryke: {
+    infinitive: "ryke",
+    present: "ryker",
+    past: "røk",
+    "present-perfect": "har røket",
+    english: "send out smoke, steam",
+  },
+  røyke: {
+    infinitive: "røyke",
+    present: "røyker",
+    past: "røykte",
+    "present-perfect": "har røykt",
+    english: "smoke (a cigarette)",
+  },
+  se: {
+    infinitive: "se",
+    present: "ser",
+    past: "så",
+    "present-perfect": "har sett",
+    english: "see",
+  },
+  selge: {
+    infinitive: "selge",
+    present: "selger",
+    past: "solgte",
+    "present-perfect": "har solgt",
+    english: "sell",
+  },
+  sende: {
+    infinitive: "sende",
+    present: "sender",
+    past: "sendte",
+    "present-perfect": "har sendt",
+    english: "send",
+  },
+  sette: {
+    infinitive: "sette",
+    present: "setter",
+    past: "satte",
+    "present-perfect": "har satt",
+    english: "set, place",
+  },
+  si: {
+    infinitive: "si",
+    present: "sier",
+    past: "sa",
+    "present-perfect": "har sagt",
+    english: "say, tell",
+  },
+  sige: {
+    infinitive: "sige",
+    present: "siger",
+    past: "seig",
+    "present-perfect": "har seget",
+    english: "sink",
+  },
+  sitte: {
+    infinitive: "sitte",
+    present: "sitter",
+    past: "satt",
+    "present-perfect": "har sittet",
+    english: "sit",
+  },
+  skje: {
+    infinitive: "skje",
+    present: "skjer",
+    past: "skjedde",
+    "present-perfect": "har skjedd",
+    english: "happen",
+  },
+  skjelve: {
+    infinitive: "skjelve",
+    present: "skjelver",
+    past: "skalv",
+    "present-perfect": "har skjelvet",
+    english: "sjake, tremble",
+  },
+  skjære: {
+    infinitive: "skjære",
+    present: "skjærer",
+    past: "skar",
+    "present-perfect": "har skåret",
+    english: "cut",
+  },
+  skli: {
+    infinitive: "skli",
+    present: "sklir",
+    past: "sklei, sklidde",
+    "present-perfect": "har sklidd",
+    english: "slide",
+  },
+  skrike: {
+    infinitive: "skrike",
+    present: "skriker",
+    past: "skrek, skreik",
+    "present-perfect": "har skreket",
+    english: "scream",
+  },
+  skrive: {
+    infinitive: "skrive",
+    present: "skriver",
+    past: "skrev, skreiv",
+    "present-perfect": "har skrevet",
+    english: "write",
+  },
+  skulle: {
+    infinitive: "skulle",
+    present: "skal",
+    past: "skulle",
+    "present-perfect": "har skullet",
+    english: "should, shall",
+  },
+  skvette: {
+    infinitive: "skvette",
+    present: "skvetter",
+    past: "skvatt",
+    "present-perfect": "har skvettet",
+    english: "start suddenly, splash",
+  },
+  skyte: {
+    infinitive: "skyte",
+    present: "skyter",
+    past: "skjøt",
+    "present-perfect": "har skutt",
+    english: "shoot",
+  },
+  skyve: {
+    infinitive: "skyve",
+    present: "skyver",
+    past: "skjøv",
+    "present-perfect": "har skjøvet",
+    english: "shove",
+  },
+  slippe: {
+    infinitive: "slippe",
+    present: "slipper",
+    past: "slapp",
+    "present-perfect": "har sloppet",
+    english: "let go",
+  },
+  slite: {
+    infinitive: "slite",
+    present: "sliter",
+    past: "slet, sleit",
+    "present-perfect": "har slitt",
+    english: "toil, wear out",
+  },
+  slå: {
+    infinitive: "slå",
+    present: "slår",
+    past: "slo",
+    "present-perfect": "har slått",
+    english: "hit, strike",
+  },
+  slåss: {
+    infinitive: "slåss",
+    present: "slåss",
+    past: "sloss",
+    "present-perfect": "har slåss",
+    english: "fight",
+  },
+  smøre: {
+    infinitive: "smøre",
+    present: "smører",
+    past: "smurte",
+    "present-perfect": "har smurt",
+    english: "butter, smear",
+  },
+  sove: {
+    infinitive: "sove",
+    present: "sover",
+    past: "sov",
+    "present-perfect": "har sovet",
+    english: "sleep",
+  },
+  sprekke: {
+    infinitive: "sprekke",
+    present: "sprekker",
+    past: "sprakk",
+    "present-perfect": "har sprukket",
+    english: "burst, split",
+  },
+  springe: {
+    infinitive: "springe",
+    present: "springer",
+    past: "sprang",
+    "present-perfect": "har sprunget",
+    english: "run",
+  },
+  spørre: {
+    infinitive: "spørre",
+    present: "spør",
+    past: "spurte",
+    "present-perfect": "har spurt",
+    english: "ask",
+  },
+  stige: {
+    infinitive: "stige",
+    present: "stiger",
+    past: "steg",
+    "present-perfect": "har steget",
+    english: "climb",
+  },
+  stikke: {
+    infinitive: "stikke",
+    present: "stikker",
+    past: "stakk",
+    "present-perfect": "har stukket",
+    english: "stick, stab, leave (slang)",
+  },
+  stjele: {
+    infinitive: "stjele",
+    present: "stjeler",
+    past: "stjal",
+    "present-perfect": "har stålet",
+    english: "steal",
+  },
+  stryke: {
+    infinitive: "stryke",
+    present: "stryker",
+    past: "strøk",
+    "present-perfect": "har strøket",
+    english: "strike, iron, remove, fail",
+  },
+  stå: {
+    infinitive: "stå",
+    present: "står",
+    past: "stod",
+    "present-perfect": "har stått",
+    english: "stand, stand up",
+  },
+  svi: {
+    infinitive: "svi",
+    present: "svir",
+    past: "svidde, svei",
+    "present-perfect": "har svidd",
+    english: "burn, suffer",
+  },
+  svike: {
+    infinitive: "svike",
+    present: "sviker",
+    past: "svek, sveik",
+    "present-perfect": "har sveket",
+    english: "betray, disappoint",
+  },
+  synes: {
+    infinitive: "synes",
+    present: "synes, syns",
+    past: "syntes",
+    "present-perfect": "har synes, har syns",
+    english: "seem, think, be visible",
+  },
+  synge: {
+    infinitive: "synge",
+    present: "synger",
+    past: "sang",
+    "present-perfect": "har sunget",
+    english: "sing",
+  },
+  synke: {
+    infinitive: "synke",
+    present: "synker",
+    past: "sank",
+    "present-perfect": "har sunket",
+    english: "sink",
+  },
+  søke: {
+    infinitive: "søke",
+    present: "søker",
+    past: "søkte",
+    "present-perfect": "har søkt",
+    english: "seek",
+  },
+  ta: {
+    infinitive: "ta",
+    present: "tar",
+    past: "tok",
+    "present-perfect": "har tatt",
+    english: "take",
+  },
+  telle: {
+    infinitive: "telle",
+    present: "teller",
+    past: "talte",
+    "present-perfect": "har talt",
+    english: "count",
+  },
+  tenke: {
+    infinitive: "tenke",
+    present: "tenker",
+    past: "tenkte",
+    "present-perfect": "har tenkt",
+    english: "think, intend",
+  },
+  tigge: {
+    infinitive: "tigge",
+    present: "tigger",
+    past: "tagg",
+    "present-perfect": "har tigget",
+    english: "beg, implore",
+  },
+  tørre: {
+    infinitive: "tørre",
+    present: "tør",
+    past: "turte",
+    "present-perfect": "har turt",
+    english: "dare",
+  },
+  treffe: {
+    infinitive: "treffe",
+    present: "treffer",
+    past: "traff",
+    "present-perfect": "har truffet",
+    english: "meet, hit",
+  },
+  trekke: {
+    infinitive: "trekke",
+    present: "trekker",
+    past: "trakk",
+    "present-perfect": "har trukket",
+    english: "drag, pull",
+  },
+  trives: {
+    infinitive: "trives",
+    present: "trives",
+    past: "trivdes",
+    "present-perfect": "har trives",
+    english: "enjoy, thrive",
+  },
+  tro: {
+    infinitive: "tro",
+    present: "tror",
+    past: "trodde",
+    "present-perfect": "har trodd",
+    english: "believe",
+  },
+  tvile: {
+    infinitive: "tvile",
+    present: "tviler",
+    past: "tvilte",
+    "present-perfect": "har tvilt",
+    english: "doubt",
+  },
+  tvinge: {
+    infinitive: "tvinge",
+    present: "tvinger",
+    past: "tvang",
+    "present-perfect": "har tvunget",
+    english: "force",
+  },
+  velge: {
+    infinitive: "velge",
+    present: "velger",
+    past: "valgte",
+    "present-perfect": "har valgt",
+    english: "choose, elect",
+  },
+  vente: {
+    infinitive: "vente",
+    present: "venter",
+    past: "ventet",
+    "present-perfect": "har ventet",
+    english: "wait, expect",
+  },
+  ville: {
+    infinitive: "ville",
+    present: "vil",
+    past: "ville",
+    "present-perfect": "har villet",
+    english: "want to, will",
+  },
+  vinne: {
+    infinitive: "vinne",
+    present: "vinner",
+    past: "vant",
+    "present-perfect": "har vunnet",
+    english: "win, gain",
+  },
+  vise: {
+    infinitive: "vise",
+    present: "viser",
+    past: "viste",
+    "present-perfect": "har vist",
+    english: "show",
+  },
+  vite: {
+    infinitive: "vite",
+    present: "vet",
+    past: "visste",
+    "present-perfect": "har visst",
+    english: "know (fact)",
+  },
+  være: {
+    infinitive: "være",
+    present: "er",
+    past: "var",
+    "present-perfect": "har vært",
+    english: "be, exist",
+  },
+  ønske: {
+    infinitive: "ønske",
+    present: "ønsker",
+    past: "ønsket, ønska",
+    "present-perfect": "har ønsket, har ønska",
+    english: "wish, desire",
+  },
+  åpne: {
+    infinitive: "åpne",
+    present: "åpner",
+    past: "åpnet, åpna",
+    "present-perfect": "har åpnet, har åpna",
+    english: "open",
+  },
+};
