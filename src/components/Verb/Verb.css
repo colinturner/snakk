@@ -23,19 +23,3 @@
   margin: "5px";
   width: "80px";
 }
-
-/* small screen */
-@media screen and (max-width: 800px) {
-  .verb {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-/* big screen */
-@media screen and (min-width: 800px) {
-  .verb {
-    display: flex;
-    flex-direction: row;
-  }
-}

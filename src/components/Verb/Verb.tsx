@@ -7,16 +7,29 @@ import { VerbSolution, MarkedSolution } from "../../interfaces/interfaces";
 import {
   getAttemptAndCorrectionElements,
   focusFirstInputField,
-  focusFirstErrorInputField
+  focusFirstErrorInputField,
 } from "../../tools";
 import {
   COMPLETE_SOLUTION,
   PARTIAL_SOLUTION,
   INCORRECT_SOLUTION,
   ENTER_KEY,
-  TAB_KEY
+  TAB_KEY,
 } from "../../constants/variables";
 import useMultiKeyPress from "../../tools/useMultiKeyPress";
+import { theme } from "../../theme";
+import styled from "styled-components";
+
+const VerbWrapper = styled.div`
+  @media ${theme.device.mobile} {
+    display: flex;
+    flex-direction: column;
+  }
+  @media ${theme.device.tablet} {
+    display: flex;
+    flex-direction: row;
+  }
+`;
 interface VerbProps {
   answer: VerbSolution;
   loadNextVerb: () => void;
@@ -45,13 +58,13 @@ export default function Verb(props: VerbProps) {
       return;
     }
     if (
-      (all_input_categories as (keyof VerbSolution)[]).every(category =>
+      (all_input_categories as (keyof VerbSolution)[]).every((category) =>
         checkAnswer(category)
       )
     ) {
       prepareNextVerb(e);
     } else {
-      (all_input_categories as (keyof VerbSolution)[]).forEach(category =>
+      (all_input_categories as (keyof VerbSolution)[]).forEach((category) =>
         checkAnswer(category)
       );
       focusFirstErrorInputField(e);
@@ -80,7 +93,7 @@ export default function Verb(props: VerbProps) {
   }
 
   return (
-    <div className="verb">
+    <VerbWrapper>
       <Infinitive text={accepted_answer.infinitive} />
       <InputBox header="Present" />
       <InputBox header="Past" />
@@ -94,7 +107,7 @@ export default function Verb(props: VerbProps) {
       >
         Submit
       </Button>
-    </div>
+    </VerbWrapper>
   );
 }
 
@@ -138,7 +151,7 @@ function markCorrect({ category }: MarkingProps): boolean {
 /** Adds a 'partially correct' class to an element */
 function markPartiallyCorrect({
   accepted_answer,
-  category
+  category,
 }: MarkingProps): boolean {
   const { attempt, correction } = getAttemptAndCorrectionElements({ category });
   attempt.className = "partially-correct_attempt";
@@ -157,11 +170,11 @@ export function checkMultiplePossibleSolutions(
   props: CheckMultiplePossibleSolutionsProps
 ): MarkedSolution {
   const { attempt, answer } = props;
-  let att = attempt.split(",").map(phrase => phrase.trim());
-  let ans = answer.split(",").map(phrase => phrase.trim());
+  let att = attempt.split(",").map((phrase) => phrase.trim());
+  let ans = answer.split(",").map((phrase) => phrase.trim());
 
-  return att.every(v => ans.includes(v))
-    ? ans.every(v => att.includes(v))
+  return att.every((v) => ans.includes(v))
+    ? ans.every((v) => att.includes(v))
       ? COMPLETE_SOLUTION
       : PARTIAL_SOLUTION
     : INCORRECT_SOLUTION;

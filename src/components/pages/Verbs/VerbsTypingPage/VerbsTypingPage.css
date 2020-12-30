@@ -15,28 +15,12 @@
   margin-bottom: 20px;
 }
 
-.body-wrapper {
-  display: flex;
-  padding-left: 20px;
-  height: 80vh;
-  margin-top: 20px;
-}
-
 .clean-verb {
   border: thin solid lightgrey;
 }
 
 /* big screen */
 @media screen and (min-width: 800px) {
-  .flag {
-    max-width: 200px;
-    margin-right: 20px;
-  }
-
-  .exercise-group {
-    margin-top: 140px;
-  }
-
   .instructions {
     margin-bottom: 50px;
   }
@@ -44,30 +28,14 @@
   .checkmark {
     width: 70px;
   }
-
-  .verb-checkmark-group {
-    display: flex;
-  }
 }
 
 /* small screen */
 @media screen and (max-width: 800px) {
-  .exercise-group {
-    max-width: 185px;
-  }
-
-  .flag {
-    max-width: 40px;
-  }
-
   .checkmark {
     width: 48px;
     position: absolute;
     left: 120px;
     bottom: 0px;
-  }
-
-  .verb-checkmark-group {
-    position: relative;
   }
 }

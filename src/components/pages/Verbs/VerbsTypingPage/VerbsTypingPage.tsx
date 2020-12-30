@@ -5,18 +5,43 @@ import CollapsibleInstructions from "./ChildComponents/CollapsibleInstructions/C
 import Checkmark from "./ChildComponents/Checkmark";
 import data from "../../../../constants/data";
 import { all_input_categories } from "../../../../constants/variables";
-import "./VerbsFlashcardsPage.css";
+import "./VerbsTypingPage.css";
 import SnakkNavbar from "../../../SnakkNavbar/SnakkNavbar";
 import { getAttemptAndCorrectionElements } from "../../../../tools";
 import { VerbSolution } from "../../../../interfaces/interfaces";
+import styled from "styled-components";
+import { theme } from "../../../../theme";
 
 // Styled components
 
+const BodyWrapper = styled.div`
+  display: flex;
+  padding-left: 20px;
+  height: 80vh;
+  margin-top: 20px;
+`;
 
+const ExerciseGroup = styled.div`
+  @media ${theme.device.mobile} {
+    max-width: 185px;
+  }
+  @media ${theme.device.tablet} {
+    margin-top: 140px;
+  }
+`;
+
+const VerbCheckmarkGroup = styled.div`
+  @media ${theme.device.mobile} {
+    position: relative;
+  }
+  @media ${theme.device.tablet} {
+    display: flex;
+  }
+`;
 
 // MAIN COMPONENT
 /** Page that displays the verb exercise sheet */
-function VerbsFlashcardsPage(): ReactElement {
+export default function VerbsTypingPage(): ReactElement {
   const [index, setIndex] = useState(0);
 
   function incrementIndex() {
@@ -57,26 +82,24 @@ function VerbsFlashcardsPage(): ReactElement {
     <>
       <SnakkNavbar />
       <CollapsibleInstructions />
-      <div className="body-wrapper">
+      <BodyWrapper>
         <Sidebar selectVerb={selectVerb} />
-        <div className="exercise-cta">
-          <div className="exercise-group">
-            <div className="verb-checkmark-group">
+        <div>
+          <ExerciseGroup>
+            <VerbCheckmarkGroup>
               <Verb
                 answer={data[index]}
                 loadNextVerb={loadNextVerb}
                 eraseMarkings={eraseMarkings}
               />
               <Checkmark />
-            </div>
-          </div>
+            </VerbCheckmarkGroup>
+          </ExerciseGroup>
         </div>
-      </div>
+      </BodyWrapper>
     </>
   );
 }
-
-export default VerbsFlashcardsPage;
 
 // HELPERS
 function showCheckmark(): void {

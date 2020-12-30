@@ -2,6 +2,18 @@ import React, { ReactElement, useState } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import "./SnakkNavbar.css";
 import norwayFlag from "../../assets/norwayFlag.png";
+import styled from "styled-components";
+import { theme } from "../../theme";
+
+// Styled components
+
+const Flag = styled.img`
+  max-width: 40px;
+
+  @media ${theme.device.tablet} {
+    margin-right: 20px;
+  }
+`;
 
 export default function SnakkNavbar(): ReactElement {
   return (
@@ -11,7 +23,7 @@ export default function SnakkNavbar(): ReactElement {
       variant="dark"
       expand="lg"
     >
-      <Flag />
+      <Flag src={norwayFlag} alt="Norway Flag" />
       <Navbar.Brand href="#">Snakk</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -21,8 +33,4 @@ export default function SnakkNavbar(): ReactElement {
       </Navbar.Collapse>
     </Navbar>
   );
-}
-
-export function Flag(): ReactElement {
-  return <img className="flag" src={norwayFlag} alt="Norway Flag" />;
 }
