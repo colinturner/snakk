@@ -39,7 +39,7 @@ export default function VerbsFlashcardsPage(): ReactElement {
     <>
       <SnakkNavbar />
       <BodyWrapper>
-        <Sidebar selectVerb={selectVerb} />
+        {/* <Sidebar selectVerb={selectVerb} /> */}
         <MainSection>
           <Card>{verb.infinitive}</Card>
         </MainSection>

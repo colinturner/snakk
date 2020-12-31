@@ -3,7 +3,7 @@ import Verb from "../../../Verb/Verb";
 import Sidebar from "../../../Sidebar/Sidebar";
 import CollapsibleInstructions from "./ChildComponents/CollapsibleInstructions/CollapsibleInstructions";
 import Checkmark from "./ChildComponents/Checkmark";
-import { data_array as data } from "../../../../constants/data";
+import { data_json as verbs } from "../../../../constants/data";
 import { all_input_categories } from "../../../../constants/variables";
 import "./VerbsTypingPage.css";
 import SnakkNavbar from "../../../SnakkNavbar/SnakkNavbar";
@@ -12,8 +12,9 @@ import { VerbSolution } from "../../../../interfaces/interfaces";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 
-// Styled components
-
+/**
+ * Styled components
+ */
 const BodyWrapper = styled.div`
   display: flex;
   padding-left: 20px;
@@ -39,57 +40,42 @@ const VerbCheckmarkGroup = styled.div`
   }
 `;
 
-// MAIN COMPONENT
-/** Page that displays the verb exercise sheet */
+export type IInfinitive = keyof typeof verbs;
+
+/**
+ * Page component
+ */
 export default function VerbsTypingPage(): ReactElement {
-  const [index, setIndex] = useState(0);
+  /**
+   * State
+   */
+  const all_infinitives = (Object.keys(verbs) as IInfinitive[]).sort();
+  const [infinitive, setInfinitive] = useState(all_infinitives[0]);
+  const [verb, setVerb] = useState(verbs[infinitive]);
 
-  function incrementIndex() {
-    index < data.length - 1 ? setIndex(index + 1) : setIndex(0);
-  }
+  // Set verb when infinitive changes
+  useEffect((): void => {
+    setVerb(verbs[infinitive]);
+  }, [infinitive]);
 
-  function loadNextVerb(): void {
-    incrementIndex();
-    congratulate();
-  }
-
-  function congratulate(): void {
-    setTimeout(() => showCheckmark(), 20);
-    setTimeout(() => hideCheckmark(), 800);
-  }
-
-  function selectVerb({
-    selection,
-    letter,
-  }: {
-    selection?: string;
-    letter?: string;
-  }): void {
-    let i;
-    if (selection) {
-      i = data.findIndex((verb) => verb.infinitive === selection);
-    } else if (letter) {
-      i = data.findIndex((verb) => verb.infinitive[0] === letter.toLowerCase());
-    }
-    if (!i) {
-      i = 0;
-    }
-    setIndex(i);
-    eraseMarkings();
-  }
-
+  /**
+   * Render
+   */
   return (
     <>
       <SnakkNavbar />
       <CollapsibleInstructions />
       <BodyWrapper>
-        <Sidebar selectVerb={selectVerb} />
+        <Sidebar
+          setInfinitive={setInfinitive}
+          all_infinitives={all_infinitives}
+        />
         <ExerciseGroup>
           <VerbCheckmarkGroup>
             <Verb
-              answer={data[index]}
-              loadNextVerb={loadNextVerb}
-              eraseMarkings={eraseMarkings}
+              verb={verb}
+              infinitive={infinitive}
+              setInfinitive={setInfinitive}
             />
             <Checkmark />
           </VerbCheckmarkGroup>
@@ -97,28 +83,4 @@ export default function VerbsTypingPage(): ReactElement {
       </BodyWrapper>
     </>
   );
-}
-
-// HELPERS
-function showCheckmark(): void {
-  const checkmark = document.getElementById("checkmark") as HTMLInputElement;
-  checkmark.className = "checkmark visible";
-}
-
-function hideCheckmark(): void {
-  const checkmark = document.getElementById("checkmark") as HTMLInputElement;
-  checkmark.className = "checkmark hidden";
-}
-
-function eraseMarkings(): void {
-  all_input_categories.forEach((tense) => {
-    markBlank(tense as keyof VerbSolution);
-  });
-}
-
-function markBlank(category: keyof VerbSolution): void {
-  const { attempt, correction } = getAttemptAndCorrectionElements({ category });
-  attempt.value = "";
-  correction.innerText = "";
-  attempt.className = "clean-verb";
 }

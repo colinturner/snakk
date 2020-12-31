@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer, useState } from "react";
 import { all_input_categories } from "../../constants/variables";
 import Button from "react-bootstrap/Button";
 import "./Verb.css";
@@ -19,7 +19,12 @@ import {
 import useMultiKeyPress from "../../tools/useMultiKeyPress";
 import { theme } from "../../theme";
 import styled from "styled-components";
+import { IInfinitive } from "../pages/Verbs/VerbsTypingPage/VerbsTypingPage";
+import { IVerb } from "../../constants/data";
 
+/**
+ * Styled components
+ */
 const VerbWrapper = styled.div`
   background-color: white;
   padding: 16px;
@@ -35,15 +40,157 @@ const VerbWrapper = styled.div`
     flex-direction: row;
   }
 `;
+
+/**
+ * Interfaces
+ */
 interface VerbProps {
-  answer: VerbSolution;
-  loadNextVerb: () => void;
-  eraseMarkings: () => void;
+  verb: IVerb;
+  infinitive: IInfinitive;
+  setInfinitive: React.Dispatch<React.SetStateAction<IInfinitive>>;
 }
+
+interface ICheckAnswer {
+  input: string;
+  answer: string;
+  category: ValidityCategory;
+}
+
+export enum Validity {
+  incomplete = "incomplete",
+  partially_correct = "partially_correct",
+  correct = "correct",
+  incorrect = "incorrect",
+}
+
+interface ValidityReducerState {
+  present_validity: Validity;
+  past_validity: Validity;
+  present_perfect_validity: Validity;
+  english_validity: Validity;
+}
+
+enum ValidityCategory {
+  present_validity = "present_validity",
+  past_validity = "past_validity",
+  present_perfect_validity = "present_perfect_validity",
+  english_validity = "english_validity",
+}
+
+export type Category = keyof Omit<VerbSolution, "infinitive">;
+
+type ValidityReducerAction =
+  | {
+      type: "set_validity";
+      payload: {
+        category: ValidityCategory;
+        validity: Validity;
+      };
+    }
+  | { type: "reset" };
+
+const initial_validity_state: ValidityReducerState = {
+  present_validity: Validity.incomplete,
+  past_validity: Validity.incomplete,
+  present_perfect_validity: Validity.incomplete,
+  english_validity: Validity.incomplete,
+};
+
+interface InputsReducerState {
+  present_value: string;
+  past_value: string;
+  present_perfect_value: string;
+  english_value: string;
+}
+
+export enum InputCategory {
+  present_value = "present_value",
+  past_value = "past_value",
+  present_perfect_value = "present_perfect_value",
+  english_value = "english_value",
+}
+
+export type InputsReducerAction =
+  | {
+      type: "set_value";
+      payload: {
+        category: keyof InputsReducerState;
+        value: string;
+      };
+    }
+  | { type: "reset_values" };
+
+const initial_inputs_state: InputsReducerState = {
+  present_value: "",
+  past_value: "",
+  present_perfect_value: "",
+  english_value: "",
+};
 
 /** Page that displays verb exercise sheet */
 export default function Verb(props: VerbProps) {
-  const { answer: accepted_answer, loadNextVerb, eraseMarkings } = props;
+  const { verb, infinitive, setInfinitive } = props;
+
+  /**
+   * Validity Reducer
+   */
+  function validityReducer(
+    state: ValidityReducerState,
+    action: ValidityReducerAction
+  ): ValidityReducerState {
+    switch (action.type) {
+      case "set_validity":
+        return {
+          ...state,
+          [action.payload.category]: action.payload.validity,
+        };
+      case "reset":
+        return initial_validity_state;
+    }
+  }
+
+  const [validity_state, dispatchValidity] = useReducer(
+    validityReducer,
+    initial_validity_state
+  );
+
+  const {
+    present_validity,
+    past_validity,
+    present_perfect_validity,
+    english_validity,
+  } = validity_state;
+
+  /**
+   * Input Value Reducer
+   */
+  function inputsReducer(
+    state: InputsReducerState,
+    action: InputsReducerAction
+  ): InputsReducerState {
+    switch (action.type) {
+      case "set_value":
+        return {
+          ...state,
+          [action.payload.category]: action.payload.value,
+        };
+      case "reset_values":
+        return initial_inputs_state;
+    }
+  }
+
+  const [inputs_state, dispatchInputs] = useReducer(
+    inputsReducer,
+    initial_inputs_state
+  );
+
+  const {
+    present_value,
+    past_value,
+    present_perfect_value,
+    english_value,
+  } = inputs_state;
+
   useMultiKeyPress(["Shift", "Enter"], clickSubmitButton);
 
   function clickSubmitButton(): void {
@@ -62,48 +209,89 @@ export default function Verb(props: VerbProps) {
       focusFirstInputField(e);
       return;
     }
-    if (
-      (all_input_categories as (keyof VerbSolution)[]).every((category) =>
-        checkAnswer(category)
-      )
-    ) {
-      prepareNextVerb(e);
-    } else {
-      (all_input_categories as (keyof VerbSolution)[]).forEach((category) =>
-        checkAnswer(category)
-      );
-      focusFirstErrorInputField(e);
-    }
+
+    // Check each answer
+    checkAnswer({
+      input: present_value,
+      answer: verb.present,
+      category: ValidityCategory.present_validity,
+    });
+    checkAnswer({
+      input: past_value,
+      answer: verb.past,
+      category: ValidityCategory.past_validity,
+    });
+    checkAnswer({
+      input: present_perfect_value,
+      answer: verb.present_perfect,
+      category: ValidityCategory.present_perfect_validity,
+    });
+    checkAnswer({
+      input: english_value,
+      answer: verb.english,
+      category: ValidityCategory.english_validity,
+    });
+    // Focus first errored input, or set new infinitive
+    // TODO --> finish this commented block
+    // if (
+    //   [
+    //     present_validity,
+    //     past_validity,
+    //     present_perfect_validity,
+    //     english_validity,
+    //   ].every((val) => val === Validity.correct)
+    // ) {
+    //   console.log("all correct!");
+    // }
   }
 
-  function checkAnswer(category: keyof VerbSolution) {
-    const attempt = normalizeString(
-      (document.getElementById(`attempt-${category}`) as HTMLInputElement).value
-    );
-    const answer = accepted_answer[category as keyof VerbSolution];
-    switch (checkMultiplePossibleSolutions({ attempt, answer })) {
-      case COMPLETE_SOLUTION:
-        return markCorrect({ accepted_answer, category });
-      case PARTIAL_SOLUTION:
-        return markPartiallyCorrect({ accepted_answer, category });
-      default:
-        return markIncorrect({ accepted_answer, category });
-    }
-  }
+  function checkAnswer({ input, answer, category }: ICheckAnswer) {
+    let att = input.split(",").map((phrase) => phrase.trim());
+    let ans = answer.split(",").map((phrase) => phrase.trim());
 
-  function prepareNextVerb(e: any) {
-    loadNextVerb();
-    eraseMarkings();
-    focusFirstInputField(e);
+    const validity = att.every((v) => ans.includes(v))
+      ? ans.every((v) => att.includes(v))
+        ? Validity.correct
+        : Validity.partially_correct
+      : Validity.incorrect;
+
+    dispatchValidity({
+      type: "set_validity",
+      payload: { category, validity },
+    });
   }
 
   return (
     <VerbWrapper>
-      <Infinitive text={accepted_answer.infinitive} />
-      <InputBox header="Present" />
-      <InputBox header="Past" />
-      <InputBox header="Present Perfect" />
-      <InputBox header="English" />
+      <Infinitive text={infinitive} />
+      <InputBox
+        header="Present"
+        category={InputCategory.present_value}
+        value={present_value}
+        dispatchInputs={dispatchInputs}
+        validity={present_validity}
+      />
+      <InputBox
+        header="Past"
+        category={InputCategory.past_value}
+        value={past_value}
+        dispatchInputs={dispatchInputs}
+        validity={past_validity}
+      />
+      <InputBox
+        header="Present Perfect"
+        category={InputCategory.present_perfect_value}
+        value={present_perfect_value}
+        dispatchInputs={dispatchInputs}
+        validity={present_perfect_validity}
+      />
+      <InputBox
+        header="English"
+        category={InputCategory.english_value}
+        value={english_value}
+        dispatchInputs={dispatchInputs}
+        validity={english_validity}
+      />
       <Button
         id="submit_button"
         className="submit-button"
@@ -124,63 +312,4 @@ function Infinitive({ text }: { text: string }) {
       <h4>{text}</h4>
     </div>
   );
-}
-
-// HELPERS
-function normalizeString(str: string): string {
-  return str.toLowerCase().trim();
-}
-
-interface MarkingProps {
-  category: keyof VerbSolution;
-  accepted_answer: VerbSolution;
-}
-
-/** Adds an 'incorrect' class to an element */
-function markIncorrect({ accepted_answer, category }: MarkingProps): boolean {
-  const { attempt, correction } = getAttemptAndCorrectionElements({ category });
-  attempt.className = "incorrect_attempt";
-  correction.className = "incorrect_correction";
-  correction.innerText = accepted_answer[category as keyof VerbSolution];
-  return false;
-}
-
-/** Adds a 'correct' class to an element */
-function markCorrect({ category }: MarkingProps): boolean {
-  const { attempt, correction } = getAttemptAndCorrectionElements({ category });
-  attempt.className = "correct_attempt";
-  correction.innerText = "";
-  return true;
-}
-
-/** Adds a 'partially correct' class to an element */
-function markPartiallyCorrect({
-  accepted_answer,
-  category,
-}: MarkingProps): boolean {
-  const { attempt, correction } = getAttemptAndCorrectionElements({ category });
-  attempt.className = "partially-correct_attempt";
-  correction.className = "partially-correct_correction";
-  correction.innerText = accepted_answer[category as keyof VerbSolution];
-  return true;
-}
-
-interface CheckMultiplePossibleSolutionsProps {
-  attempt: string;
-  answer: string;
-}
-
-/** Compares an answer and an attempt. Returns false if attempt differs from answer */
-export function checkMultiplePossibleSolutions(
-  props: CheckMultiplePossibleSolutionsProps
-): MarkedSolution {
-  const { attempt, answer } = props;
-  let att = attempt.split(",").map((phrase) => phrase.trim());
-  let ans = answer.split(",").map((phrase) => phrase.trim());
-
-  return att.every((v) => ans.includes(v))
-    ? ans.every((v) => att.includes(v))
-      ? COMPLETE_SOLUTION
-      : PARTIAL_SOLUTION
-    : INCORRECT_SOLUTION;
 }

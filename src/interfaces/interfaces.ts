@@ -1,7 +1,7 @@
 import {
   COMPLETE_SOLUTION,
   PARTIAL_SOLUTION,
-  INCORRECT_SOLUTION
+  INCORRECT_SOLUTION,
 } from "../constants/variables";
 
 // Interfaces
@@ -9,7 +9,7 @@ export interface VerbSolution {
   infinitive: string;
   present: string;
   past: string;
-  "present-perfect": string;
+  present_perfect: string;
   english: string;
 }
 
