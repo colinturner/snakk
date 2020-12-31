@@ -53,7 +53,7 @@ interface VerbProps {
 interface ICheckAnswer {
   input: string;
   answer: string;
-  category: ValidityCategory;
+  category: Category;
 }
 
 export enum Validity {
@@ -64,50 +64,41 @@ export enum Validity {
 }
 
 interface ValidityReducerState {
-  present_validity: Validity;
-  past_validity: Validity;
-  present_perfect_validity: Validity;
-  english_validity: Validity;
+  present: Validity;
+  past: Validity;
+  present_perfect: Validity;
+  english: Validity;
 }
-
-enum ValidityCategory {
-  present_validity = "present_validity",
-  past_validity = "past_validity",
-  present_perfect_validity = "present_perfect_validity",
-  english_validity = "english_validity",
-}
-
-export type Category = keyof Omit<VerbSolution, "infinitive">;
 
 type ValidityReducerAction =
   | {
       type: "set_validity";
       payload: {
-        category: ValidityCategory;
+        category: Category;
         validity: Validity;
       };
     }
   | { type: "reset" };
 
 const initial_validity_state: ValidityReducerState = {
-  present_validity: Validity.incomplete,
-  past_validity: Validity.incomplete,
-  present_perfect_validity: Validity.incomplete,
-  english_validity: Validity.incomplete,
+  present: Validity.incomplete,
+  past: Validity.incomplete,
+  present_perfect: Validity.incomplete,
+  english: Validity.incomplete,
 };
 
 interface InputsReducerState {
-  present_value: string;
-  past_value: string;
-  present_perfect_value: string;
-  english_value: string;
+  present: string;
+  past: string;
+  present_perfect: string;
+  english: string;
 }
 
-export enum InputCategory {
-  present_value = "present_value",
-  past_value = "past_value",
-  present_perfect_value = "present_perfect_value",
-  english_value = "english_value",
+export enum Category {
+  present = "present",
+  past = "past",
+  present_perfect = "present_perfect",
+  english = "english",
 }
 
 export type InputsReducerAction =
@@ -121,10 +112,10 @@ export type InputsReducerAction =
   | { type: "reset_values" };
 
 const initial_inputs_state: InputsReducerState = {
-  present_value: "",
-  past_value: "",
-  present_perfect_value: "",
-  english_value: "",
+  present: "",
+  past: "",
+  present_perfect: "",
+  english: "",
 };
 
 /** Page that displays verb exercise sheet */
@@ -155,10 +146,10 @@ export default function Verb(props: VerbProps) {
   );
 
   const {
-    present_validity,
-    past_validity,
-    present_perfect_validity,
-    english_validity,
+    present: present_validity,
+    past: past_validity,
+    present_perfect: present_perfect_validity,
+    english: english_validity,
   } = validity_state;
 
   /**
@@ -185,10 +176,10 @@ export default function Verb(props: VerbProps) {
   );
 
   const {
-    present_value,
-    past_value,
-    present_perfect_value,
-    english_value,
+    present: present_value,
+    past: past_value,
+    present_perfect: present_perfect_value,
+    english: english_value,
   } = inputs_state;
 
   useMultiKeyPress(["Shift", "Enter"], clickSubmitButton);
@@ -214,22 +205,22 @@ export default function Verb(props: VerbProps) {
     checkAnswer({
       input: present_value,
       answer: verb.present,
-      category: ValidityCategory.present_validity,
+      category: Category.present,
     });
     checkAnswer({
       input: past_value,
       answer: verb.past,
-      category: ValidityCategory.past_validity,
+      category: Category.past,
     });
     checkAnswer({
       input: present_perfect_value,
       answer: verb.present_perfect,
-      category: ValidityCategory.present_perfect_validity,
+      category: Category.present_perfect,
     });
     checkAnswer({
       input: english_value,
       answer: verb.english,
-      category: ValidityCategory.english_validity,
+      category: Category.english,
     });
     // Focus first errored input, or set new infinitive
     // TODO --> finish this commented block
@@ -266,28 +257,28 @@ export default function Verb(props: VerbProps) {
       <Infinitive text={infinitive} />
       <InputBox
         header="Present"
-        category={InputCategory.present_value}
+        category={Category.present}
         value={present_value}
         dispatchInputs={dispatchInputs}
         validity={present_validity}
       />
       <InputBox
         header="Past"
-        category={InputCategory.past_value}
+        category={Category.past}
         value={past_value}
         dispatchInputs={dispatchInputs}
         validity={past_validity}
       />
       <InputBox
         header="Present Perfect"
-        category={InputCategory.present_perfect_value}
+        category={Category.present_perfect}
         value={present_perfect_value}
         dispatchInputs={dispatchInputs}
         validity={present_perfect_validity}
       />
       <InputBox
         header="English"
-        category={InputCategory.english_value}
+        category={Category.english}
         value={english_value}
         dispatchInputs={dispatchInputs}
         validity={english_validity}

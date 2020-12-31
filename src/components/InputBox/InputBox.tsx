@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { VerbSolution } from "../../interfaces/interfaces";
 import { theme } from "../../theme";
-import { InputsReducerAction, InputCategory, Validity } from "../Verb/Verb";
+import { Category, InputsReducerAction, Validity } from "../Verb/Verb";
 
 interface IInputBox {
   header: string;
-  category: InputCategory;
+  category: Category;
   validity: Validity;
   value: string;
   dispatchInputs: React.Dispatch<InputsReducerAction>;
