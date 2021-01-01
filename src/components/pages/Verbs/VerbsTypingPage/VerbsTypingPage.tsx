@@ -85,7 +85,6 @@ export default function VerbsTypingPage(): ReactElement {
    * Effect
    */
   useEffect((): void => {
-    console.log("infinitive changed!!! ", infinitive);
     setVerb(verbs[infinitive]);
     dispatch({ type: "reset" });
   }, [infinitive]);

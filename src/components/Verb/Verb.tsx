@@ -95,6 +95,14 @@ const InputsWrapper = styled.div`
   }
 `;
 
+const InfinitiveTitle = styled.div`
+  font-weight: 400;
+`;
+
+const Infinitive = styled.h4`
+  font-weight: 800;
+`;
+
 /** Page that displays verb exercise sheet */
 export default function Verb(props: VerbProps) {
   const {
@@ -179,8 +187,8 @@ export default function Verb(props: VerbProps) {
   return (
     <VerbWrapper>
       <InfinitiveWrapper>
-        <div>Infinitive</div>
-        <h4>{infinitive}</h4>
+        <InfinitiveTitle>Infinitive</InfinitiveTitle>
+        <Infinitive>{infinitive}</Infinitive>
       </InfinitiveWrapper>
       <InputsWrapper>
         <InputBox
