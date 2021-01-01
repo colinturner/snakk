@@ -50,22 +50,26 @@ interface ICheckAnswer {
  * Styled components
  */
 const VerbWrapper = styled.div`
+  display: flex;
   width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
   background-color: white;
   padding: 16px;
   border-radius: 18px;
   ${theme.shadow.topLeft};
   @media ${theme.device.mobile} {
-    display: flex;
     flex-direction: column;
+    max-width: 50%;
     > button {
       margin: 16px 8px 0px 8px;
     }
     /* min-width: 250px; */
   }
   @media ${theme.device.tablet} {
-    display: flex;
     flex-direction: row;
+    margin-top: 100px;
+    max-width: 80%;
     > button {
       margin: 0px 0px 0px 16px;
     }
@@ -77,7 +81,17 @@ const InfinitiveWrapper = styled.div`
     margin-bottom: 8px;
   }
   @media ${theme.device.tablet} {
-    margin: 5px 24px 5px 5px;
+    margin: 8px 24px 8px 8px;
+  }
+`;
+
+const InputsWrapper = styled.div`
+  display: flex;
+  @media ${theme.device.mobile} {
+    flex-wrap: wrap;
+  }
+  @media ${theme.device.desktop} {
+    flex-wrap: nowrap;
   }
 `;
 
@@ -109,29 +123,6 @@ export default function Verb(props: VerbProps) {
     }
   }
 
-  /**
-   * useEffect - change verb when user solution is acceptable
-   */
-  useEffect((): void => {
-    if (
-      [
-        present.validity,
-        past.validity,
-        present_perfect.validity,
-        english.validity,
-      ].every((val) =>
-        [Validity.correct, Validity.partially_correct].includes(val)
-      )
-    ) {
-      loadNextVerb();
-    }
-  }, [
-    present.validity,
-    past.validity,
-    present_perfect.validity,
-    english.validity,
-  ]);
-
   function checkAnswers(e?: any): void {
     const invalid_keyboard_stroke =
       e && e.type === "keydown" && ![ENTER_KEY, TAB_KEY].includes(e.keyCode);
@@ -153,6 +144,20 @@ export default function Verb(props: VerbProps) {
         category: Category[c],
       })
     );
+
+    // Load next verb if all answers are valid
+    if (
+      [
+        present.validity,
+        past.validity,
+        present_perfect.validity,
+        english.validity,
+      ].every((val) =>
+        [Validity.correct, Validity.partially_correct].includes(val)
+      )
+    ) {
+      loadNextVerb();
+    }
   }
 
   function checkAnswer({ input, answer, category }: ICheckAnswer) {
@@ -177,39 +182,40 @@ export default function Verb(props: VerbProps) {
         <div>Infinitive</div>
         <h4>{infinitive}</h4>
       </InfinitiveWrapper>
-      <InputBox
-        header="Present"
-        category={Category.present}
-        value={present.value}
-        answer={verb.present}
-        validity={present.validity}
-        dispatch={dispatch}
-      />
-      <InputBox
-        header="Past"
-        category={Category.past}
-        value={past.value}
-        answer={verb.past}
-        validity={past.validity}
-        dispatch={dispatch}
-      />
-      <InputBox
-        header="Present Perfect"
-        category={Category.present_perfect}
-        value={present_perfect.value}
-        answer={verb.present_perfect}
-        validity={present_perfect.validity}
-        dispatch={dispatch}
-      />
-      <InputBox
-        header="English"
-        category={Category.english}
-        value={english.value}
-        answer={verb.english}
-        validity={english.validity}
-        dispatch={dispatch}
-      />
-      {/* <ButtonWrapper> */}
+      <InputsWrapper>
+        <InputBox
+          header="Present"
+          category={Category.present}
+          value={present.value}
+          answer={verb.present}
+          validity={present.validity}
+          dispatch={dispatch}
+        />
+        <InputBox
+          header="Past"
+          category={Category.past}
+          value={past.value}
+          answer={verb.past}
+          validity={past.validity}
+          dispatch={dispatch}
+        />
+        <InputBox
+          header="Present Perfect"
+          category={Category.present_perfect}
+          value={present_perfect.value}
+          answer={verb.present_perfect}
+          validity={present_perfect.validity}
+          dispatch={dispatch}
+        />
+        <InputBox
+          header="English"
+          category={Category.english}
+          value={english.value}
+          answer={verb.english}
+          validity={english.validity}
+          dispatch={dispatch}
+        />
+      </InputsWrapper>
       <Button
         id="submit_button"
         onClick={checkAnswers}
@@ -217,7 +223,6 @@ export default function Verb(props: VerbProps) {
       >
         Submit
       </Button>
-      {/* </ButtonWrapper> */}
     </VerbWrapper>
   );
 }

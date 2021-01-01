@@ -20,7 +20,7 @@ interface IInputBox {
 interface IInput extends Pick<IInputBox, "validity"> {}
 
 const InputBoxWrapper = styled.div`
-  margin: 5px;
+  margin: 8px;
 `;
 
 const Header = styled.div`
@@ -30,7 +30,7 @@ const Header = styled.div`
 const Input = styled.input<IInput>`
   border: ${(props) => setBorder(props.validity)};
   background-color: ${theme.colors.aliceblue};
-  width: 180px;
+  width: 100%;
   height: 32px;
   padding: 0px 16px;
   border-radius: 40px;

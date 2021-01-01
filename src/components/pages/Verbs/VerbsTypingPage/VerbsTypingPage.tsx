@@ -70,24 +70,6 @@ const BodyWrapper = styled.div`
   margin-top: 20px;
 `;
 
-const ExerciseGroup = styled.div`
-  @media ${theme.device.mobile} {
-    max-width: 185px;
-  }
-  @media ${theme.device.tablet} {
-    margin-top: 140px;
-  }
-`;
-
-const VerbCheckmarkGroup = styled.div`
-  @media ${theme.device.mobile} {
-    position: relative;
-  }
-  @media ${theme.device.tablet} {
-    display: flex;
-  }
-`;
-
 /**
  * Component
  */
@@ -166,20 +148,15 @@ export default function VerbsTypingPage(): ReactElement {
           setInfinitive={setInfinitive}
           all_infinitives={all_infinitives}
         />
-        <ExerciseGroup>
-          <VerbCheckmarkGroup>
-            <Verb
-              key={infinitive}
-              state={state}
-              dispatch={dispatch}
-              verb={verb}
-              infinitive={infinitive}
-              all_infinitives={all_infinitives}
-              setInfinitive={setInfinitive}
-            />
-            <Checkmark />
-          </VerbCheckmarkGroup>
-        </ExerciseGroup>
+        <Verb
+          key={infinitive}
+          state={state}
+          dispatch={dispatch}
+          verb={verb}
+          infinitive={infinitive}
+          all_infinitives={all_infinitives}
+          setInfinitive={setInfinitive}
+        />
       </BodyWrapper>
     </>
   );
