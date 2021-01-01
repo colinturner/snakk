@@ -119,7 +119,7 @@ export default function Verb(props: VerbProps) {
   useMultiKeyPress(["Shift", "Enter"], clickSubmitButton);
 
   function clickSubmitButton(): void {
-    (document.getElementById("submit_button") as HTMLElement).click();
+    (document.getElementById("submit_button") as HTMLButtonElement).click();
   }
 
   const { present, past, present_perfect, english } = state;

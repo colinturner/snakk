@@ -2,11 +2,15 @@ import React, { ReactElement, useState } from "react";
 import styled from "styled-components";
 import useMultiKeyPress from "../../tools/useMultiKeyPress";
 import { theme } from "../../theme";
-import { IInfinitive } from "../pages/Verbs/VerbsTypingPage/VerbsTypingPage";
+import {
+  IInfinitive,
+  ReducerAction,
+} from "../pages/Verbs/VerbsTypingPage/VerbsTypingPage";
 
 type ISelectVerb = { letter: string } | { selection: string };
 
-interface SidebarProps {
+interface ISidebar {
+  dispatch: React.Dispatch<ReducerAction>;
   setInfinitive: React.Dispatch<React.SetStateAction<IInfinitive>>;
   all_infinitives: IInfinitive[];
 }
@@ -43,8 +47,8 @@ const Word = styled.div`
   }
 `;
 
-export default function Sidebar(props: SidebarProps): ReactElement {
-  const { setInfinitive, all_infinitives } = props;
+export default function Sidebar(props: ISidebar): ReactElement {
+  const { setInfinitive, all_infinitives, dispatch } = props;
   useMultiKeyPress(["Shift", "A"], selectVerbBeginningWithLetter);
   useMultiKeyPress(["Shift", "B"], selectVerbBeginningWithLetter);
   useMultiKeyPress(["Shift", "D"], selectVerbBeginningWithLetter);
@@ -77,10 +81,15 @@ export default function Sidebar(props: SidebarProps): ReactElement {
     setInfinitive(infinitive);
   }
 
+  function onClick(infinitive: IInfinitive): void {
+    dispatch({ type: "reset" });
+    setInfinitive(infinitive);
+  }
+
   return (
     <Container>
       {all_infinitives.map((infinitive) => (
-        <Word key={infinitive} onClick={() => setInfinitive(infinitive)}>
+        <Word key={`word_${infinitive}`} onClick={() => onClick(infinitive)}>
           {infinitive}
         </Word>
       ))}

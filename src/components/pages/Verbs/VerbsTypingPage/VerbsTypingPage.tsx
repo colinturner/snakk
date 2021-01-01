@@ -144,6 +144,7 @@ export default function VerbsTypingPage(): ReactElement {
       <CollapsibleInstructions />
       <BodyWrapper>
         <Sidebar
+          dispatch={dispatch}
           setInfinitive={setInfinitive}
           all_infinitives={all_infinitives}
         />
