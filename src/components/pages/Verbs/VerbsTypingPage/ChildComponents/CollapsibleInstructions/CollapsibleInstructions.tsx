@@ -21,9 +21,8 @@ export default function CollapsibleInstructions(): ReactElement {
         </Button>
         <Collapse in={open}>
           <div id="instructions">
-            Fill in the blanks to conjugate the verb. Note that because of
-            Norway’s varied dialects, there are sometimes several accepted ways
-            to conjugate the same verb.
+            Fill in the blanks. Note that there are sometimes several accepted
+            ways to conjugate the same verb. Use Tab to advance.
           </div>
         </Collapse>
       </>

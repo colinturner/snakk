@@ -60,7 +60,7 @@ export default function InputBox(props: IInputBox) {
           });
         }}
       />
-      {validity === Validity.incorrect ? (
+      {[Validity.incorrect, Validity.partially_correct].includes(validity) ? (
         <Answer id={`answer-${formatID(header)}`}>{answer}</Answer>
       ) : null}
     </InputBoxWrapper>

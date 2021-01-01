@@ -50,6 +50,7 @@ interface ICheckAnswer {
  * Styled components
  */
 const VerbWrapper = styled.div`
+  width: fit-content;
   background-color: white;
   padding: 16px;
   border-radius: 18px;
@@ -57,16 +58,27 @@ const VerbWrapper = styled.div`
   @media ${theme.device.mobile} {
     display: flex;
     flex-direction: column;
+    > button {
+      margin: 16px 8px 0px 8px;
+    }
     /* min-width: 250px; */
   }
   @media ${theme.device.tablet} {
     display: flex;
     flex-direction: row;
+    > button {
+      margin: 0px 0px 0px 16px;
+    }
   }
 `;
 
 const InfinitiveWrapper = styled.div`
-  margin: "5px";
+  @media ${theme.device.mobile} {
+    margin-bottom: 8px;
+  }
+  @media ${theme.device.tablet} {
+    margin: 5px 24px 5px 5px;
+  }
 `;
 
 /** Page that displays verb exercise sheet */
@@ -86,7 +98,6 @@ export default function Verb(props: VerbProps) {
   }
 
   const { present, past, present_perfect, english } = state;
-  // console.log("present tense state!!! ", present.value, present.validity);
 
   function loadNextVerb(): void {
     const current_index = all_infinitives.indexOf(infinitive);
@@ -198,14 +209,15 @@ export default function Verb(props: VerbProps) {
         validity={english.validity}
         dispatch={dispatch}
       />
+      {/* <ButtonWrapper> */}
       <Button
         id="submit_button"
-        className="submit-button"
         onClick={checkAnswers}
         onKeyDown={checkAnswers}
       >
         Submit
       </Button>
+      {/* </ButtonWrapper> */}
     </VerbWrapper>
   );
 }
