@@ -113,6 +113,7 @@ export default function Verb(props: VerbProps) {
     state,
     dispatch,
   } = props;
+
   useMultiKeyPress(["Shift", "Enter"], clickSubmitButton);
 
   function clickSubmitButton(): void {
@@ -121,7 +122,28 @@ export default function Verb(props: VerbProps) {
 
   const { present, past, present_perfect, english } = state;
 
+  useEffect((): void => {
+    if (
+      [
+        present.validity,
+        past.validity,
+        present_perfect.validity,
+        english.validity,
+      ].every((val) =>
+        [Validity.correct, Validity.partially_correct].includes(val)
+      )
+    ) {
+      loadNextVerb();
+    }
+  }, [
+    present.validity,
+    past.validity,
+    present_perfect.validity,
+    english.validity,
+  ]);
+
   function loadNextVerb(): void {
+    dispatch({ type: "reset" });
     const current_index = all_infinitives.indexOf(infinitive);
     const next_index = current_index + 1;
     if (all_infinitives[next_index]) {
@@ -145,27 +167,13 @@ export default function Verb(props: VerbProps) {
     }
 
     // Check each answer
-    (Object.keys(Category) as (keyof typeof Category)[]).forEach((c) =>
+    (Object.keys(Category) as (keyof typeof Category)[]).forEach((c) => {
       checkAnswer({
         input: state[c].value,
         answer: verb[c],
         category: Category[c],
-      })
-    );
-
-    // Load next verb if all answers are valid
-    if (
-      [
-        present.validity,
-        past.validity,
-        present_perfect.validity,
-        english.validity,
-      ].every((val) =>
-        [Validity.correct, Validity.partially_correct].includes(val)
-      )
-    ) {
-      loadNextVerb();
-    }
+      });
+    });
   }
 
   function checkAnswer({ input, answer, category }: ICheckAnswer) {
