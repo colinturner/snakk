@@ -55,6 +55,7 @@ export default function VerbsTypingPage(): ReactElement {
 
   // Set verb when infinitive changes
   useEffect((): void => {
+    console.log("infinitive changed!!! ", infinitive);
     setVerb(verbs[infinitive]);
   }, [infinitive]);
 
@@ -75,6 +76,7 @@ export default function VerbsTypingPage(): ReactElement {
             <Verb
               verb={verb}
               infinitive={infinitive}
+              all_infinitives={all_infinitives}
               setInfinitive={setInfinitive}
             />
             <Checkmark />

@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { all_input_categories } from "../../constants/variables";
 import Button from "react-bootstrap/Button";
 import "./Verb.css";
@@ -23,6 +23,86 @@ import { IInfinitive } from "../pages/Verbs/VerbsTypingPage/VerbsTypingPage";
 import { IVerb } from "../../constants/data";
 
 /**
+ * Interfaces
+ */
+interface VerbProps {
+  verb: IVerb;
+  infinitive: IInfinitive;
+  all_infinitives: IInfinitive[];
+  setInfinitive: React.Dispatch<React.SetStateAction<IInfinitive>>;
+}
+
+interface ICheckAnswer {
+  input: string;
+  answer: string;
+  category: Category;
+}
+
+export enum Validity {
+  incomplete = "incomplete",
+  partially_correct = "partially_correct",
+  correct = "correct",
+  incorrect = "incorrect",
+}
+
+export enum Category {
+  present = "present",
+  past = "past",
+  present_perfect = "present_perfect",
+  english = "english",
+}
+
+// New addition
+
+export type ReducerAction =
+  | {
+      type: "set_value";
+      payload: {
+        category: Category;
+        value: string;
+      };
+    }
+  | {
+      type: "set_validity";
+      payload: {
+        category: Category;
+        validity: Validity;
+      };
+    }
+  | {
+      type: "reset";
+    };
+interface FieldState {
+  value: string;
+  validity: Validity;
+}
+interface ReducerState {
+  present: FieldState;
+  past: FieldState;
+  present_perfect: FieldState;
+  english: FieldState;
+}
+
+const initial_state: ReducerState = {
+  present: {
+    value: "",
+    validity: Validity.incomplete,
+  },
+  past: {
+    value: "",
+    validity: Validity.incomplete,
+  },
+  present_perfect: {
+    value: "",
+    validity: Validity.incomplete,
+  },
+  english: {
+    value: "",
+    validity: Validity.incomplete,
+  },
+};
+
+/**
  * Styled components
  */
 const VerbWrapper = styled.div`
@@ -41,152 +121,81 @@ const VerbWrapper = styled.div`
   }
 `;
 
-/**
- * Interfaces
- */
-interface VerbProps {
-  verb: IVerb;
-  infinitive: IInfinitive;
-  setInfinitive: React.Dispatch<React.SetStateAction<IInfinitive>>;
-}
-
-interface ICheckAnswer {
-  input: string;
-  answer: string;
-  category: Category;
-}
-
-export enum Validity {
-  incomplete = "incomplete",
-  partially_correct = "partially_correct",
-  correct = "correct",
-  incorrect = "incorrect",
-}
-
-interface ValidityReducerState {
-  present: Validity;
-  past: Validity;
-  present_perfect: Validity;
-  english: Validity;
-}
-
-type ValidityReducerAction =
-  | {
-      type: "set_validity";
-      payload: {
-        category: Category;
-        validity: Validity;
-      };
-    }
-  | { type: "reset" };
-
-const initial_validity_state: ValidityReducerState = {
-  present: Validity.incomplete,
-  past: Validity.incomplete,
-  present_perfect: Validity.incomplete,
-  english: Validity.incomplete,
-};
-
-interface InputsReducerState {
-  present: string;
-  past: string;
-  present_perfect: string;
-  english: string;
-}
-
-export enum Category {
-  present = "present",
-  past = "past",
-  present_perfect = "present_perfect",
-  english = "english",
-}
-
-export type InputsReducerAction =
-  | {
-      type: "set_value";
-      payload: {
-        category: keyof InputsReducerState;
-        value: string;
-      };
-    }
-  | { type: "reset_values" };
-
-const initial_inputs_state: InputsReducerState = {
-  present: "",
-  past: "",
-  present_perfect: "",
-  english: "",
-};
+const InfinitiveWrapper = styled.div`
+  margin: "5px";
+`;
 
 /** Page that displays verb exercise sheet */
 export default function Verb(props: VerbProps) {
-  const { verb, infinitive, setInfinitive } = props;
-
-  /**
-   * Validity Reducer
-   */
-  function validityReducer(
-    state: ValidityReducerState,
-    action: ValidityReducerAction
-  ): ValidityReducerState {
-    switch (action.type) {
-      case "set_validity":
-        return {
-          ...state,
-          [action.payload.category]: action.payload.validity,
-        };
-      case "reset":
-        return initial_validity_state;
-    }
-  }
-
-  const [validity_state, dispatchValidity] = useReducer(
-    validityReducer,
-    initial_validity_state
-  );
-
-  const {
-    present: present_validity,
-    past: past_validity,
-    present_perfect: present_perfect_validity,
-    english: english_validity,
-  } = validity_state;
-
-  /**
-   * Input Value Reducer
-   */
-  function inputsReducer(
-    state: InputsReducerState,
-    action: InputsReducerAction
-  ): InputsReducerState {
-    switch (action.type) {
-      case "set_value":
-        return {
-          ...state,
-          [action.payload.category]: action.payload.value,
-        };
-      case "reset_values":
-        return initial_inputs_state;
-    }
-  }
-
-  const [inputs_state, dispatchInputs] = useReducer(
-    inputsReducer,
-    initial_inputs_state
-  );
-
-  const {
-    present: present_value,
-    past: past_value,
-    present_perfect: present_perfect_value,
-    english: english_value,
-  } = inputs_state;
-
+  const { verb, infinitive, all_infinitives, setInfinitive } = props;
   useMultiKeyPress(["Shift", "Enter"], clickSubmitButton);
 
   function clickSubmitButton(): void {
     (document.getElementById("submit_button") as HTMLElement).click();
   }
+
+  /**
+   * Reducer
+   */
+  function reducer(state: ReducerState, action: ReducerAction): ReducerState {
+    switch (action.type) {
+      case "set_value":
+        return {
+          ...state,
+          [action.payload.category]: {
+            ...state[action.payload.category],
+            value: action.payload.value,
+          },
+        };
+      case "set_validity":
+        return {
+          ...state,
+          [action.payload.category]: {
+            ...state[action.payload.category],
+            validity: action.payload.validity,
+          },
+        };
+      case "reset":
+        return initial_state;
+    }
+  }
+
+  const [state, dispatch] = useReducer(reducer, initial_state);
+  const { present, past, present_perfect, english } = state;
+
+  function goToNextVerb(): void {
+    const current_index = all_infinitives.indexOf(infinitive);
+    const next_index = current_index + 1;
+    if (all_infinitives[next_index]) {
+      setInfinitive(all_infinitives[next_index]);
+    } else {
+      setInfinitive(all_infinitives[0]);
+    }
+  }
+
+  /**
+   * useEffect - change verb when user solution is acceptable
+   */
+  useEffect((): void => {
+    if (
+      [
+        present.validity,
+        past.validity,
+        present_perfect.validity,
+        english.validity,
+      ].every((val) =>
+        [Validity.correct, Validity.partially_correct].includes(val)
+      )
+    ) {
+      goToNextVerb();
+      // clearForm();
+    }
+  }, [
+    present.validity,
+    past.validity,
+    present_perfect.validity,
+    english.validity,
+  ]);
 
   function checkAnswers(e?: any): void {
     const invalid_keyboard_stroke =
@@ -202,38 +211,13 @@ export default function Verb(props: VerbProps) {
     }
 
     // Check each answer
-    checkAnswer({
-      input: present_value,
-      answer: verb.present,
-      category: Category.present,
-    });
-    checkAnswer({
-      input: past_value,
-      answer: verb.past,
-      category: Category.past,
-    });
-    checkAnswer({
-      input: present_perfect_value,
-      answer: verb.present_perfect,
-      category: Category.present_perfect,
-    });
-    checkAnswer({
-      input: english_value,
-      answer: verb.english,
-      category: Category.english,
-    });
-    // Focus first errored input, or set new infinitive
-    // TODO --> finish this commented block
-    // if (
-    //   [
-    //     present_validity,
-    //     past_validity,
-    //     present_perfect_validity,
-    //     english_validity,
-    //   ].every((val) => val === Validity.correct)
-    // ) {
-    //   console.log("all correct!");
-    // }
+    (Object.keys(Category) as (keyof typeof Category)[]).forEach((c) =>
+      checkAnswer({
+        input: state[c].value,
+        answer: verb[c],
+        category: Category[c],
+      })
+    );
   }
 
   function checkAnswer({ input, answer, category }: ICheckAnswer) {
@@ -246,7 +230,7 @@ export default function Verb(props: VerbProps) {
         : Validity.partially_correct
       : Validity.incorrect;
 
-    dispatchValidity({
+    dispatch({
       type: "set_validity",
       payload: { category, validity },
     });
@@ -254,34 +238,37 @@ export default function Verb(props: VerbProps) {
 
   return (
     <VerbWrapper>
-      <Infinitive text={infinitive} />
+      <InfinitiveWrapper>
+        <div>Infinitive</div>
+        <h4>{infinitive}</h4>
+      </InfinitiveWrapper>
       <InputBox
         header="Present"
         category={Category.present}
-        value={present_value}
-        dispatchInputs={dispatchInputs}
-        validity={present_validity}
+        value={present.value}
+        validity={present.validity}
+        dispatch={dispatch}
       />
       <InputBox
         header="Past"
         category={Category.past}
-        value={past_value}
-        dispatchInputs={dispatchInputs}
-        validity={past_validity}
+        value={past.value}
+        validity={past.validity}
+        dispatch={dispatch}
       />
       <InputBox
         header="Present Perfect"
         category={Category.present_perfect}
-        value={present_perfect_value}
-        dispatchInputs={dispatchInputs}
-        validity={present_perfect_validity}
+        value={present_perfect.value}
+        validity={present_perfect.validity}
+        dispatch={dispatch}
       />
       <InputBox
         header="English"
         category={Category.english}
-        value={english_value}
-        dispatchInputs={dispatchInputs}
-        validity={english_validity}
+        value={english.value}
+        validity={english.validity}
+        dispatch={dispatch}
       />
       <Button
         id="submit_button"
@@ -292,15 +279,5 @@ export default function Verb(props: VerbProps) {
         Submit
       </Button>
     </VerbWrapper>
-  );
-}
-
-// SUB-COMPONENTS
-function Infinitive({ text }: { text: string }) {
-  return (
-    <div style={{ margin: "5px" }}>
-      <div>Infinitive</div>
-      <h4>{text}</h4>
-    </div>
   );
 }

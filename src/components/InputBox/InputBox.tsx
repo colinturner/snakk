@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { VerbSolution } from "../../interfaces/interfaces";
 import { theme } from "../../theme";
-import { Category, InputsReducerAction, Validity } from "../Verb/Verb";
+import { Category, ReducerAction, Validity } from "../Verb/Verb";
 
 interface IInputBox {
   header: string;
   category: Category;
   validity: Validity;
   value: string;
-  dispatchInputs: React.Dispatch<InputsReducerAction>;
+  dispatch: React.Dispatch<ReducerAction>;
 }
 
 interface IInput extends Pick<IInputBox, "validity"> {}
@@ -41,8 +41,7 @@ const Input = styled.input<IInput>`
 const Answer = styled.div``;
 
 export default function InputBox(props: IInputBox) {
-  const { header, validity, category, value, dispatchInputs } = props;
-  console.log("input box validity!!! ", validity);
+  const { header, validity, category, value, dispatch } = props;
   return (
     <InputBoxWrapper>
       <Header>{header}</Header>
@@ -50,7 +49,7 @@ export default function InputBox(props: IInputBox) {
         validity={validity}
         value={value}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          dispatchInputs({
+          dispatch({
             type: "set_value",
             payload: { category, value: e.target.value },
           });
