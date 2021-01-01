@@ -19,13 +19,21 @@ import {
 import useMultiKeyPress from "../../tools/useMultiKeyPress";
 import { theme } from "../../theme";
 import styled from "styled-components";
-import { IInfinitive } from "../pages/Verbs/VerbsTypingPage/VerbsTypingPage";
+import {
+  Category,
+  IInfinitive,
+  ReducerAction,
+  ReducerState,
+  Validity,
+} from "../pages/Verbs/VerbsTypingPage/VerbsTypingPage";
 import { IVerb } from "../../constants/data";
 
 /**
  * Interfaces
  */
 interface VerbProps {
+  state: ReducerState;
+  dispatch: React.Dispatch<ReducerAction>;
   verb: IVerb;
   infinitive: IInfinitive;
   all_infinitives: IInfinitive[];
@@ -37,70 +45,6 @@ interface ICheckAnswer {
   answer: string;
   category: Category;
 }
-
-export enum Validity {
-  incomplete = "incomplete",
-  partially_correct = "partially_correct",
-  correct = "correct",
-  incorrect = "incorrect",
-}
-
-export enum Category {
-  present = "present",
-  past = "past",
-  present_perfect = "present_perfect",
-  english = "english",
-}
-
-// New addition
-
-export type ReducerAction =
-  | {
-      type: "set_value";
-      payload: {
-        category: Category;
-        value: string;
-      };
-    }
-  | {
-      type: "set_validity";
-      payload: {
-        category: Category;
-        validity: Validity;
-      };
-    }
-  | {
-      type: "reset";
-    };
-interface FieldState {
-  value: string;
-  validity: Validity;
-}
-interface ReducerState {
-  present: FieldState;
-  past: FieldState;
-  present_perfect: FieldState;
-  english: FieldState;
-}
-
-const initial_state: ReducerState = {
-  present: {
-    value: "",
-    validity: Validity.incomplete,
-  },
-  past: {
-    value: "",
-    validity: Validity.incomplete,
-  },
-  present_perfect: {
-    value: "",
-    validity: Validity.incomplete,
-  },
-  english: {
-    value: "",
-    validity: Validity.incomplete,
-  },
-};
 
 /**
  * Styled components
@@ -127,43 +71,24 @@ const InfinitiveWrapper = styled.div`
 
 /** Page that displays verb exercise sheet */
 export default function Verb(props: VerbProps) {
-  const { verb, infinitive, all_infinitives, setInfinitive } = props;
+  const {
+    verb,
+    infinitive,
+    all_infinitives,
+    setInfinitive,
+    state,
+    dispatch,
+  } = props;
   useMultiKeyPress(["Shift", "Enter"], clickSubmitButton);
 
   function clickSubmitButton(): void {
     (document.getElementById("submit_button") as HTMLElement).click();
   }
 
-  /**
-   * Reducer
-   */
-  function reducer(state: ReducerState, action: ReducerAction): ReducerState {
-    switch (action.type) {
-      case "set_value":
-        return {
-          ...state,
-          [action.payload.category]: {
-            ...state[action.payload.category],
-            value: action.payload.value,
-          },
-        };
-      case "set_validity":
-        return {
-          ...state,
-          [action.payload.category]: {
-            ...state[action.payload.category],
-            validity: action.payload.validity,
-          },
-        };
-      case "reset":
-        return initial_state;
-    }
-  }
-
-  const [state, dispatch] = useReducer(reducer, initial_state);
   const { present, past, present_perfect, english } = state;
+  // console.log("present tense state!!! ", present.value, present.validity);
 
-  function goToNextVerb(): void {
+  function loadNextVerb(): void {
     const current_index = all_infinitives.indexOf(infinitive);
     const next_index = current_index + 1;
     if (all_infinitives[next_index]) {
@@ -187,8 +112,7 @@ export default function Verb(props: VerbProps) {
         [Validity.correct, Validity.partially_correct].includes(val)
       )
     ) {
-      goToNextVerb();
-      // clearForm();
+      loadNextVerb();
     }
   }, [
     present.validity,
@@ -246,6 +170,7 @@ export default function Verb(props: VerbProps) {
         header="Present"
         category={Category.present}
         value={present.value}
+        answer={verb.present}
         validity={present.validity}
         dispatch={dispatch}
       />
@@ -253,6 +178,7 @@ export default function Verb(props: VerbProps) {
         header="Past"
         category={Category.past}
         value={past.value}
+        answer={verb.past}
         validity={past.validity}
         dispatch={dispatch}
       />
@@ -260,6 +186,7 @@ export default function Verb(props: VerbProps) {
         header="Present Perfect"
         category={Category.present_perfect}
         value={present_perfect.value}
+        answer={verb.present_perfect}
         validity={present_perfect.validity}
         dispatch={dispatch}
       />
@@ -267,6 +194,7 @@ export default function Verb(props: VerbProps) {
         header="English"
         category={Category.english}
         value={english.value}
+        answer={verb.english}
         validity={english.validity}
         dispatch={dispatch}
       />

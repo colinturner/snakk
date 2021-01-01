@@ -2,13 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import { VerbSolution } from "../../interfaces/interfaces";
 import { theme } from "../../theme";
-import { Category, ReducerAction, Validity } from "../Verb/Verb";
+import {
+  Category,
+  ReducerAction,
+  Validity,
+} from "../pages/Verbs/VerbsTypingPage/VerbsTypingPage";
 
 interface IInputBox {
   header: string;
   category: Category;
   validity: Validity;
   value: string;
+  answer: string;
   dispatch: React.Dispatch<ReducerAction>;
 }
 
@@ -41,7 +46,7 @@ const Input = styled.input<IInput>`
 const Answer = styled.div``;
 
 export default function InputBox(props: IInputBox) {
-  const { header, validity, category, value, dispatch } = props;
+  const { header, validity, category, value, dispatch, answer } = props;
   return (
     <InputBoxWrapper>
       <Header>{header}</Header>
@@ -55,7 +60,9 @@ export default function InputBox(props: IInputBox) {
           });
         }}
       />
-      <Answer id={`answer-${formatID(header)}`} />
+      {validity === Validity.incorrect ? (
+        <Answer id={`answer-${formatID(header)}`}>{answer}</Answer>
+      ) : null}
     </InputBoxWrapper>
   );
 }
