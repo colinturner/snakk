@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     grey: "#babeca",
     white: "#ffffff",
+    blue: "#007bff",
     aliceblue: "aliceblue",
   },
   get shadow() {

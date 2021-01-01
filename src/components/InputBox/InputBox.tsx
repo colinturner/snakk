@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { VerbSolution } from "../../interfaces/interfaces";
 import { theme } from "../../theme";
@@ -24,7 +24,8 @@ const InputBoxWrapper = styled.div`
 `;
 
 const Header = styled.div`
-  color: darkslateblue;
+  color: black;
+  font-weight: 300;
 `;
 
 const Input = styled.input<IInput>`
@@ -43,14 +44,35 @@ const Input = styled.input<IInput>`
   }
 `;
 
+const HeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const FocusLine = styled.div<{ focused: boolean }>`
+  height: 20px;
+  align-self: center;
+  border: 2px solid
+    ${(props): string =>
+      props.focused ? theme.colors.blue : theme.colors.aliceblue};
+  border-radius: 16px;
+  margin-right: 8px;
+`;
+
 const Answer = styled.div``;
 
 export default function InputBox(props: IInputBox) {
   const { header, validity, category, value, dispatch, answer } = props;
+  const [focused, setFocused] = useState(false);
   return (
     <InputBoxWrapper>
-      <Header>{header}</Header>
+      <HeaderWrapper>
+        <FocusLine focused={focused} />
+        <Header>{header}</Header>
+      </HeaderWrapper>
       <Input
+        onFocus={(): void => setFocused(true)}
+        onBlur={(): void => setFocused(false)}
         validity={validity}
         value={value}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
