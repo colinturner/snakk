@@ -68,6 +68,7 @@ const BodyWrapper = styled.div`
   padding-left: 20px;
   height: 80vh;
   margin-top: 20px;
+  background-color: ${theme.colors.aliceblue};
 `;
 
 /**
