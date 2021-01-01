@@ -49,37 +49,6 @@ const Word = styled.div`
 
 export default function Sidebar(props: ISidebar): ReactElement {
   const { setInfinitive, all_infinitives, dispatch } = props;
-  useMultiKeyPress(["Shift", "A"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "B"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "D"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "E"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "F"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "G"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "H"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "I"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "J"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "K"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "L"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "M"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "N"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "P"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "R"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "S"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "T"], selectVerbBeginningWithLetter);
-  useMultiKeyPress(["Shift", "V"], selectVerbBeginningWithLetter);
-
-  function selectVerbBeginningWithLetter({
-    pressed_keys,
-  }: {
-    pressed_keys: string[];
-  }) {
-    const beginning_letter =
-      Array.from(pressed_keys).find((letter) => letter.length === 1) || "a";
-    const infinitive =
-      all_infinitives.find((inf) => inf.charAt(0) === beginning_letter) ||
-      all_infinitives[0];
-    setInfinitive(infinitive);
-  }
 
   function onClick(infinitive: IInfinitive): void {
     dispatch({ type: "reset" });
