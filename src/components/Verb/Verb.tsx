@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { all_input_categories } from "../../constants/variables";
 import Button from "react-bootstrap/Button";
 import "./Verb.css";
@@ -114,6 +114,8 @@ export default function Verb(props: VerbProps) {
     dispatch,
   } = props;
 
+  const input_ref = useRef<HTMLInputElement>(null);
+
   useMultiKeyPress(["Shift", "Enter"], clickSubmitButton);
 
   function clickSubmitButton(): void {
@@ -199,7 +201,9 @@ export default function Verb(props: VerbProps) {
         <Infinitive>{infinitive}</Infinitive>
       </InfinitiveWrapper>
       <InputsWrapper>
+        {/* Focus first input on Verb render. Pass it a ref */}
         <InputBox
+          input_ref={input_ref}
           header="Present"
           category={Category.present}
           value={present.value}

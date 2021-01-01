@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { VerbSolution } from "../../interfaces/interfaces";
 import { theme } from "../../theme";
@@ -9,6 +9,7 @@ import {
 } from "../pages/Verbs/VerbsTypingPage/VerbsTypingPage";
 
 interface IInputBox {
+  input_ref?: React.RefObject<HTMLInputElement>;
   header: string;
   category: Category;
   validity: Validity;
@@ -62,8 +63,24 @@ const FocusLine = styled.div<{ focused: boolean }>`
 const Answer = styled.div``;
 
 export default function InputBox(props: IInputBox) {
-  const { header, validity, category, value, dispatch, answer } = props;
+  const {
+    header,
+    validity,
+    category,
+    value,
+    dispatch,
+    answer,
+    input_ref,
+  } = props;
   const [focused, setFocused] = useState(false);
+
+  // Focus input
+  useEffect((): void => {
+    if (input_ref && input_ref.current) {
+      input_ref.current.focus();
+    }
+  }, []);
+
   return (
     <InputBoxWrapper>
       <HeaderWrapper>
@@ -71,6 +88,7 @@ export default function InputBox(props: IInputBox) {
         <Header>{header}</Header>
       </HeaderWrapper>
       <Input
+        ref={input_ref}
         onFocus={(): void => setFocused(true)}
         onBlur={(): void => setFocused(false)}
         validity={validity}
