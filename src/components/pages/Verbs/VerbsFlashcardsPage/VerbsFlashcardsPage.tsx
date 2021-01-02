@@ -53,6 +53,7 @@ const BodyWrapper = styled.div`
 const FrontSide = styled.div`
   margin: 0 auto;
   align-self: center;
+  padding: 8px;
 `;
 
 const FrontInfinitive = styled.div`
