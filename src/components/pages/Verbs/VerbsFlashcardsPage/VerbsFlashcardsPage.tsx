@@ -17,12 +17,18 @@ interface ISwitch {
 }
 
 const MainSection = styled.div`
-  padding-top: 80px;
+  padding-top: 24px;
   width: 100%;
 `;
 
 const Card = styled.div<{ answers_mode: boolean }>`
   margin: 0px 16px;
+  @media ${theme.device.mobile} {
+    margin: 24px 0px;
+  }
+  @media ${theme.device.tablet} {
+    margin: 0px 16px;
+  }
   width: 100%;
   cursor: ${({ answers_mode }): string =>
     answers_mode ? "default" : "pointer"};
@@ -37,6 +43,7 @@ const Card = styled.div<{ answers_mode: boolean }>`
 const BodyWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  height: 85vh;
 `;
 
 const FrontSide = styled.div`
@@ -56,6 +63,7 @@ const FrontInfinitive = styled.div`
 const BackSide = styled.div`
   margin: 0 auto;
   align-self: center;
+  padding: 8px;
 `;
 
 const BackInfinitive = styled.div`
@@ -71,7 +79,12 @@ const BackItem = styled.div`
 const SwitchWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  padding-bottom: 16px;
+  @media ${theme.device.mobile} {
+    padding-bottom: 56px;
+  }
+  @media ${theme.device.tablet} {
+    padding-bottom: 80px;
+  }
 `;
 
 const CardsAndButtonsWrapper = styled.div`
@@ -81,9 +94,14 @@ const CardsAndButtonsWrapper = styled.div`
 
 const CardAndButtons = styled.div`
   display: flex;
-  flex-direction: row;
   margin: 0 auto;
   width: 70%;
+  @media ${theme.device.mobile} {
+    flex-direction: column;
+  }
+  @media ${theme.device.tablet} {
+    flex-direction: row;
+  }
 `;
 
 const SwitchLabel = styled.label`
