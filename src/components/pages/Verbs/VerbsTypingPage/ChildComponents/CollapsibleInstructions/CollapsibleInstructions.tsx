@@ -41,9 +41,6 @@ export default function CollapsibleInstructions(): ReactElement {
             verb.
           </InstructionPoint>
           <InstructionPoint>Use Tab to advance.</InstructionPoint>
-          <InstructionPoint>
-            Use Shift+Enter to submit (or click Submit button).
-          </InstructionPoint>
         </Instructions>
       </Collapse>
     </InstructionsWrapper>
