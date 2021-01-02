@@ -16,6 +16,10 @@ interface ISwitch {
   answers_mode: boolean;
 }
 
+interface IBackItemGroup {
+  text: string;
+}
+
 const MainSection = styled.div`
   padding-top: 24px;
   width: 100%;
@@ -69,11 +73,25 @@ const BackSide = styled.div`
 const BackInfinitive = styled.div`
   font-size: 24px;
   font-weight: 600;
+  padding-bottom: 12px;
+`;
+
+const BackItemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const BackItem = styled.div`
   font-size: 16px;
   font-weight: 400;
+`;
+
+const ItemDivider = styled.div`
+  width: 22px;
+  border: 2px solid ${theme.colors.aliceblue};
+  border-radius: 18px;
+  align-self: auto;
+  margin: 2px 0px 8px 0px;
 `;
 
 const SwitchWrapper = styled.div`
@@ -197,12 +215,10 @@ export default function VerbsFlashcardsPage(): ReactElement {
                 ) : (
                   <BackSide>
                     <BackInfinitive>{verb.infinitive}</BackInfinitive>
-                    <BackPresent>{verb.present}</BackPresent>
-                    <BackPast>{verb.past}</BackPast>
-                    <BackPresentPerfect>
-                      {verb.present_perfect}
-                    </BackPresentPerfect>
-                    <BackEnglish>🇬🇧 {verb.english}</BackEnglish>
+                    <BackItemGroup text={verb.present} />
+                    <BackItemGroup text={verb.past} />
+                    <BackItemGroup text={verb.present_perfect} />
+                    <BackItemGroup text={`🇬🇧 ${verb.english}`} />
                   </BackSide>
                 )}
               </Card>
@@ -214,6 +230,16 @@ export default function VerbsFlashcardsPage(): ReactElement {
         </MainSection>
       </BodyWrapper>
     </>
+  );
+}
+
+function BackItemGroup(props: IBackItemGroup): ReactElement {
+  const { text } = props;
+  return (
+    <BackItemWrapper>
+      <BackItem>{text}</BackItem>
+      <ItemDivider />
+    </BackItemWrapper>
   );
 }
 
