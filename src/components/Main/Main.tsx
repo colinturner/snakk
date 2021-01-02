@@ -11,12 +11,12 @@ function Main() {
       <Route exact path="/" component={HomePage} />
       <Route path="/languages" component={ChooseLanguagePage} />
       {/* <Route path="/verbs" component={ChooseVerbsPage} /> */}
-      {/* <Route path="/verbs/flashcards" component={VerbsFlashcardsPage} /> */}
+      <Route path="/verbs/flashcards" component={VerbsFlashcardsPage} />
       <Route path="/verbs/typing" component={VerbsTypingPage} />
       {/* <Route path="/nouns" component={ChooseNounsPage} />
       <Route path="/nouns/flashcards" component={NounsFlashcardsPage} />
       <Route path="/nouns/typing" component={NounsTypingPage} /> */}
-      <Route path="/learn" component={VerbsTypingPage} />
+      {/* <Route path="/learn" component={ChooseCategoryPage} /> */}
     </HashRouter>
   );
 }

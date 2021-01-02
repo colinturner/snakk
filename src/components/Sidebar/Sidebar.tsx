@@ -10,9 +10,9 @@ import {
 type ISelectVerb = { letter: string } | { selection: string };
 
 interface ISidebar {
-  dispatch: React.Dispatch<ReducerAction>;
   setInfinitive: React.Dispatch<React.SetStateAction<IInfinitive>>;
   all_infinitives: IInfinitive[];
+  dispatch?: React.Dispatch<ReducerAction>;
 }
 
 /**
@@ -51,7 +51,7 @@ export default function Sidebar(props: ISidebar): ReactElement {
   const { setInfinitive, all_infinitives, dispatch } = props;
 
   function onClick(infinitive: IInfinitive): void {
-    dispatch({ type: "reset" });
+    dispatch && dispatch({ type: "reset" });
     setInfinitive(infinitive);
   }
 
