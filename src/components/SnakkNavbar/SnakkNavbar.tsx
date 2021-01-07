@@ -28,7 +28,7 @@ export default function SnakkNavbar(): ReactElement {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#languages">Languages</Nav.Link>
+          <Nav.Link href="#verbs">Verbs</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
