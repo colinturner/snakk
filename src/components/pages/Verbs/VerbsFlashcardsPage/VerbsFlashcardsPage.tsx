@@ -10,7 +10,6 @@ import { Button } from "react-bootstrap";
 /**
  * Interfaces
  */
-
 interface ISwitch {
   onChange: () => void;
   answers_mode: boolean;

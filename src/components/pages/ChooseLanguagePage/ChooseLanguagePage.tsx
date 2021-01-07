@@ -47,7 +47,7 @@ function ChooseLanguagePage() {
     return (
       <StyledButton
         disabled={!available}
-        href="#learn"
+        href="#verbs"
         variant="light"
         className="flagButton"
       >
